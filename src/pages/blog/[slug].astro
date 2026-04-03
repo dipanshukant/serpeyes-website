@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BLOG_POSTS } from '../../content/config.js';
+
+export function getStaticPaths() {
+  return BLOG_POSTS.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const isLaunchPost = post.slug === 'serpeyes-early-access-what-we-built-and-why';
+
+const tocItems = isLaunchPost
+  ? [
+      { id: 'it-started-with-a-frustration', label: 'It Started with a Frustration' },
+      { id: 'what-serpeyes-actually-is', label: 'What SerpEyes Actually Is' },
+      { id: 'what-we-built', label: 'What We Built' },
+      { id: 'why-early-access', label: 'Why Early Access' },
+      { id: 'who-should-request-early-access', label: 'Who Should Request Early Access' },
+      { id: 'for-business-owners', label: 'For Business Owners' },
+      { id: 'what-happens-next', label: 'What Happens Next' },
+      { id: 'a-note-on-pricing', label: 'A Note on Pricing' },
+      { id: 'one-last-thing', label: 'One Last Thing' },
+    ]
+  : [
+      { id: 'why-this-matters', label: 'Why this matters' },
+      { id: 'what-to-fix-first', label: 'What to fix first' },
+      { id: 'execution-checklist', label: 'Execution checklist' },
+      { id: 'common-mistakes', label: 'Common mistakes' },
+      { id: 'next-30-days', label: 'Next 30 days' },
+    ];
+
+const sameTagPosts = BLOG_POSTS.filter((item) => item.slug !== post.slug && item.tag === post.tag);
+const otherPosts = BLOG_POSTS.filter((item) => item.slug !== post.slug && item.tag !== post.tag);
+const relatedPosts = [...sameTagPosts, ...otherPosts].slice(0, 3);
+---
+
+<BaseLayout
+  title={`${post.title} - SerpEyes Blog`}
+  description={post.excerpt}
+>
+  <div id="reading-progress" style="position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #1B4FD8 0%, #3b82f6 100%); z-index: 100;"></div>
+  <main>
+    <section style="padding: 64px 24px 24px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <div style="max-width: 780px; margin-left: 30px;">
+          <a href="/blog" style="display: inline-block; margin-bottom: 18px; font-size: 14px; color: #1B4FD8; text-decoration: none; font-weight: 600;">&larr; Back to Blog</a>
+          <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap;">
+            <span style="background: #eff4ff; color: #1B4FD8; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px;">{post.tag}</span>
+            <span style="font-size: 13px; color: #94a3b8;">{post.date}</span>
+            <span style="font-size: 13px; color: #94a3b8;">{post.readTime}</span>
+          </div>
+          <h1 style="font-family: Sora, sans-serif; font-size: 50px; font-weight: 700; color: #0f172a; margin: 0 0 14px; line-height: 1.2; letter-spacing: -0.02em;">
+            {post.title}
+          </h1>
+          <p style="font-size: 18px; color: #475569; line-height: 1.8; margin: 0;">
+            {post.excerpt}
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px;">
+            <button id="copy-link-btn" type="button" style="background: #dfe8ff; color: #1B4FD8; border: 1px solid #b8cdfa; border-radius: 10px; font-size: 13px; font-weight: 600; padding: 8px 12px; cursor: pointer;">Copy Link</button>
+            <button id="share-linkedin-btn" type="button" style="background: #dde7ff; color: #1d4ed8; border: 1px solid #b8cdfa; border-radius: 10px; font-size: 13px; font-weight: 600; padding: 8px 12px; cursor: pointer;">Share on LinkedIn</button>
+            <button id="share-x-btn" type="button" style="background: #e2e8f0; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 13px; font-weight: 600; padding: 8px 12px; cursor: pointer;">Share on X</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 24px 24px 88px; background: #eef2f7;">
+      <div class="blog-layout" style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 28px; align-items: start;">
+        <aside class="blog-toc" style="grid-column: 2; grid-row: 1; position: sticky; top: 92px; background: #e3eaf4; border: 1px solid #c6d2e3; border-radius: 14px; padding: 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);">
+          <p style="margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: #64748b; text-transform: uppercase;">In this article</p>
+          <nav style="display: grid; gap: 8px;">
+            {tocItems.map((item) => (
+              <a href={`#${item.id}`} class="toc-link" data-section-id={item.id} style="font-size: 14px; color: #475569; text-decoration: none; line-height: 1.4; padding: 6px 8px; border-radius: 8px;">{item.label}</a>
+            ))}
+          </nav>
+
+          <div style="border-top: 1px solid #e2e8f0; margin-top: 14px; padding-top: 14px;">
+            <p style="margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: #64748b; text-transform: uppercase;">Related posts</p>
+            <div style="display: grid; gap: 10px;">
+              {relatedPosts.map((item) => (
+                <a href={`/blog/${item.slug}`} class="card-hover" style="text-decoration: none; background: #edf3fb; border: 1px solid #bccbe0; border-radius: 10px; padding: 10px; display: block;">
+                  <span style="display: inline-block; background: #eff4ff; color: #1B4FD8; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 100px; margin-bottom: 6px;">{item.tag}</span>
+                  <h4 style="font-family: Sora, sans-serif; font-size: 13px; color: #0f172a; margin: 0 0 5px; line-height: 1.35;">{item.title}</h4>
+                  <p style="font-size: 11px; color: #64748b; margin: 0;">{item.readTime}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </aside>
+
+        <div style="grid-column: 1; grid-row: 1;">
+          <article id="article-content" class="animate-on-scroll" style="max-width: 780px; margin: 0 auto 28px; background: #ebf0f7; border: 1px solid #cbd7e6; border-radius: 16px; padding: 32px 28px;">
+            {isLaunchPost ? (
+              <>
+                <section id="it-started-with-a-frustration" style="scroll-margin-top: 110px; margin-top: 26px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">It Started with a Frustration</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">If you have ever tried to do SEO for a Singapore business using popular global tools like <a href="https://ahrefs.com" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Ahrefs</a> or <a href="https://www.semrush.com" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Semrush</a>, you already know the problem.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">You run an audit. The tool gives you a list of issues. You fix them. Rankings barely move. You dig deeper and realise the checks, priorities and recommendations are usually calibrated for US or UK markets, not Singapore.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Singapore has its own search behaviour. Its own way customers decide whether a business is legitimate before they enquire. Its own trust factors that generic tools were never designed to look for. We kept patching this gap manually with custom templates and extra checks. It worked, but it was slow and impossible to scale.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">So we decided to stop patching and start building.</p>
+                </section>
+
+                <section id="what-serpeyes-actually-is" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What SerpEyes Actually Is</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">SerpEyes is an SEO intelligence platform built specifically for the Singapore market and the professionals who serve it.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">It is not trying to replace global suites. It focuses on local signals, market-specific checks and Singapore-relevant insights that generic platforms were never designed to surface.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">At its core, SerpEyes is built for two groups:</p>
+                  <ul style="margin: 0 0 16px 20px; padding: 0; color: #334155; font-size: 16px; line-height: 1.9;">
+                    <li style="margin-bottom: 8px;">Agencies and freelancers delivering SEO for Singapore clients and spending too much time on manual work. If this is you, see <a href="/for-agencies" style="color: #1B4FD8; text-decoration: underline;">For Agencies</a> and <a href="/for-freelancers" style="color: #1B4FD8; text-decoration: underline;">For Freelancers</a>.</li>
+                    <li>Business owners who want SEO handled properly by specialists who understand the Singapore market. Learn more about our <a href="/seo-services" style="color: #1B4FD8; text-decoration: underline;">SEO Services</a>.</li>
+                  </ul>
+                </section>
+
+                <section id="what-we-built" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What We Built</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">SerpEyes currently has eight modules either fully built or in final testing:</p>
+                  <ul style="margin: 0 0 16px 20px; padding: 0; color: #334155; font-size: 16px; line-height: 1.9;">
+                    <li style="margin-bottom: 8px;"><strong>Prospect Reports:</strong> White-label SEO audit reports agencies and freelancers can send directly to clients.</li>
+                    <li style="margin-bottom: 8px;"><strong>Site Audit:</strong> Technical, on-page and market-specific issues in one crawl.</li>
+                    <li style="margin-bottom: 8px;"><strong>Article Optimizer:</strong> Rewrites existing content, improves structure and suggests internal links.</li>
+                    <li style="margin-bottom: 8px;"><strong>Keyword Research:</strong> Search demand and difficulty with market relevance.</li>
+                    <li style="margin-bottom: 8px;"><strong>Competitor Analysis:</strong> Ranking gaps and content opportunities you can act on.</li>
+                    <li style="margin-bottom: 8px;"><strong>Performance Reports:</strong> Client-ready monthly SEO reporting.</li>
+                    <li style="margin-bottom: 8px;"><strong>Search Console Integration:</strong> Brings <a href="https://search.google.com/search-console/about" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Google Search Console</a> data into the platform.</li>
+                    <li><strong>Article Generator:</strong> Structured SEO drafts built from your target keyword and market.</li>
+                  </ul>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Two additional modules are in active development: <strong>Rank Tracking</strong> and <strong>AI Visibility Tracker</strong> for visibility across <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">ChatGPT</a>, <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Perplexity</a>, and Google AI Overviews.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If you want practical SEO guidance while exploring the platform, our complete SEO checklist for Singapore SMBs and Google Maps ranking guide are good starting points.</p>
+                </section>
+
+                <section id="why-early-access" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Why Early Access</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Honest answer: because we want to build this with real users, not just for them.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Early access lets us work closely with agencies and freelancers doing real client work. We want direct feedback on what is missing, what is confusing and what should be rebuilt from scratch.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">In return, early users get free access during the early access period, direct support from the product team, discounted post-launch pricing and a real voice in what we build next.</p>
+                </section>
+
+                <section id="who-should-request-early-access" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Who Should Request Early Access</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Early access is specifically for agencies and freelancers.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">If your team spends hours every week on manual audits, repetitive research and custom reporting, SerpEyes is built to save meaningful time from week one.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If you are a freelancer producing SEO for Singapore clients, this gives you agency-level output without agency-level overhead.</p>
+                </section>
+
+                <section id="for-business-owners" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">For Business Owners</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">If you are a Singapore business owner reading this, early access is not for you and that is intentional.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">You should not have to learn a new platform or run your own audits. What you need is a team that understands your market and can execute SEO properly.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Go to our <a href="/seo-services" style="color: #1B4FD8; text-decoration: underline;">SEO Services page</a> and book a free 20-minute consultation. We will give you a clear, honest view of your current rankings, what is holding growth back and what timeline is realistic.</p>
+                </section>
+
+                <section id="what-happens-next" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What Happens Next</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">You request early access through our website. We review every application personally and respond within one business day.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Once you are in, you get full platform access and hands-on onboarding from our team so you can start extracting value immediately.</p>
+                </section>
+
+                <section id="a-note-on-pricing" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">A Note on Pricing</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Final pricing is not published yet because we are still shaping the structure based on real usage. What will not change is this: early access users will always pay less than post-launch users. That is our thank you for helping shape the product.</p>
+                </section>
+
+                <section id="one-last-thing" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">One Last Thing</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We named the platform SerpEyes because we wanted it to represent one thing: the ability to see what others miss.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Most SEO tools see the same signals. SerpEyes was built to go deeper into signals that matter in this market, for these businesses and the customers they serve.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If that resonates, request your spot at <a href="https://serpeyes.com/get-early-access" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">serpeyes.com/get-early-access</a>. We will be in touch within one business day.</p>
+                </section>
+              </>
+            ) : (
+              <>
+                <section id="why-this-matters" style="scroll-margin-top: 110px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Why this matters</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.85; margin: 0 0 16px;">Most businesses lose momentum by treating SEO like disconnected tasks. Ranking gains come faster when technical fixes, content strategy and authority signals are executed in the right sequence for your market.</p>
+                </section>
+
+                <section id="what-to-fix-first" style="scroll-margin-top: 110px; margin-top: 26px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What to fix first</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.85; margin: 0 0 16px;">Start with crawlability, indexation and page speed. Then improve page-level targeting by tightening title tags, H1 hierarchy and internal links. This sequence prevents content effort from being wasted on a weak foundation.</p>
+                </section>
+
+                <section id="execution-checklist" style="scroll-margin-top: 110px; margin-top: 26px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Execution checklist</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.85; margin: 0 0 16px;">Use this weekly rhythm: publish one intent-focused article, refresh one high-potential page, and build at least one relevant local authority link. Small, consistent moves outperform sporadic large pushes.</p>
+                </section>
+
+                <section id="common-mistakes" style="scroll-margin-top: 110px; margin-top: 26px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Common mistakes</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.85; margin: 0 0 16px;">Teams often overinvest in top-funnel blog volume while service pages stay under-optimized. Another common miss is ignoring local trust signals, which directly impacts conversion once rankings improve.</p>
+                </section>
+
+                <section id="next-30-days" style="scroll-margin-top: 110px; margin-top: 26px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Next 30 days</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.85; margin: 0;">Build a simple 4-week plan with measurable outcomes: pages fixed, pages published, links acquired and lead growth trend. Reviewing this every week creates a compounding system rather than random SEO activity.</p>
+                </section>
+              </>
+            )}
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .toc-link.active {
+    background: #e8efff;
+    color: #1B4FD8 !important;
+    font-weight: 600;
+  }
+
+  @media (max-width: 980px) {
+    .blog-layout {
+      grid-template-columns: 1fr !important;
+    }
+
+    .blog-toc {
+      position: static !important;
+      grid-column: 1 !important;
+    }
+  }
+</style>
+
+<script>
+  const progressEl = document.getElementById('reading-progress');
+  const articleEl = document.getElementById('article-content');
+  const tocLinks = Array.from(document.querySelectorAll('.toc-link'));
+  const sections = tocLinks
+    .map((link) => document.getElementById(link.getAttribute('data-section-id')))
+    .filter(Boolean);
+
+  const setActiveToc = (id) => {
+    tocLinks.forEach((link) => {
+      const active = link.getAttribute('data-section-id') === id;
+      link.classList.toggle('active', active);
+    });
+  };
+
+  const updateProgress = () => {
+    if (!articleEl || !progressEl) return;
+    const rect = articleEl.getBoundingClientRect();
+    const total = rect.height + window.innerHeight;
+    const done = window.innerHeight - rect.top;
+    const percent = Math.max(0, Math.min(100, (done / total) * 100));
+    progressEl.style.width = `${percent}%`;
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (visible?.target?.id) setActiveToc(visible.target.id);
+    },
+    { rootMargin: '-35% 0px -55% 0px', threshold: 0.1 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+  setActiveToc(sections[0]?.id || '');
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  const copyText = async (text, btn) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (btn) {
+        const original = btn.textContent;
+        btn.textContent = 'Copied';
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 1200);
+      }
+    } catch {
+      if (btn) btn.textContent = 'Copy failed';
+    }
+  };
+
+  const copyLinkBtn = document.getElementById('copy-link-btn');
+  const linkedinBtn = document.getElementById('share-linkedin-btn');
+  const xBtn = document.getElementById('share-x-btn');
+
+  copyLinkBtn?.addEventListener('click', () => copyText(window.location.href, copyLinkBtn));
+
+  linkedinBtn?.addEventListener('click', () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'noopener,noreferrer');
+  });
+
+  xBtn?.addEventListener('click', () => {
+    const text = encodeURIComponent(document.title);
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'noopener,noreferrer');
+  });
+</script>

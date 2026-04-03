@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const TERMS = [
+  {
+    id: 'ai-overview',
+    term: 'AI Overview',
+    definition: 'AI Overview is Google\'s generated summary that can appear above normal search results for some queries.',
+    example: 'If someone in Singapore searches "best SEO agency for tuition centre", Google may show an AI answer before listing websites.',
+    related: { label: 'See SEO Services', href: '/seo-services' },
+  },
+  {
+    id: 'anchor-text',
+    term: 'Anchor Text',
+    definition: 'Anchor text is the clickable text used in a hyperlink. It helps users and search engines understand what the linked page is about.',
+    example: 'Using "Singapore SEO services" as anchor text is clearer than using "click here" in a services page.',
+    related: { label: 'Explore SEO Services', href: '/seo-services' },
+  },
+  {
+    id: 'backlink',
+    term: 'Backlink',
+    definition: 'A backlink is a link from another website to your website. High-quality backlinks can improve rankings and trust.',
+    example: 'A Singapore business directory linking to your clinic website is a local backlink that can support visibility.',
+    related: { label: 'Read the Blog', href: '/blog' },
+  },
+  {
+    id: 'canonical-tag',
+    term: 'Canonical Tag',
+    definition: 'A canonical tag tells search engines which page version should be treated as the main one when similar pages exist.',
+    example: 'If your ecommerce store has the same product URL with tracking parameters, a canonical tag prevents duplicate indexing.',
+    related: { label: 'Review Technical SEO terms', href: '#technical-seo' },
+  },
+  {
+    id: 'citation',
+    term: 'Citation',
+    definition: 'A citation is any online mention of your business name, address, and phone number, even without a link.',
+    example: 'A cleaning company listed consistently on SG business directories and local portals builds stronger local trust signals.',
+    related: { label: 'Jump to NAP Consistency', href: '#nap-consistency' },
+  },
+  {
+    id: 'competitor-analysis',
+    term: 'Competitor Analysis',
+    definition: 'Competitor analysis is the process of comparing your SEO performance against similar businesses in your market.',
+    example: 'A law firm in Singapore can compare top-ranking competitor pages for "divorce lawyer singapore" to find content gaps.',
+    related: { label: 'Read the Blog', href: '/blog' },
+  },
+  {
+    id: 'core-web-vitals',
+    term: 'Core Web Vitals',
+    definition: 'Core Web Vitals are performance metrics Google uses to measure page speed, responsiveness, and visual stability.',
+    example: 'If your booking page loads slowly on mobile data in MRT stations, poor Core Web Vitals can hurt rankings and conversions.',
+    related: { label: 'See SEO Services', href: '/seo-services' },
+  },
+  {
+    id: 'crawl-budget',
+    term: 'Crawl Budget',
+    definition: 'Crawl budget is the number of pages Googlebot is willing to crawl on your site within a period of time.',
+    example: 'A large Singapore ecommerce site with many filter URLs can waste crawl budget if low-value pages are not controlled.',
+    related: { label: 'Jump to Crawlability', href: '#crawlability' },
+  },
+  {
+    id: 'crawlability',
+    term: 'Crawlability',
+    definition: 'Crawlability is how easily search engine bots can access and move through your website pages.',
+    example: 'If key pages are blocked by robots.txt or buried deep in menus, Google may not crawl them properly.',
+    related: { label: 'See Site Audit', href: '#site-audit' },
+  },
+  {
+    id: 'domain-authority',
+    term: 'Domain Authority',
+    definition: 'Domain Authority is a third-party score estimating how likely a domain is to rank compared with others.',
+    example: 'A new tuition centre website in Singapore may have low authority at first, so it should focus on local relevance and content quality.',
+    related: { label: 'Read the Blog', href: '/blog' },
+  },
+  {
+    id: 'eeat',
+    term: 'E-E-A-T',
+    definition: 'E-E-A-T stands for Experience, Expertise, Authoritativeness, and Trustworthiness. It is a quality framework used in search evaluation.',
+    example: 'A medical clinic should show doctor credentials, real clinic details, and updated content to improve trust in health-related searches.',
+    related: { label: 'See SEO Services', href: '/seo-services' },
+  },
+  {
+    id: 'google-business-profile',
+    term: 'Google Business Profile',
+    definition: 'Google Business Profile is the listing that appears in Google Maps and local search results for a business.',
+    example: 'A cafe in Katong can improve discovery by keeping opening hours, photos, and reviews updated in its profile.',
+    related: { label: 'Jump to Local SEO', href: '#local-seo' },
+  },
+  {
+    id: 'hreflang',
+    term: 'Hreflang',
+    definition: 'Hreflang is a tag that helps search engines show the correct language or regional page version to users.',
+    example: 'A regional brand with English pages for Singapore and Malaysia can use hreflang to avoid wrong-country page delivery.',
+    related: { label: 'See Technical SEO', href: '#technical-seo' },
+  },
+  {
+    id: 'internal-linking',
+    term: 'Internal Linking',
+    definition: 'Internal linking means linking one page of your site to another page on the same site.',
+    example: 'Linking your "SEO Services" page from blog posts helps users navigate and helps search engines understand page importance.',
+    related: { label: 'See SEO Services', href: '/seo-services' },
+  },
+  {
+    id: 'keyword-difficulty',
+    term: 'Keyword Difficulty',
+    definition: 'Keyword difficulty is an estimate of how hard it is to rank for a keyword based on competition.',
+    example: '"SEO agency singapore" is more difficult than "seo for tcm clinic singapore" because broader terms usually have stronger competitors.',
+    related: { label: 'Explore For Agencies page', href: '/for-agencies' },
+  },
+  {
+    id: 'local-pack',
+    term: 'Local Pack',
+    definition: 'Local Pack is the map-based block of local business listings shown in search results for local intent queries.',
+    example: 'For "dentist near me" in Singapore, Google may show a map and 3 local listings before normal organic results.',
+    related: { label: 'See Google Business Profile', href: '#google-business-profile' },
+  },
+  {
+    id: 'local-seo',
+    term: 'Local SEO',
+    definition: 'Local SEO is the practice of improving visibility for location-based searches in a specific area.',
+    example: 'A renovation firm targeting Bishan and Tampines should create service-area pages and optimize local business signals.',
+    related: { label: 'Read SEO Services', href: '/seo-services' },
+  },
+  {
+    id: 'long-tail-keywords',
+    term: 'Long-tail Keywords',
+    definition: 'Long-tail keywords are longer and more specific search phrases with clearer intent.',
+    example: '"Affordable wedding photographer singapore weekday" is a long-tail keyword that can convert better than broad terms.',
+    related: { label: 'Read the Blog', href: '/blog' },
+  },
+  {
+    id: 'meta-description',
+    term: 'Meta Description',
+    definition: 'A meta description is a short summary shown in search snippets that helps users decide whether to click.',
+    example: 'A concise meta description with service and location can improve click-through for "aircon servicing singapore" searches.',
+    related: { label: 'See Title Tag', href: '#title-tag' },
+  },
+  {
+    id: 'nap-consistency',
+    term: 'NAP Consistency',
+    definition: 'NAP consistency means your Name, Address, and Phone are the same across your website and listings.',
+    example: 'If your address format differs between your site, Google profile, and directories, local trust signals can weaken.',
+    related: { label: 'Jump to Citation', href: '#citation' },
+  },
+  {
+    id: 'on-page-seo',
+    term: 'On-page SEO',
+    definition: 'On-page SEO is the optimisation of page elements like headings, content, title tags, and internal links.',
+    example: 'A tuition centre page can improve rankings by matching headings and content to parent search intent in Singapore.',
+    related: { label: 'Explore SEO Services', href: '/seo-services' },
+  },
+  {
+    id: 'organic-traffic',
+    term: 'Organic Traffic',
+    definition: 'Organic traffic is the number of visitors coming to your site from unpaid search results.',
+    example: 'If your blog ranks for beginner SEO terms, you can attract first-time visitors without paying for ads.',
+    related: { label: 'Visit Blog', href: '/blog' },
+  },
+  {
+    id: 'programmatic-seo',
+    term: 'Programmatic SEO',
+    definition: 'Programmatic SEO is creating many targeted pages at scale using templates and structured data.',
+    example: 'A property portal can generate pages for many neighborhood plus property-type combinations while keeping each page useful.',
+    related: { label: 'Read For Agencies', href: '/for-agencies' },
+  },
+  {
+    id: 'schema-markup',
+    term: 'Schema Markup',
+    definition: 'Schema markup is structured data code that helps search engines understand page content more clearly.',
+    example: 'Adding LocalBusiness schema to a clinic page can improve how business details are interpreted in search.',
+    related: { label: 'See Technical SEO', href: '#technical-seo' },
+  },
+  {
+    id: 'search-intent',
+    term: 'Search Intent',
+    definition: 'Search intent is the reason behind a search, such as learning, comparing, or buying.',
+    example: 'Someone searching "what is technical seo" wants education, while "seo consultant singapore price" suggests commercial intent.',
+    related: { label: 'Read Request Demo page', href: '/request-demo' },
+  },
+  {
+    id: 'search-volume',
+    term: 'Search Volume',
+    definition: 'Search volume is the estimated number of times a keyword is searched over a period.',
+    example: 'A lower-volume keyword like "seo for dental clinic singapore" may still be valuable because it has high buying intent.',
+    related: { label: 'Read For Freelancers', href: '/for-freelancers' },
+  },
+  {
+    id: 'serp',
+    term: 'SERP',
+    definition: 'SERP stands for Search Engine Results Page, which is the page shown after a user enters a query.',
+    example: 'A Singapore SERP may include ads, map pack, AI overview, and organic listings all on one page.',
+    related: { label: 'See AI Overview', href: '#ai-overview' },
+  },
+  {
+    id: 'service-area-pages',
+    term: 'Service Area Pages',
+    definition: 'Service area pages are location-focused pages targeting specific regions where you operate.',
+    example: 'A pest control company can create pages for Jurong, Woodlands, and Bedok with unique local context.',
+    related: { label: 'See Local SEO', href: '#local-seo' },
+  },
+  {
+    id: 'site-audit',
+    term: 'Site Audit',
+    definition: 'A site audit is a structured check of SEO issues across technical setup, content, and performance.',
+    example: 'A site audit might find missing title tags, broken links, and slow mobile pages on a Singapore SME website.',
+    related: { label: 'Book a Demo', href: '/request-demo' },
+  },
+  {
+    id: 'technical-seo',
+    term: 'Technical SEO',
+    definition: 'Technical SEO focuses on site infrastructure so search engines can crawl, understand, and index pages correctly.',
+    example: 'Fixing indexation issues and improving page speed can unlock ranking gains even before publishing new content.',
+    related: { label: 'See Site Audit', href: '#site-audit' },
+  },
+  {
+    id: 'title-tag',
+    term: 'Title Tag',
+    definition: 'A title tag is the HTML page title shown in browser tabs and often used as the blue headline in search results.',
+    example: 'Including both service and location in title tags, like "Corporate Tax Filing Services Singapore", can improve relevance.',
+    related: { label: 'See Meta Description', href: '#meta-description' },
+  },
+  {
+    id: 'topical-authority',
+    term: 'Topical Authority',
+    definition: 'Topical authority is the level of depth and coverage your site has on a specific subject area.',
+    example: 'Publishing a strong cluster around local SEO topics helps Google trust your site for Singapore SEO queries.',
+    related: { label: 'Read Blog', href: '/blog' },
+  },
+  {
+    id: 'uen-trust-signal',
+    term: 'UEN Trust Signal',
+    definition: 'UEN trust signal refers to showing your Singapore business registration details clearly to increase credibility.',
+    example: 'Adding legal company details and contact consistency can improve trust for users comparing service providers.',
+    related: { label: 'Read Terms of Service', href: '/terms' },
+  },
+  {
+    id: 'white-label-report',
+    term: 'White-label Report',
+    definition: 'A white-label report is a report branded with your agency identity so clients see your brand, not the underlying tool.',
+    example: 'A freelance SEO consultant can send monthly performance reports under their own brand to look more professional.',
+    related: { label: 'See For Agencies', href: '/for-agencies' },
+  },
+  {
+    id: 'zero-click-search',
+    term: 'Zero-click Search',
+    definition: 'Zero-click search happens when users get answers directly on the SERP and do not click through to a website.',
+    example: 'Definitions, map listings, and AI summaries can answer users immediately, so snippet optimisation becomes more important.',
+    related: { label: 'See SERP', href: '#serp' },
+  },
+];
+---
+
+<BaseLayout
+  title="SEO Glossary - SerpEyes"
+  description="Singapore-focused SEO glossary with plain-English definitions, practical local examples, and related resources."
+>
+  <main>
+    <section style="padding: 72px 24px 28px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <h1 style="font-family: Sora, sans-serif; font-size: 50px; font-weight: 700; color: #0f172a; margin: 0 0 16px; letter-spacing: -0.02em;">SEO Glossary</h1>
+        <p style="font-size: 18px; color: #334155; line-height: 1.8; margin: 0 0 12px; max-width: 820px;">
+          This glossary is built as a long-term SEO asset, not a sales page. It targets definition-style searches and helps beginners understand SEO in plain English.
+        </p>
+        <p style="font-size: 16px; color: #475569; line-height: 1.8; margin: 0; max-width: 820px;">
+          Each term includes a practical example for Singapore businesses and a related internal link where useful. Use this page to learn faster and discover the right next step.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding: 28px 24px 80px; background: #f8fafc;">
+      <div style="max-width: 980px; margin: 0 auto;">
+        <div style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 16px; padding: 28px 26px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08); margin-bottom: 22px;">
+          <p style="margin: 0 0 10px; font-size: 13px; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700;">Quick jump</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            {TERMS.map((item) => (
+              <a href={`#${item.id}`} style="background: white; border: 1px solid #cbd5e1; color: #1e293b; text-decoration: none; font-size: 13px; padding: 6px 10px; border-radius: 999px;">
+                {item.term}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div style="display: grid; gap: 14px;">
+          {TERMS.map((item, index) => (
+            <article id={item.id} style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 16px; padding: 24px 22px; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);">
+              <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span style="font-family: Sora, sans-serif; font-size: 26px; color: #64748b; font-weight: 700; line-height: 1;">#{index + 1}</span>
+                <h2 style="font-family: Sora, sans-serif; font-size: 26px; color: #0f172a; margin: 0;">{item.term}</h2>
+              </div>
+              <p style="margin: 0 0 12px; font-size: 16px; color: #1e293b; line-height: 1.8;"><strong>Definition:</strong> {item.definition}</p>
+              <p style="margin: 0; font-size: 16px; color: #334155; line-height: 1.8;"><strong>Singapore example:</strong> {item.example}</p>
+              {item.related && (
+                <p style="margin: 14px 0 0; font-size: 15px; color: #475569; line-height: 1.7;">
+                  <strong>Related:</strong>{' '}
+                  <a href={item.related.href} style="color: #1B4FD8; text-decoration: underline; font-weight: 600;">{item.related.label}</a>
+                </p>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

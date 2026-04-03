@@ -1,0 +1,16 @@
+---
+interface Props {
+  text: string;
+  variant?: 'default' | 'dark';
+}
+
+const { text, variant = 'default' } = Astro.props;
+
+const styles = variant === 'dark' 
+  ? 'background: rgba(27,79,216,0.15); color: #60a5fa;'
+  : 'background: #eff4ff; color: #1B4FD8;';
+---
+
+<span class="badge" style={`${styles} margin-bottom: 16px; display: inline-block;`}>
+  {text}
+</span>

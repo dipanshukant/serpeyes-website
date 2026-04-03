@@ -1,0 +1,61 @@
+---
+import { SITE, NAV_LINKS, FOOTER_RESOURCES, FOOTER_SOCIALS } from '../content/config.js';
+---
+
+<footer style="background: #0f172a; color: #94a3b8; padding: 64px 24px 32px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 48px;">
+      <div>
+        <div style="margin-bottom: 12px;">
+          <img src="/logo.svg" alt="SerpEyes" style="height: 36px; width: auto; filter: brightness(0) invert(1);" />
+        </div>
+        <p style="font-size: 14px; line-height: 1.7; color: #64748b; max-width: 220px; margin: 0;">SEO tools built specifically for the Singapore market. Helping agencies, freelancers and businesses rank higher and grow faster.</p>
+      </div>
+      
+      <div>
+        <h4 style="color: white; font-family: Sora, sans-serif; font-size: 14px; font-weight: 600; margin: 0 0 16px;">Product</h4>
+        {NAV_LINKS.map(link => (
+          <div style="margin-bottom: 10px;">
+            <a href={link.href} style="color: #64748b; text-decoration: none; font-size: 14px; transition: color 0.15s;" onmouseenter="this.style.color='white'" onmouseleave="this.style.color='#64748b'">
+              {link.label}
+            </a>
+          </div>
+        ))}
+      </div>
+      
+      <div>
+        <h4 style="color: white; font-family: Sora, sans-serif; font-size: 14px; font-weight: 600; margin: 0 0 16px;">Resources</h4>
+        {FOOTER_RESOURCES.map(item => (
+          <div style="margin-bottom: 10px;">
+            <a href={item === 'Blog' ? '/blog' : item === 'SEO Glossary' ? '/seo-glossary' : '#'} style="color: #64748b; text-decoration: none; font-size: 14px;" onmouseenter="this.style.color='white'" onmouseleave="this.style.color='#64748b'">
+              {item}
+            </a>
+          </div>
+        ))}
+      </div>
+      
+      <div>
+        <h4 style="color: white; font-family: Sora, sans-serif; font-size: 14px; font-weight: 600; margin: 0 0 16px;">Contact</h4>
+        <p style="font-size: 14px; color: #64748b; margin: 0 0 8px;">{SITE.email}</p>
+        <p style="font-size: 14px; color: #64748b; margin: 0 0 8px;">{SITE.phone}</p>
+        <p style="font-size: 14px; color: #64748b; margin: 0 0 20px;">{SITE.location}</p>
+        <div style="display: flex; gap: 12px;">
+          {FOOTER_SOCIALS.map(social => (
+            <a href="#" style="color: #64748b; font-size: 13px; text-decoration: none; border: 1px solid #1e293b; padding: 4px 12px; border-radius: 6px; transition: all 0.15s;" onmouseenter="this.style.color='white'; this.style.borderColor='#334155'" onmouseleave="this.style.color='#64748b'; this.style.borderColor='#1e293b'">
+              {social}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+    <div style="border-top: 1px solid #1e293b; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <p style="font-size: 13px; color: #475569; margin: 0;">{SITE.copyright}</p>
+      <div style="display: flex; gap: 20px;">
+        {['Privacy Policy', 'Terms of Service'].map(item => (
+          <a href={item === 'Privacy Policy' ? '/privacy' : '/terms'} style="color: #475569; text-decoration: none; font-size: 13px;">{item}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

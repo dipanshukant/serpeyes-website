@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BLOG_HERO, BLOG_POSTS } from '../content/config.js';
+---
+
+<BaseLayout 
+  title="Singapore SEO Blog - SerpEyes Insights"
+  description="Practical SEO guides, local search tips and digital marketing strategies written specifically for the Singapore market."
+>
+  <main>
+    <section style="padding: 72px 24px 48px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <span class="badge" style="margin-bottom: 16px; display: inline-block;">{BLOG_HERO.badge}</span>
+        <h1 style="font-family: Sora, sans-serif; font-size: 50px; font-weight: 700; color: #0f172a; margin: 0 0 16px; letter-spacing: -0.02em;">
+          {BLOG_HERO.headline}
+        </h1>
+        <p style="font-size: 17px; color: #475569; line-height: 1.7; margin: 0;">
+          {BLOG_HERO.sub}
+        </p>
+      </div>
+    </section>
+
+    <section style="padding: 48px 24px 80px; background: white;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+          {BLOG_POSTS.map(post => (
+            <a href={`/blog/${post.slug}`} class="animate-on-scroll card-hover" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 16px; overflow: hidden; text-decoration: none; display: block;">
+              {post.featuredImage ? (
+                <div style="height: 140px; background: #f3f6fb; display: flex; align-items: center; justify-content: center; padding: 14px;">
+                  <img src={post.featuredImage} alt={post.title} style="max-width: 100%; max-height: 100%; object-fit: contain;" loading="lazy" />
+                </div>
+              ) : (
+                <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e8effe 100%); height: 140px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" opacity="0.3">
+                    <path d="M3 17l4-8 4 4 4-6 4 10" stroke="#1B4FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              )}
+              <div style="padding: 24px;">
+                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px;">
+                  <span style="background: #eff4ff; color: #1B4FD8; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px;">
+                    {post.tag}
+                  </span>
+                  <span style="font-size: 12px; color: #94a3b8;">{post.readTime}</span>
+                </div>
+                <h2 style="font-family: Sora, sans-serif; font-size: 17px; font-weight: 700; color: #0f172a; margin: 0 0 10px; line-height: 1.4;">
+                  {post.title}
+                </h2>
+                <p style="font-size: 13px; color: #64748b; line-height: 1.7; margin: 0 0 16px;">
+                  {post.excerpt}
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 12px; color: #94a3b8;">{post.date}</span>
+                  <span style="font-size: 13px; color: #1B4FD8; font-weight: 600;">Read more &rarr;</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
