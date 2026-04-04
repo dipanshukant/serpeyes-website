@@ -26,12 +26,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:site_name" content="SerpEyes" />
+  <meta property="og:image" content="https://serpeyes.com/logo.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="SerpEyes - SEO Audit & Content Platform for Singapore" />
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content={canonicalURL} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content="https://serpeyes.com/logo.svg" />
+  <meta property="twitter:image:alt" content="SerpEyes - SEO Audit & Content Platform for Singapore" />
   
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL} />
