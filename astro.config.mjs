@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://serpeyes.com',
-  output: 'hybrid',
+  output: 'static',
   adapter: cloudflare(),
   image: {
     service: passthroughImageService(),
