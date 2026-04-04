@@ -39,6 +39,18 @@ export const GET: APIRoute = ({ site }) => {
       priority: 0.6,
       lastmod: new Date().toISOString(),
     },
+    {
+      url: '/privacy',
+      changefreq: 'yearly',
+      priority: 0.3,
+      lastmod: new Date().toISOString(),
+    },
+    {
+      url: '/terms',
+      changefreq: 'yearly',
+      priority: 0.3,
+      lastmod: new Date().toISOString(),
+    },
     // Add individual blog posts
     ...BLOG_POSTS.map(post => ({
       url: `/blog/${post.slug}`,
