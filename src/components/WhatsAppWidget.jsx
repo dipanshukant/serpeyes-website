@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle } from 'lucide-react';
 
 const WhatsAppWidget = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -99,7 +98,13 @@ const WhatsAppWidget = () => {
           e.currentTarget.style.boxShadow = '0 8px 20px rgba(15, 23, 42, 0.22)';
         }}
       >
-        <MessageCircle size={24} color="white" strokeWidth={2.5} />
+        <img
+          src="/whatsapp-icon.webp"
+          alt="WhatsApp"
+          width="30"
+          height="30"
+          style={{ display: 'block' }}
+        />
       </div>
       
       {/* Pulse Animation */}
