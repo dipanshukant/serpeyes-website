@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { BLOG_POSTS } from '../content/config.js';
 
 export const GET: APIRoute = ({ site }) => {
   const pages = [
@@ -38,6 +39,13 @@ export const GET: APIRoute = ({ site }) => {
       priority: 0.6,
       lastmod: new Date().toISOString(),
     },
+    // Add individual blog posts
+    ...BLOG_POSTS.map(post => ({
+      url: `/blog/${post.slug}`,
+      changefreq: 'monthly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    })),
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
