@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { SCAN_CHECKS, RESULT_STATS } from '../content/config.js';
 
 export default function HeroScanner() {
@@ -8,7 +8,10 @@ export default function HeroScanner() {
   const [visibleChecks, setVisibleChecks] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [scoreCount, setScoreCount] = useState(0);
+  const [viewportWidth, setViewportWidth] = useState(1200);
   const targetUrl = 'www.yoursingaporebusiness.sg';
+  const isMobile = viewportWidth <= 1024;
+  console.log('[HeroScanner] viewportWidth:', viewportWidth, 'isMobile:', isMobile);
 
   const resetAll = () => {
     setPhase('typing');
@@ -74,6 +77,13 @@ export default function HeroScanner() {
     return () => { cancelled = true; };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => setViewportWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const statusIcon = (status) => {
     if (status === 'pass') return <span style={{ color: '#059669', fontWeight: 700, fontSize: 13 }}>✓</span>;
     if (status === 'fail') return <span style={{ color: '#dc2626', fontWeight: 700, fontSize: 13 }}>✕</span>;
@@ -87,22 +97,22 @@ export default function HeroScanner() {
   };
 
   return (
-    <div style={{ maxWidth: 940, margin: '56px auto 0', padding: '0 4px' }}>
-      <div style={{ background: '#f8faff', borderRadius: 18, padding: 16, border: '1px solid #e2e8f0', overflow: 'hidden' }}>
+    <div style={{ maxWidth: 940, margin: isMobile ? '32px auto 0' : '56px auto 0', padding: isMobile ? '0 10px' : '0 4px' }}>
+      <div style={{ background: '#f8faff', borderRadius: 18, padding: isMobile ? 10 : 16, border: '1px solid #e2e8f0', overflow: 'hidden' }}>
         <div style={{ background: 'white', borderRadius: 13, border: '1px solid #e8edf5', overflow: 'hidden' }}>
 
           {/* browser chrome */}
-          <div style={{ background: '#f1f5f9', borderBottom: '1px solid #e2e8f0', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ background: '#f1f5f9', borderBottom: '1px solid #e2e8f0', padding: isMobile ? '8px 10px' : '10px 16px', display: 'flex', alignItems: 'center', gap: isMobile ? 6 : 10 }}>
             <div style={{ display: 'flex', gap: 5 }}>
               {['#ef4444', '#f59e0b', '#22c55e'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
             </div>
             {/* url bar */}
-            <div style={{ flex: 1, background: 'white', border: '1px solid #e2e8f0', borderRadius: 7, padding: '5px 12px', display: 'flex', alignItems: 'center', gap: 8, maxWidth: 420, margin: '0 auto' }}>
+            <div style={{ flex: 1, minWidth: 0, background: 'white', border: '1px solid #e2e8f0', borderRadius: 7, padding: isMobile ? '4px 8px' : '5px 12px', display: 'flex', alignItems: 'center', gap: 8, maxWidth: isMobile ? 'none' : 420, margin: '0 auto' }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
                 <rect x="3" y="11" width="18" height="11" rx="2" stroke="#94a3b8" strokeWidth="2" />
                 <path d="M7 11V7a5 5 0 0110 0v4" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
               </svg>
-              <span style={{ fontSize: 12, color: '#475569', fontFamily: 'DM Sans, sans-serif', letterSpacing: '0.01em' }}>
+              <span style={{ fontSize: isMobile ? 11 : 12, color: '#475569', fontFamily: 'DM Sans, sans-serif', letterSpacing: '0.01em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {typedUrl}
                 {phase === 'typing' && <span style={{ display: 'inline-block', width: 1, height: 12, background: '#1B4FD8', marginLeft: 1, animation: 'blink 1s step-end infinite', verticalAlign: 'middle' }}>|</span>}
               </span>
@@ -115,24 +125,26 @@ export default function HeroScanner() {
                 </div>
               )}
             </div>
-            <div style={{ marginLeft: 'auto', display: 'flex', gap: 6 }}>
-              {['#e2e8f0', '#e2e8f0', '#e2e8f0'].map((c, i) => <div key={i} style={{ width: 24, height: 8, background: c, borderRadius: 3 }} />)}
-            </div>
+            {!isMobile && (
+              <div style={{ marginLeft: 'auto', display: 'flex', gap: 6 }}>
+                {['#e2e8f0', '#e2e8f0', '#e2e8f0'].map((c, i) => <div key={i} style={{ width: 24, height: 8, background: c, borderRadius: 3 }} />)}
+              </div>
+            )}
           </div>
 
           {/* main content area */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'start' }}>
+          <div style=   {{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : '1fr 1fr', alignItems: 'start' }}>
 
             {/* LEFT: fake website being scanned */}
-            <div style={{ borderRight: '1px solid #f1f5f9', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ borderRight: '1px solid #f1f5f9', borderBottom: 'none', position: 'relative', overflow: 'hidden', display: isMobile ? 'none' : 'block' }}>
               <div style={{ position: 'relative', overflow: 'hidden', height: '100%', background: 'white' }}>
 
                 {/* actual fake website that looks real */}
                 <div style={{
-                  transform: 'scale(0.62)',
+                  transform: `scale(${isMobile ? 0.5 : 0.62})`,
                   transformOrigin: 'top left',
-                  width: '161%',
-                  marginBottom: '-64%',
+                  width: isMobile ? '200%' : '161%',
+                  marginBottom: isMobile ? '-118%' : '-64%',
                   fontFamily: 'DM Sans, sans-serif',
                   opacity: phase === 'typing' ? 0.25 : phase === 'scanning' ? 0.7 : 0.95,
                   transition: 'opacity 0.5s ease',
@@ -320,7 +332,7 @@ export default function HeroScanner() {
             </div>
 
             {/* RIGHT: check results */}
-            <div style={{ padding: '16px 16px', display: 'flex', flexDirection: 'column', gap: 0, alignSelf: 'start' }}>
+            <div style={{ padding: isMobile ? '12px 12px 14px' : '16px 16px', display: 'flex', flexDirection: 'column', gap: 0, alignSelf: 'start', width: '100%', minWidth: 0 }}>
               {phase === 'typing' && (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
                   <p style={{ fontSize: 13, color: '#94a3b8', textAlign: 'center' }}>SerpEyes will check 40+ Singapore SEO signals</p>
@@ -439,7 +451,7 @@ export default function HeroScanner() {
           </div>
 
           {/* bottom status bar */}
-          <div style={{ background: '#f8faff', borderTop: '1px solid #f1f5f9', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: 16 }}>
+          <div style={{ background: '#f8faff', borderTop: '1px solid #f1f5f9', padding: isMobile ? '8px 10px' : '8px 16px', display: 'flex', flexWrap: isMobile ? 'wrap' : 'nowrap', alignItems: 'center', gap: isMobile ? 8 : 16 }}>
             <div style={{ display: 'flex', gap: 12 }}>
               {[
                 { label: 'Checks', val: phase === 'typing' ? '40+' : `${visibleChecks.length}/10`, color: '#1B4FD8' },
@@ -452,7 +464,7 @@ export default function HeroScanner() {
                 </div>
               ))}
             </div>
-            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ marginLeft: isMobile ? 0 : 'auto', display: 'flex', alignItems: 'center', gap: 5 }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#1B4FD8' }} />
               <span style={{ fontSize: 10, color: '#64748b', fontWeight: 500 }}>Powered by SerpEyes</span>
             </div>
