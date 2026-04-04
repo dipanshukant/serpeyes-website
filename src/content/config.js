@@ -265,7 +265,7 @@ export const AGENCIES_CTA = {
 export const FREELANCERS_HERO = {
   badge: 'For Freelancers',
   headline: 'Look Like a Big Agency. Work Like a One-Person Team.',
-  sub: 'Singapore clients want professional SEO services but they often work with freelancers who cannot match agency output. SerpEyes closes that gap so you can charge more and deliver faster.',
+  sub: 'Singapore clients want professional SEO services but they often work with freelancers who cannot match agency output. SerpEyes closes that gap so you can justify your rates and deliver faster.',
   btn: 'Get Early Access',
 };
 
