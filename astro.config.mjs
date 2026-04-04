@@ -12,14 +12,10 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   integrations: [
+    sitemap(),
     react(),
     tailwind({
       applyBaseStyles: false,
-    }),
-    sitemap({
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
     }),
   ],
 });
