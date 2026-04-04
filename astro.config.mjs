@@ -6,13 +6,22 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://serpeyes.com',
-  output: 'static',
+  output: 'hybrid',
   adapter: cloudflare(),
   image: {
     service: passthroughImageService(),
   },
   integrations: [
-    sitemap(),
+    sitemap({
+      customPages: [
+        'https://serpeyes.com/',
+        'https://serpeyes.com/for-agencies',
+        'https://serpeyes.com/for-freelancers',
+        'https://serpeyes.com/seo-services',
+        'https://serpeyes.com/request-demo',
+        'https://serpeyes.com/blog',
+      ],
+    }),
     react(),
     tailwind({
       applyBaseStyles: false,
