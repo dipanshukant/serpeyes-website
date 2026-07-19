@@ -19,28 +19,32 @@ import {
   title="Serpeyes - Digital Growth Agency for Websites, Apps, SEO and AEO"
   description="Serpeyes is a digital growth agency helping businesses build, optimise and scale their online presence through web development, app development, SEO, AEO and digital marketing."
 >
-  <main class="hero-bg">
+  <main>
     <!-- Hero Section -->
-    <section style={{ padding: '96px 24px 80px', textAlign: 'center' }}>
-      <div style="max-width: 780px; margin: 0 auto;">
-        <span class="badge" style="margin-bottom: 20px; display: inline-block;" set:html={HERO.badge}></span>
-        <h1 style="font-family: Sora, sans-serif; font-size: 50px; font-weight: 700; color: #0f172a; line-height: 1.15; margin: 0 0 24px; letter-spacing: -0.03em;">
-          {HERO.headline} <span class="gradient-text">{HERO.headlineAccent}</span>
-        </h1>
-        <p style="font-size: clamp(17px, 2.5vw, 20px); color: #475569; line-height: 1.7; margin: 0 0 40px; max-width: 620px; margin-left: auto; margin-right: auto;">
-          {HERO.subheadline}
-        </p>
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <a href="/request-demo" class="btn-primary" style="padding: 14px 32px; border-radius: 10px; font-size: 16px; text-decoration: none; display: inline-block;">
-            {HERO.btn1}
-          </a>
-          <button class="btn-outline" style="padding: 14px 32px; border-radius: 10px; font-size: 16px;" onclick="document.getElementById('early-access').scrollIntoView({ behavior: 'smooth' })">
-            {HERO.btn2}
-          </button>
+    <section class="hero-split" style="padding: 88px 24px; background: linear-gradient(135deg, #0b1226 0%, #0f172a 55%, #0f1f47 100%); overflow: hidden;">
+      <div class="hero-split-grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center;">
+        <div>
+          <span class="badge" style="margin-bottom: 20px; display: inline-block; background: rgba(27,79,216,0.15); color: #60a5fa;" set:html={HERO.badge}></span>
+          <h1 style="font-family: Sora, sans-serif; font-size: clamp(34px, 4.4vw, 52px); font-weight: 700; color: white; line-height: 1.15; margin: 0 0 22px; letter-spacing: -0.03em;">
+            {HERO.headline} <span style="color: #60a5fa;">{HERO.headlineAccent}</span>
+          </h1>
+          <p style="font-size: clamp(16px, 1.8vw, 18px); color: #9fb2d9; line-height: 1.75; margin: 0 0 36px; max-width: 520px;">
+            {HERO.subheadline}
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="/request-demo" class="btn-primary" style="padding: 14px 32px; border-radius: 10px; font-size: 16px; text-decoration: none; display: inline-block;">
+              {HERO.btn1}
+            </a>
+            <button style="padding: 14px 32px; border-radius: 10px; font-size: 16px; background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.3); cursor: pointer; font-family: 'Sora', sans-serif; font-weight: 500; transition: background 0.2s ease;" onclick="document.getElementById('early-access').scrollIntoView({ behavior: 'smooth' })" onmouseenter="this.style.background='rgba(255,255,255,0.08)'" onmouseleave="this.style.background='transparent'">
+              {HERO.btn2}
+            </button>
+          </div>
+          <p style="font-size: 13px; color: #64748b; margin-top: 20px;">{HERO.footnote}</p>
         </div>
-        <p style="font-size: 13px; color: #94a3b8; margin-top: 20px;">{HERO.footnote}</p>
+        <div class="hero-split-visual">
+          <HeroScanner client:load />
+        </div>
       </div>
-      <HeroScanner client:load />
     </section>
 
     <!-- Differentiators Section -->
@@ -135,4 +139,20 @@ import {
       </div>
     </section>
   </main>
+
+  <style>
+    .hero-split-visual :global(> div) {
+      margin-top: 0 !important;
+    }
+
+    @media (max-width: 900px) {
+      .hero-split-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .hero-split-visual {
+        order: -1;
+      }
+    }
+  </style>
 </BaseLayout>
