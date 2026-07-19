@@ -1,25 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FeatureCard from '../components/ui/FeatureCard.astro';
-import { AGENCIES_HERO, AGENCIES_CARDS, AGENCIES_CTA } from '../content/config.js';
+import { WEBDEV_HERO, WEBDEV_CARDS, WEBDEV_CTA } from '../content/config.js';
 ---
 
-<BaseLayout 
-  title="SerpEyes for Agencies - Scale Your SEO Delivery in Singapore"
-  description="White-label SEO reports and content tools for Singapore marketing agencies. Save 10 hours per client per month."
+<BaseLayout
+  title="Web Development Services - Serpeyes"
+  description="Custom business websites and eCommerce platforms built by Serpeyes. Modern, fast, secure and designed to convert visitors into leads and sales."
 >
   <main>
     <section style="padding: 80px 24px 64px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
       <div style="max-width: 760px; margin: 0 auto; text-align: center;">
-        <span class="badge" style="margin-bottom: 16px; display: inline-block;">{AGENCIES_HERO.badge}</span>
+        <span class="badge" style="margin-bottom: 16px; display: inline-block;">{WEBDEV_HERO.badge}</span>
         <h1 style="font-family: Sora, sans-serif; font-size: clamp(30px, 5vw, 50px); font-weight: 700; color: #0f172a; margin: 0 0 20px; letter-spacing: -0.02em;">
-          {AGENCIES_HERO.headline}
+          {WEBDEV_HERO.headline}
         </h1>
         <p style="font-size: 17px; color: #475569; line-height: 1.7; margin: 0 0 36px;">
-          {AGENCIES_HERO.sub}
+          {WEBDEV_HERO.sub}
         </p>
         <a href="/request-demo" class="btn-primary" style="padding: 14px 32px; border-radius: 10px; font-size: 16px; text-decoration: none; display: inline-block;">
-          {AGENCIES_HERO.btn}
+          {WEBDEV_HERO.btn}
         </a>
       </div>
     </section>
@@ -27,7 +26,7 @@ import { AGENCIES_HERO, AGENCIES_CARDS, AGENCIES_CTA } from '../content/config.j
     <section style="padding: 72px 24px; background: white;">
       <div style="max-width: 1100px; margin: 0 auto;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;">
-          {AGENCIES_CARDS.map((item, i) => (
+          {WEBDEV_CARDS.map((item, i) => (
             <div class="animate-on-scroll card-hover" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 16px; padding: 28px 24px; position: relative; overflow: hidden; box-shadow: 0 8px 22px rgba(15,23,42,0.04);">
               <div style={`position: absolute; top: 0; left: 0; right: 0; height: 3px; background: ${item.accent};`}></div>
               <div style={`width: 48px; height: 48px; background: ${item.iconBg}; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;`}>
@@ -44,13 +43,13 @@ import { AGENCIES_HERO, AGENCIES_CARDS, AGENCIES_CTA } from '../content/config.j
     <section style="padding: 80px 24px; background: #1B4FD8;">
       <div style="max-width: 600px; margin: 0 auto; text-align: center;">
         <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: white; margin: 0 0 16px;">
-          {AGENCIES_CTA.headline}
+          {WEBDEV_CTA.headline}
         </h2>
         <p style="font-size: 16px; color: rgba(255,255,255,0.8); margin: 0 0 32px; line-height: 1.7;">
-          {AGENCIES_CTA.sub}
+          {WEBDEV_CTA.sub}
         </p>
         <a href="/request-demo" style="padding: 14px 32px; background: white; color: #1B4FD8; border: none; border-radius: 10px; font-weight: 600; font-size: 16px; cursor: pointer; font-family: DM Sans, sans-serif; text-decoration: none; display: inline-block;">
-          {AGENCIES_CTA.btn}
+          {WEBDEV_CTA.btn}
         </a>
       </div>
     </section>

@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
-const requiredFields = ['name', 'email', 'type'] as const;
+const requiredFields = ['name', 'email', 'projectType'] as const;
 
 export const GET: APIRoute = async () => {
   return new Response(JSON.stringify({ error: 'Method not allowed' }), {
@@ -15,23 +15,21 @@ type ContactPayload = {
   name?: string;
   email?: string;
   company?: string;
-  type?: string;
+  projectType?: string;
   website?: string;
-  service?: string;
   budget?: string;
   goal?: string;
   timeline?: string;
-  portfolioSize?: string;
-  interest?: string;
   message?: string;
 };
 
 const toCleanString = (value: unknown) => (typeof value === 'string' ? value.trim() : '');
 
-const getRoleLabel = (type: string) => {
-  if (type === 'business') return 'Business Owner';
-  if (type === 'agency') return 'Marketing Agency';
-  if (type === 'freelancer') return 'Freelancer';
+const getProjectTypeLabel = (type: string) => {
+  if (type === 'website') return 'Website / eCommerce';
+  if (type === 'app') return 'Mobile App';
+  if (type === 'seo-marketing') return 'SEO, AEO & Marketing';
+  if (type === 'not-sure') return 'Not Sure Yet';
   return type;
 };
 
@@ -100,7 +98,7 @@ export const POST: APIRoute = async ({ request, locals, url }) => {
 
     const resendKey = runtimeEnv.RESEND_API_KEY || metaEnv.RESEND_API_KEY || processEnv.RESEND_API_KEY;
     const toEmail = runtimeEnv.CONTACT_TO_EMAIL || metaEnv.CONTACT_TO_EMAIL || processEnv.CONTACT_TO_EMAIL;
-    const fromEmail = runtimeEnv.CONTACT_FROM_EMAIL || metaEnv.CONTACT_FROM_EMAIL || processEnv.CONTACT_FROM_EMAIL || 'SerpEyes Contact <onboarding@resend.dev>';
+    const fromEmail = runtimeEnv.CONTACT_FROM_EMAIL || metaEnv.CONTACT_FROM_EMAIL || processEnv.CONTACT_FROM_EMAIL || 'Serpeyes Contact <onboarding@resend.dev>';
 
     if (!resendKey || !toEmail) {
       return new Response(JSON.stringify({ error: 'Server email configuration is missing' }), {
@@ -109,21 +107,18 @@ export const POST: APIRoute = async ({ request, locals, url }) => {
       });
     }
 
-    const role = getRoleLabel(payload.type || '');
-    const subject = `New Contact Lead: ${role} - ${payload.name}`;
+    const projectType = getProjectTypeLabel(payload.projectType || '');
+    const subject = `New Contact Lead: ${projectType} - ${payload.name}`;
 
     const details = [
       line('Name', toCleanString(payload.name)),
       line('Email', email),
-      line('Role', role),
+      line('Project Type', projectType),
       line('Company', toCleanString(payload.company)),
       line('Website', toCleanString(payload.website)),
-      line('Service Needed', toCleanString(payload.service)),
       line('Budget', toCleanString(payload.budget)),
       line('Goal', toCleanString(payload.goal)),
       line('Timeline', toCleanString(payload.timeline)),
-      line('Portfolio Size', toCleanString(payload.portfolioSize)),
-      line('Interest', toCleanString(payload.interest)),
       line('Message', toCleanString(payload.message)),
     ].filter(Boolean) as string[];
 

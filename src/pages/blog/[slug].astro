@@ -10,18 +10,17 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const isLaunchPost = post.slug === 'serpeyes-early-access-what-we-built-and-why';
+const isLaunchPost = post.slug === 'serpeyes-digital-growth-agency-what-we-do';
 
 const tocItems = isLaunchPost
   ? [
-      { id: 'it-started-with-a-frustration', label: 'It Started with a Frustration' },
-      { id: 'what-serpeyes-actually-is', label: 'What SerpEyes Actually Is' },
-      { id: 'what-we-built', label: 'What We Built' },
-      { id: 'why-early-access', label: 'Why Early Access' },
-      { id: 'who-should-request-early-access', label: 'Who Should Request Early Access' },
-      { id: 'for-business-owners', label: 'For Business Owners' },
+      { id: 'it-started-with-a-gap', label: 'It Started with a Gap' },
+      { id: 'what-serpeyes-is-now', label: 'What Serpeyes Is Now' },
+      { id: 'what-we-offer', label: 'What We Offer' },
+      { id: 'why-we-expanded', label: 'Why We Expanded' },
+      { id: 'who-this-is-for', label: 'Who This Is For' },
+      { id: 'how-we-work', label: 'How We Work' },
       { id: 'what-happens-next', label: 'What Happens Next' },
-      { id: 'a-note-on-pricing', label: 'A Note on Pricing' },
       { id: 'one-last-thing', label: 'One Last Thing' },
     ]
   : [
@@ -38,7 +37,7 @@ const relatedPosts = [...sameTagPosts, ...otherPosts].slice(0, 3);
 ---
 
 <BaseLayout
-  title={`${post.title} - SerpEyes Blog`}
+  title={`${post.title} - Serpeyes Blog`}
   description={post.excerpt}
 >
   <div id="reading-progress" style="position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #1B4FD8 0%, #3b82f6 100%); z-index: 100;"></div>
@@ -95,79 +94,63 @@ const relatedPosts = [...sameTagPosts, ...otherPosts].slice(0, 3);
           <article id="article-content" class="animate-on-scroll" style="max-width: 780px; margin: 0 auto 28px; background: #ebf0f7; border: 1px solid #cbd7e6; border-radius: 16px; padding: 32px 28px;">
             {isLaunchPost ? (
               <>
-                <section id="it-started-with-a-frustration" style="scroll-margin-top: 110px; margin-top: 26px;">
-                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">It Started with a Frustration</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">If you have ever tried to do SEO for a Singapore business using popular global tools like <a href="https://ahrefs.com" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Ahrefs</a> or <a href="https://www.semrush.com" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Semrush</a>, you already know the problem.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">You run an audit. The tool gives you a list of issues. You fix them. Rankings barely move. You dig deeper and realise the checks, priorities and recommendations are usually calibrated for US or UK markets, not Singapore.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Singapore has its own search behaviour. Its own way customers decide whether a business is legitimate before they enquire. Its own trust factors that generic tools were never designed to look for. We kept patching this gap manually with custom templates and extra checks. It worked, but it was slow and impossible to scale.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">So we decided to stop patching and start building.</p>
+                <section id="it-started-with-a-gap" style="scroll-margin-top: 110px; margin-top: 26px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">It Started with a Gap</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We started Serpeyes focused on one thing: SEO. Along the way, the same pattern kept showing up.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Clients with strong SEO potential were held back by a website that was slow, hard to update or simply not built to convert. Clients who wanted an app had nowhere to turn without hiring a second, unrelated vendor. Clients who wanted marketing support ended up managing three separate teams that never talked to each other.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">We kept referring this work out. Eventually we stopped referring it out and started building the capability ourselves.</p>
                 </section>
 
-                <section id="what-serpeyes-actually-is" style="scroll-margin-top: 110px; margin-top: 28px;">
-                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What SerpEyes Actually Is</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">SerpEyes is an SEO intelligence platform built specifically for the Singapore market and the professionals who serve it.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">It is not trying to replace global suites. It focuses on local signals, market-specific checks and Singapore-relevant insights that generic platforms were never designed to surface.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">At its core, SerpEyes is built for two groups:</p>
+                <section id="what-serpeyes-is-now" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What Serpeyes Is Now</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Serpeyes is a digital growth agency. We help businesses establish, optimise and scale their online presence through website development, mobile app development, SEO, AEO and digital marketing.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">We are not trying to be everything to everyone. We focus on the parts of a business's digital presence that need to work together to actually produce growth: the site or app people land on, and the search and marketing systems that bring them there.</p>
+                </section>
+
+                <section id="what-we-offer" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What We Offer</h2>
                   <ul style="margin: 0 0 16px 20px; padding: 0; color: #334155; font-size: 16px; line-height: 1.9;">
-                    <li style="margin-bottom: 8px;">Agencies and freelancers delivering SEO for Singapore clients and spending too much time on manual work. If this is you, see <a href="/for-agencies" style="color: #1B4FD8; text-decoration: underline;">For Agencies</a> and <a href="/for-freelancers" style="color: #1B4FD8; text-decoration: underline;">For Freelancers</a>.</li>
-                    <li>Business owners who want SEO handled properly by specialists who understand the Singapore market. Learn more about our <a href="/seo-services" style="color: #1B4FD8; text-decoration: underline;">SEO Services</a>.</li>
+                    <li style="margin-bottom: 8px;"><strong>Website & eCommerce Development:</strong> Custom business websites and online stores built on modern, secure technology.</li>
+                    <li style="margin-bottom: 8px;"><strong>Mobile App Development:</strong> Android and iOS apps, from concept through to app store launch.</li>
+                    <li style="margin-bottom: 8px;"><strong>UI/UX Design:</strong> Interfaces designed around how people actually use them, not assumptions.</li>
+                    <li style="margin-bottom: 8px;"><strong>SEO:</strong> Technical, on-page and content SEO built for sustained visibility.</li>
+                    <li style="margin-bottom: 8px;"><strong>AEO (Answer Engine Optimisation):</strong> Structuring content so AI tools like <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">ChatGPT</a> and <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Perplexity</a> can find and recommend your business.</li>
+                    <li><strong>Digital Marketing:</strong> Social media, content strategy and campaigns that turn attention into leads.</li>
+                  </ul>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">See the full breakdown on our <a href="/services" style="color: #1B4FD8; text-decoration: underline;">Services page</a>.</p>
+                </section>
+
+                <section id="why-we-expanded" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Why We Expanded</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">SEO alone can only do so much if the site it is pointing to is not built to convert. We saw this constantly: rankings improving, traffic increasing, and conversion rates barely moving because the website itself was the weak link.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Expanding into web development, app development and full digital marketing let us fix the whole system instead of one piece of it.</p>
+                </section>
+
+                <section id="who-this-is-for" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Who This Is For</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Serpeyes works with businesses at different stages.</p>
+                  <ul style="margin: 0 0 16px 20px; padding: 0; color: #334155; font-size: 16px; line-height: 1.9;">
+                    <li style="margin-bottom: 8px;">If you need a new website or online store, see <a href="/web-development" style="color: #1B4FD8; text-decoration: underline;">Web Development</a>.</li>
+                    <li style="margin-bottom: 8px;">If you have an app idea or need one built, see <a href="/app-development" style="color: #1B4FD8; text-decoration: underline;">App Development</a>.</li>
+                    <li>If you already have a site and need more visibility, see our <a href="/services" style="color: #1B4FD8; text-decoration: underline;">Services page</a> for SEO, AEO and marketing.</li>
                   </ul>
                 </section>
 
-                <section id="what-we-built" style="scroll-margin-top: 110px; margin-top: 28px;">
-                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What We Built</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">SerpEyes currently has eight modules either fully built or in final testing:</p>
-                  <ul style="margin: 0 0 16px 20px; padding: 0; color: #334155; font-size: 16px; line-height: 1.9;">
-                    <li style="margin-bottom: 8px;"><strong>Prospect Reports:</strong> White-label SEO audit reports agencies and freelancers can send directly to clients.</li>
-                    <li style="margin-bottom: 8px;"><strong>Site Audit:</strong> Technical, on-page and market-specific issues in one crawl.</li>
-                    <li style="margin-bottom: 8px;"><strong>Article Optimizer:</strong> Rewrites existing content, improves structure and suggests internal links.</li>
-                    <li style="margin-bottom: 8px;"><strong>Keyword Research:</strong> Search demand and difficulty with market relevance.</li>
-                    <li style="margin-bottom: 8px;"><strong>Competitor Analysis:</strong> Ranking gaps and content opportunities you can act on.</li>
-                    <li style="margin-bottom: 8px;"><strong>Performance Reports:</strong> Client-ready monthly SEO reporting.</li>
-                    <li style="margin-bottom: 8px;"><strong>Search Console Integration:</strong> Brings <a href="https://search.google.com/search-console/about" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Google Search Console</a> data into the platform.</li>
-                    <li><strong>Article Generator:</strong> Structured SEO drafts built from your target keyword and market.</li>
-                  </ul>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Two additional modules are in active development: <strong>Rank Tracking</strong> and <strong>AI Visibility Tracker</strong> for visibility across <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">ChatGPT</a>, <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Perplexity</a>, and Google AI Overviews.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If you want practical SEO guidance while exploring the platform, our complete SEO checklist for Singapore SMBs and Google Maps ranking guide are good starting points.</p>
-                </section>
-
-                <section id="why-early-access" style="scroll-margin-top: 110px; margin-top: 28px;">
-                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Why Early Access</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Honest answer: because we want to build this with real users, not just for them.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Early access lets us work closely with agencies and freelancers doing real client work. We want direct feedback on what is missing, what is confusing and what should be rebuilt from scratch.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">In return, early users get free access during the early access period, direct support from the product team, discounted post-launch pricing and a real voice in what we build next.</p>
-                </section>
-
-                <section id="who-should-request-early-access" style="scroll-margin-top: 110px; margin-top: 28px;">
-                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Who Should Request Early Access</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Early access is specifically for agencies and freelancers.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">If your team spends hours every week on manual audits, repetitive research and custom reporting, SerpEyes is built to save meaningful time from week one.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If you are a freelancer producing SEO for Singapore clients, this gives you agency-level output without agency-level overhead.</p>
-                </section>
-
-                <section id="for-business-owners" style="scroll-margin-top: 110px; margin-top: 28px;">
-                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">For Business Owners</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">If you are a Singapore business owner reading this, early access is not for you and that is intentional.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">You should not have to learn a new platform or run your own audits. What you need is a team that understands your market and can execute SEO properly.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Go to our <a href="/seo-services" style="color: #1B4FD8; text-decoration: underline;">SEO Services page</a> and book a free 20-minute consultation. We will give you a clear, honest view of your current rankings, what is holding growth back and what timeline is realistic.</p>
+                <section id="how-we-work" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">How We Work</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We do not apply the same playbook to every client. Every project starts with understanding your market, your customers and what is actually holding growth back, then we build a plan around that, not a template.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">We also lean on AI-powered workflows for research, content and automation, so we can move faster without cutting corners on quality.</p>
                 </section>
 
                 <section id="what-happens-next" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What Happens Next</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">You request early access through our website. We review every application personally and respond within one business day.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Once you are in, you get full platform access and hands-on onboarding from our team so you can start extracting value immediately.</p>
-                </section>
-
-                <section id="a-note-on-pricing" style="scroll-margin-top: 110px; margin-top: 28px;">
-                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">A Note on Pricing</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Final pricing is not published yet because we are still shaping the structure based on real usage. What will not change is this: early access users will always pay less than post-launch users. That is our thank you for helping shape the product.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If any of this is relevant to your business, the best next step is a free consultation. We will look at what you have now, whether that is a website, an app idea or an existing SEO setup, and tell you honestly what would move the needle first.</p>
                 </section>
 
                 <section id="one-last-thing" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">One Last Thing</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We named the platform SerpEyes because we wanted it to represent one thing: the ability to see what others miss.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Most SEO tools see the same signals. SerpEyes was built to go deeper into signals that matter in this market, for these businesses and the customers they serve.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If that resonates, request your spot at <a href="https://serpeyes.com/get-early-access" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">serpeyes.com/get-early-access</a>. We will be in touch within one business day.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We kept the name Serpeyes because the idea behind it has not changed: seeing what others miss. That used to mean SEO signals other tools ignored. Now it means seeing the whole picture of a business's digital presence, not just one piece of it.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If that resonates, <a href="/request-demo" style="color: #1B4FD8; text-decoration: underline;">get in touch</a>. We will respond within one business day.</p>
                 </section>
               </>
             ) : (

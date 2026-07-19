@@ -17,7 +17,7 @@ const WhatsAppWidget = () => {
   }, []);
   
   const handleClick = () => {
-    const message = encodeURIComponent("Hi! I'm interested in your SEO services. Can you help me?");
+    const message = encodeURIComponent("Hi! I'm interested in your services. Can you help me?");
     window.open(`https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}?text=${message}`, '_blank');
   };
   

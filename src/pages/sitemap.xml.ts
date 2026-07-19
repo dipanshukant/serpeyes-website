@@ -10,19 +10,19 @@ export const GET: APIRoute = ({ site }) => {
       lastmod: new Date().toISOString(),
     },
     {
-      url: '/for-agencies',
+      url: '/web-development',
       changefreq: 'monthly',
       priority: 0.8,
       lastmod: new Date().toISOString(),
     },
     {
-      url: '/for-freelancers',
+      url: '/app-development',
       changefreq: 'monthly',
       priority: 0.8,
       lastmod: new Date().toISOString(),
     },
     {
-      url: '/seo-services',
+      url: '/services',
       changefreq: 'monthly',
       priority: 0.9,
       lastmod: new Date().toISOString(),

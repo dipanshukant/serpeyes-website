@@ -9,7 +9,7 @@ export default function HeroScanner() {
   const [showResults, setShowResults] = useState(false);
   const [scoreCount, setScoreCount] = useState(0);
   const [viewportWidth, setViewportWidth] = useState(1200);
-  const targetUrl = 'www.yoursingaporebusiness.sg';
+  const targetUrl = 'www.yourbusiness.com';
   const isMobile = viewportWidth <= 1024;
   console.log('[HeroScanner] viewportWidth:', viewportWidth, 'isMobile:', isMobile);
 
@@ -154,7 +154,7 @@ export default function HeroScanner() {
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 24px', borderBottom: '1px solid #f1f5f9', background: 'white' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <div style={{ width: 28, height: 28, background: '#1B4FD8', borderRadius: 6 }} />
-                      <span style={{ fontSize: 15, fontWeight: 700, color: '#0f172a' }}>CoolAirSG</span>
+                      <span style={{ fontSize: 15, fontWeight: 700, color: '#0f172a' }}>BrightHome Services</span>
                     </div>
                     <div style={{ display: 'flex', gap: 20 }}>
                       {['Services', 'About', 'Pricing', 'Contact'].map(l => (
@@ -167,10 +167,10 @@ export default function HeroScanner() {
                   {/* fake hero */}
                   <div style={{ padding: '28px 24px 20px', background: 'linear-gradient(180deg, #f8faff 0%, white 100%)' }}>
                     <div style={{ fontSize: 26, fontWeight: 700, color: '#0f172a', lineHeight: 1.2, marginBottom: 10 }}>
-                      Aircon Servicing &<br />Installation in Singapore
+                      Home Services You<br />Can Trust
                     </div>
                     <div style={{ fontSize: 13, color: '#64748b', lineHeight: 1.6, marginBottom: 16, maxWidth: 340 }}>
-                      Trusted by 2,000+ Singapore homeowners. Fast, reliable aircon servicing with same-day appointments available.
+                      Trusted by thousands of customers. Fast, reliable service with same-day appointments available.
                     </div>
                     <div style={{ display: 'flex', gap: 10, marginBottom: 16 }}>
                       <div style={{ background: '#1B4FD8', color: 'white', fontSize: 13, fontWeight: 600, padding: '8px 18px', borderRadius: 7 }}>Book Now</div>
@@ -182,7 +182,7 @@ export default function HeroScanner() {
                         <span style={{ fontSize: 11, color: '#16a34a', fontWeight: 600 }}>✓ WhatsApp Us</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 5, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 20, padding: '4px 10px' }}>
-                        <span style={{ fontSize: 11, color: '#16a34a', fontWeight: 600 }}>✓ +65 9123 4567</span>
+                        <span style={{ fontSize: 11, color: '#16a34a', fontWeight: 600 }}>✓ (555) 123-4567</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 5, background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: 20, padding: '4px 10px' }}>
                         <span style={{ fontSize: 11, color: '#ea580c', fontWeight: 600 }}>✕ Credentials Missing</span>
@@ -195,8 +195,8 @@ export default function HeroScanner() {
                     <div style={{ fontSize: 15, fontWeight: 700, color: '#0f172a', marginBottom: 12 }}>Our Services</div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
                       {[
-                        { name: 'Chemical Wash', price: 'From $45' },
-                        { name: 'Gas Top Up', price: 'From $60' },
+                        { name: 'Consultation', price: 'From $45' },
+                        { name: 'Standard Visit', price: 'From $60' },
                         { name: 'Installation', price: 'From $280' },
                       ].map(s => (
                         <div key={s.name} style={{ background: '#f8faff', border: '1px solid #e2e8f0', borderRadius: 8, padding: '10px 12px' }}>
@@ -253,7 +253,7 @@ export default function HeroScanner() {
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 10 }}>
                       <div style={{ background: 'white', border: '1px solid #e2e8f0', borderRadius: 8, padding: '10px 12px' }}>
                         <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 4 }}>Call Us</div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: '#0f172a' }}>+65 9123 4567</div>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: '#0f172a' }}>(555) 123-4567</div>
                       </div>
                       <div style={{ background: 'white', border: '1px solid #e2e8f0', borderRadius: 8, padding: '10px 12px' }}>
                         <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 4 }}>WhatsApp</div>
@@ -277,11 +277,11 @@ export default function HeroScanner() {
                   {/* fake site footer */}
                   <div style={{ background: '#0f172a', padding: '14px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <div style={{ fontSize: 13, fontWeight: 700, color: 'white', marginBottom: 3 }}>CoolAirSG</div>
-                      <div style={{ fontSize: 10, color: '#475569' }}>Aircon specialists since 2010</div>
+                      <div style={{ fontSize: 13, fontWeight: 700, color: 'white', marginBottom: 3 }}>BrightHome Services</div>
+                      <div style={{ fontSize: 10, color: '#475569' }}>Home services since 2010</div>
                     </div>
                     <div style={{ textAlign: 'right' }}>
-                      <div style={{ fontSize: 10, color: '#475569', marginBottom: 2 }}>Serving all Singapore regions</div>
+                      <div style={{ fontSize: 10, color: '#475569', marginBottom: 2 }}>Serving your area</div>
                       <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
                         {['Privacy', 'Terms', 'Contact'].map(l => (
                           <span key={l} style={{ fontSize: 10, color: '#334155' }}>{l}</span>
@@ -335,7 +335,7 @@ export default function HeroScanner() {
             <div style={{ padding: isMobile ? '12px 12px 14px' : '16px 16px', display: 'flex', flexDirection: 'column', gap: 0, alignSelf: 'start', width: '100%', minWidth: 0 }}>
               {phase === 'typing' && (
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                  <p style={{ fontSize: 13, color: '#94a3b8', textAlign: 'center' }}>SerpEyes will check 40+ Singapore SEO signals</p>
+                  <p style={{ fontSize: 13, color: '#94a3b8', textAlign: 'center' }}>Serpeyes checks 40+ website, SEO and AI search signals</p>
                 </div>
               )}
 
@@ -442,7 +442,7 @@ export default function HeroScanner() {
                       </div>
                     ))}
                     <p style={{ fontSize: 10, color: '#94a3b8', margin: '6px 0 0', fontStyle: 'italic' }}>
-                      Full competitor report included in SerpEyes
+                      Full competitor report included in your free audit
                     </p>
                   </div>
                 </div>
@@ -466,7 +466,7 @@ export default function HeroScanner() {
             </div>
             <div style={{ marginLeft: isMobile ? 0 : 'auto', display: 'flex', alignItems: 'center', gap: 5 }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#1B4FD8' }} />
-              <span style={{ fontSize: 10, color: '#64748b', fontWeight: 500 }}>Powered by SerpEyes</span>
+              <span style={{ fontSize: 10, color: '#64748b', fontWeight: 500 }}>Powered by Serpeyes</span>
             </div>
           </div>
         </div>
