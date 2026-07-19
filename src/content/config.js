@@ -394,32 +394,3 @@ export const BLOG_HERO = {
 export const BLOG_POSTS = [
   { slug: 'serpeyes-digital-growth-agency-what-we-do', tag: 'Company Update', title: 'Serpeyes Is Now a Full Digital Growth Agency. Here Is What Changed.', excerpt: 'We have expanded from SEO into a complete digital growth agency: websites, apps, SEO, AEO and marketing. Here is what that means for our clients.', date: 'Jul 2026', readTime: '6 min read', featuredImage: '/logo.svg' },
 ];
-
-// ---- SCANNER COMPONENT DATA ----
-
-export const SCAN_STEPS = [
-  { phase: 'typing', duration: 1800 },
-  { phase: 'scanning', duration: 2800 },
-  { phase: 'results', duration: 3400 },
-  { phase: 'done', duration: 2000 },
-];
-
-export const SCAN_CHECKS = [
-  { label: 'Meta title & description', status: 'fail', score: null },
-  { label: 'Contact info verification', status: 'pass', score: null },
-  { label: 'Live chat / messaging presence', status: 'pass', score: null },
-  { label: 'Business trust signals', status: 'fail', score: null },
-  { label: 'Google Business Profile', status: 'warning', score: null },
-  { label: 'Page speed (Core Web Vitals)', status: 'warning', score: null },
-  { label: 'Domain & technical health', status: 'pass', score: null },
-  { label: 'Mobile responsiveness', status: 'pass', score: null },
-  { label: 'Structured data / Schema', status: 'fail', score: null },
-  { label: 'Internal linking structure', status: 'warning', score: null },
-];
-
-export const RESULT_STATS = [
-  { label: 'SEO Score', value: '61', unit: '/100', color: '#ea580c', bg: '#fff7ed' },
-  { label: 'Issues Found', value: '3', unit: ' critical', color: '#dc2626', bg: '#fef2f2' },
-  { label: 'Passed Checks', value: '6', unit: ' of 10', color: '#059669', bg: '#f0fdf4' },
-  { label: 'Est. Traffic Gap', value: '~840', unit: '/mo', color: '#7c3aed', bg: '#f5f3ff' },
-];

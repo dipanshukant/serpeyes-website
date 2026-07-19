@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroScanner from '../components/HeroScanner.jsx';
+import DeviceMockup from '../components/DeviceMockup.astro';
 import EarlyAccessForm from '../components/EarlyAccessForm.jsx';
 import FeatureCard from '../components/ui/FeatureCard.astro';
 import {
@@ -42,7 +42,7 @@ import {
           <p style="font-size: 13px; color: #64748b; margin-top: 20px;">{HERO.footnote}</p>
         </div>
         <div class="hero-split-visual">
-          <HeroScanner client:load />
+          <DeviceMockup />
         </div>
       </div>
     </section>
@@ -141,10 +141,6 @@ import {
   </main>
 
   <style>
-    .hero-split-visual :global(> div) {
-      margin-top: 0 !important;
-    }
-
     @media (max-width: 900px) {
       .hero-split-grid {
         grid-template-columns: 1fr !important;
