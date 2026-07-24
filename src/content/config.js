@@ -357,22 +357,30 @@ export const MARKETS_SECTION = {
 
 export const MARKETS = [
   {
-    flag: '🇸🇬',
+    code: 'SG',
+    color: '#1B4FD8',
+    bg: '#eff4ff',
     market: 'Singapore',
     note: 'Our home market. Deep expertise in local search behaviour, digital habits and what actually drives growth for Singapore businesses.',
   },
   {
-    flag: '🇬🇧',
+    code: 'UK',
+    color: '#059669',
+    bg: '#f0fdf4',
     market: 'United Kingdom',
     note: 'Websites, apps and local SEO for UK businesses, including Google Business Profile, local directories and regional search intent.',
   },
   {
-    flag: '🇮🇳',
+    code: 'IN',
+    color: '#ea580c',
+    bg: '#fff7ed',
     market: 'India',
     note: 'Digital growth services for Indian businesses across major cities, with local market considerations built into every project.',
   },
   {
-    flag: '🌏',
+    code: 'SEA',
+    color: '#7c3aed',
+    bg: '#f5f3ff',
     market: 'Southeast Asia',
     note: 'Malaysia, Indonesia, Philippines and beyond. Growing markets with significant digital opportunities and less saturated competition.',
   },
@@ -413,11 +421,12 @@ export const ABOUT_VALUES_SECTION = {
 };
 
 export const ABOUT_VALUES = [
-  { title: 'Ownership', desc: 'If something is broken or unclear, that is the cue to fix it, not work around it.' },
-  { title: 'Integrity', desc: 'We do the right thing for a client even when it would be easier not to.' },
-  { title: 'Customer First', desc: 'If the client wins, we win. Every decision gets weighed against their outcome.' },
-  { title: 'Continuous Learning', desc: 'Search and AI change constantly, so staying current is part of the job, not an extra.' },
-  { title: 'Teamwork', desc: 'Websites, apps, SEO and marketing are built by one connected team, not siloed specialists.' },
+  { icon: '🛠️', title: 'Ownership', desc: 'If something is broken or unclear, that is the cue to fix it, not work around it.' },
+  { icon: '🧭', title: 'Integrity', desc: 'We do the right thing for a client even when it would be easier not to.' },
+  { icon: '🎯', title: 'Customer First', desc: 'If the client wins, we win. Every decision gets weighed against their outcome.' },
+  { icon: '📚', title: 'Continuous Learning', desc: 'Search and AI change constantly, so staying current is part of the job, not an extra.' },
+  { icon: '🤝', title: 'Teamwork', desc: 'Websites, apps, SEO and marketing are built by one connected team, not siloed specialists.' },
+  { icon: '🙌', title: 'Respect', desc: 'For clients, for each other, and for everyone else\'s time and workload.' },
 ];
 
 export const ABOUT_FOUNDER = {

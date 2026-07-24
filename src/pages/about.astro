@@ -60,19 +60,20 @@ import {
     </section>
 
     <!-- Values -->
-    <section style="padding: 72px 24px; background: white;">
+    <section style="padding: 88px 24px; background: linear-gradient(135deg, #0b1635 0%, #0f1f47 100%);">
       <div style="max-width: 1100px; margin: 0 auto;">
         <div class="animate-on-scroll" style="text-align: center; margin-bottom: 48px;">
-          <span class="badge" style="margin-bottom: 14px; display: inline-block;">{ABOUT_VALUES_SECTION.badge}</span>
-          <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #0f172a; margin: 0; letter-spacing: -0.02em;">
+          <span class="badge" style="margin-bottom: 14px; display: inline-block; background: rgba(27,79,216,0.15); color: #60a5fa;">{ABOUT_VALUES_SECTION.badge}</span>
+          <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: white; margin: 0; letter-spacing: -0.02em;">
             {ABOUT_VALUES_SECTION.headline}
           </h2>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <div class="about-values-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
           {ABOUT_VALUES.map(v => (
-            <div class="animate-on-scroll card-hover" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 14px; padding: 24px 22px;">
-              <h3 style="font-family: Sora, sans-serif; font-size: 17px; font-weight: 700; color: #0f172a; margin: 0 0 8px;">{v.title}</h3>
-              <p style="font-size: 14px; color: #475569; line-height: 1.7; margin: 0;">{v.desc}</p>
+            <div class="animate-on-scroll card-hover" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 26px 22px;">
+              <div style="font-size: 26px; margin-bottom: 12px;">{v.icon}</div>
+              <h3 style="font-family: Sora, sans-serif; font-size: 17px; font-weight: 700; color: white; margin: 0 0 8px;">{v.title}</h3>
+              <p style="font-size: 14px; color: #9fb2d9; line-height: 1.7; margin: 0;">{v.desc}</p>
             </div>
           ))}
         </div>
@@ -80,23 +81,26 @@ import {
     </section>
 
     <!-- Founder -->
-    <section style="padding: 72px 24px; background: #f8faff;">
-      <div style="max-width: 700px; margin: 0 auto;">
-        <div class="animate-on-scroll" style="background: white; border: 1px solid #cbd5e1; border-radius: 16px; padding: 36px 32px; display: flex; gap: 20px; align-items: flex-start;">
-          <div style="width: 56px; height: 56px; border-radius: 50%; background: #1B4FD8; color: white; font-family: Sora, sans-serif; font-weight: 700; font-size: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+    <section style="padding: 88px 24px; background: white;">
+      <div style="max-width: 680px; margin: 0 auto; text-align: center;">
+        <div style="font-family: Sora, sans-serif; font-size: 64px; line-height: 1; color: #dbe4ff; margin-bottom: 4px;">&#8220;</div>
+        <p style="font-family: Sora, sans-serif; font-size: clamp(19px, 2.6vw, 24px); font-weight: 600; color: #0f172a; line-height: 1.55; margin: 0 0 28px; letter-spacing: -0.01em;">
+          {ABOUT_FOUNDER.quote}
+        </p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: #1B4FD8; color: white; font-family: Sora, sans-serif; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center;">
             DK
           </div>
-          <div>
-            <p style="font-size: 15.5px; color: #334155; line-height: 1.8; margin: 0 0 14px; font-style: italic;">"{ABOUT_FOUNDER.quote}"</p>
+          <div style="text-align: left;">
             <p style="font-family: Sora, sans-serif; font-size: 15px; font-weight: 700; color: #0f172a; margin: 0;">{ABOUT_FOUNDER.name}</p>
-            <p style="font-size: 13px; color: #94a3b8; margin: 2px 0 0;">{ABOUT_FOUNDER.role}</p>
+            <p style="font-size: 13px; color: #94a3b8; margin: 1px 0 0;">{ABOUT_FOUNDER.role}</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Markets -->
-    <section style="padding: 72px 24px; background: white;">
+    <section style="padding: 72px 24px; background: #f8faff;">
       <div style="max-width: 1100px; margin: 0 auto;">
         <div class="animate-on-scroll" style="text-align: center; margin-bottom: 48px;">
           <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #0f172a; margin: 0 0 12px;">
@@ -106,10 +110,10 @@ import {
             {MARKETS_SECTION.sub}
           </p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+        <div class="about-markets-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
           {MARKETS.map(market => (
-            <div class="animate-on-scroll card-hover" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 14px; padding: 28px 24px; text-align: center;">
-              <div style="font-size: 40px; margin-bottom: 12px;">{market.flag}</div>
+            <div class="animate-on-scroll card-hover" style="background: white; border: 1px solid #cbd5e1; border-radius: 14px; padding: 28px 24px; text-align: center;">
+              <div style={`width: 52px; height: 52px; border-radius: 50%; background: ${market.bg}; color: ${market.color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-family: Sora, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.02em;`}>{market.code}</div>
               <h3 style="font-family: Sora, sans-serif; font-size: 18px; font-weight: 700; color: #0f172a; margin: 0 0 10px;">
                 {market.market}
               </h3>
@@ -137,4 +141,15 @@ import {
       </div>
     </section>
   </main>
+
+  <style>
+    @media (max-width: 860px) {
+      .about-values-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .about-markets-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 520px) {
+      .about-values-grid { grid-template-columns: 1fr !important; }
+      .about-markets-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </BaseLayout>

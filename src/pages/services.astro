@@ -99,7 +99,7 @@ import { SERVICES_HERO, SERVICES_SECTION, SERVICES_CARDS, SERVICES_TESTIMONIALS_
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
           {MARKETS.map(market => (
             <div class="animate-on-scroll card-hover" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 14px; padding: 28px 24px; text-align: center;">
-              <div style="font-size: 40px; margin-bottom: 12px;">{market.flag}</div>
+              <div style={`width: 52px; height: 52px; border-radius: 50%; background: ${market.bg}; color: ${market.color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-family: Sora, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.02em;`}>{market.code}</div>
               <h3 style="font-family: Sora, sans-serif; font-size: 18px; font-weight: 700; color: #0f172a; margin: 0 0 10px;">
                 {market.market}
               </h3>
