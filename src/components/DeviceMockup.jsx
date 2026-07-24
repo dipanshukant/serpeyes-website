@@ -136,7 +136,7 @@ export default function DeviceMockup() {
   };
 
   return (
-    <div style={{ position: 'relative', maxWidth: 500, margin: '0 auto', padding: '48px 30px 108px 6px' }}>
+    <div style={{ position: 'relative', maxWidth: 500, margin: '0 auto', padding: '48px 30px 108px 6px', overflow: 'hidden' }}>
 
       {/* Badge, sits in the container's own top padding, never overlaps or pokes above it */}
       <div style={{ position: 'absolute', top: 10, left: 32, zIndex: 3, display: 'flex', alignItems: 'center', gap: 7, background: phase.accent, border: '1px solid rgba(255,255,255,0.35)', borderRadius: 100, padding: '6px 14px 6px 6px', boxShadow: '0 10px 22px rgba(0,0,0,0.4)', transition: `background ${FADE_MS}ms ease` }}>
@@ -238,8 +238,9 @@ export default function DeviceMockup() {
         </div>
       </div>
 
-      {/* Phone mockup, tucked into the empty bottom-right corner */}
-      <div style={{ position: 'absolute', right: -8, bottom: 44, width: 136, background: '#0f172a', borderRadius: 26, padding: 8, boxShadow: '0 20px 40px rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.12)' }}>
+      {/* Phone mockup, tucked into the empty bottom-right corner, tilted to match the laptop */}
+      <div style={{ position: 'absolute', right: 6, bottom: 44, perspective: 1000 }}>
+        <div style={{ position: 'relative', width: 136, background: '#0f172a', borderRadius: 26, padding: 8, boxShadow: '0 20px 40px rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.12)', transform: 'rotateY(-13deg) rotateX(2deg) rotate(1.5deg)', transformStyle: 'preserve-3d' }}>
         {/* Side buttons */}
         <div style={{ position: 'absolute', left: -2, top: 42, width: 2, height: 18, background: '#1e293b', borderRadius: '2px 0 0 2px' }} />
         <div style={{ position: 'absolute', left: -2, top: 68, width: 2, height: 30, background: '#1e293b', borderRadius: '2px 0 0 2px' }} />
@@ -273,6 +274,7 @@ export default function DeviceMockup() {
           <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: 7 }}>
             <div style={{ width: 40, height: 3, borderRadius: 2, background: '#cbd5e1' }} />
           </div>
+        </div>
         </div>
       </div>
     </div>
