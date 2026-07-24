@@ -5,7 +5,7 @@ const WhatsAppWidget = () => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   
   // WhatsApp number (replace with your actual number)
-  const whatsappNumber = "+6584401039"; // Replace with your actual WhatsApp number
+  const whatsappNumber = "+6581933964"; // Replace with your actual WhatsApp number
   
   // Show widget after page loads
   useEffect(() => {

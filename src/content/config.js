@@ -6,7 +6,7 @@
 export const SITE = {
   name: 'Serpeyes',
   email: 'hello@serpeyes.com',
-  phone: '+65 84401039',
+  phone: '+65 81933964',
   location: 'Singapore',
   copyright: '2026 Serpeyes. All rights reserved.',
 };
