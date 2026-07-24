@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DeviceMockup from '../components/DeviceMockup.astro';
+import DeviceMockup from '../components/DeviceMockup.jsx';
 import EarlyAccessForm from '../components/EarlyAccessForm.jsx';
 import FeatureCard from '../components/ui/FeatureCard.astro';
 import {
@@ -42,7 +42,7 @@ import {
           <p style="font-size: 13px; color: #64748b; margin-top: 20px;">{HERO.footnote}</p>
         </div>
         <div class="hero-split-visual">
-          <DeviceMockup />
+          <DeviceMockup client:load />
         </div>
       </div>
     </section>
