@@ -141,8 +141,8 @@ export default function DeviceMockup() {
       <div style={{ position: 'relative', background: 'white', borderRadius: 14, overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.08)' }}>
 
         {/* Badge pinned to the top-left corner, crossfades with phase */}
-        <div style={{ position: 'absolute', top: -24, left: 20, zIndex: 2, display: 'flex', alignItems: 'center', gap: 7, background: '#0f172a', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 100, padding: '6px 14px 6px 6px', boxShadow: '0 10px 22px rgba(0,0,0,0.35)' }}>
-          <div style={{ width: 22, height: 22, borderRadius: '50%', background: phase.tint, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, transition: `background ${FADE_MS}ms ease` }}>{phase.badgeIcon}</div>
+        <div style={{ position: 'absolute', top: -24, left: 20, zIndex: 2, display: 'flex', alignItems: 'center', gap: 7, background: phase.accent, border: '1px solid rgba(255,255,255,0.35)', borderRadius: 100, padding: '6px 14px 6px 6px', boxShadow: '0 10px 22px rgba(0,0,0,0.4)', transition: `background ${FADE_MS}ms ease` }}>
+          <div style={{ width: 22, height: 22, borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11 }}>{phase.badgeIcon}</div>
           <span style={{ ...fadeStyle, fontFamily: 'Sora, sans-serif', fontSize: 11, fontWeight: 600, color: 'white', whiteSpace: 'nowrap' }}>{phase.badgeText}</span>
         </div>
 
