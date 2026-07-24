@@ -233,13 +233,9 @@ export default function DeviceMockup() {
           <div style={{ height: 6, background: 'linear-gradient(180deg, #3d3d42 0%, #1a1a1c 100%)' }} />
 
           {/* Base / keyboard deck, angled enough to show its top face */}
-          <div style={{ position: 'relative', height: 46, background: 'linear-gradient(180deg, #313136 0%, #17171a 100%)', borderRadius: '3px 3px 11px 11px', margin: '0 -20px', boxShadow: '0 18px 30px rgba(0,0,0,0.5)', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 7, left: '9%', right: '9%', display: 'flex', flexWrap: 'wrap', gap: 3 }}>
-              {Array.from({ length: 44 }).map((_, i) => (
-                <div key={i} style={{ width: '3.2%', height: 6, background: 'rgba(255,255,255,0.07)', borderRadius: 1 }} />
-              ))}
-            </div>
-            <div style={{ position: 'absolute', bottom: 6, left: '50%', transform: 'translateX(-50%)', width: 76, height: 15, borderRadius: 4, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }} />
+          <div style={{ position: 'relative', height: 40, background: 'linear-gradient(180deg, #35353a 0%, #18181b 90%)', borderRadius: '3px 3px 11px 11px', margin: '0 -20px', boxShadow: '0 18px 30px rgba(0,0,0,0.5)', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'rgba(255,255,255,0.08)' }} />
+            <div style={{ position: 'absolute', bottom: 5, left: '50%', transform: 'translateX(-50%)', width: 64, height: 12, borderRadius: 3, border: '1px solid rgba(255,255,255,0.1)' }} />
           </div>
           <div style={{ width: '30%', height: 4, background: '#0a0a0b', borderRadius: '0 0 8px 8px', margin: '0 auto' }} />
         </div>
