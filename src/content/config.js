@@ -15,6 +15,7 @@ export const NAV_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Web Development', href: '/web-development' },
   { label: 'App Development', href: '/app-development' },
+  { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
 ];
 
@@ -380,6 +381,54 @@ export const MARKETS = [
 export const SERVICES_CTA = {
   headline: 'Not Sure Where to Start?',
   sub: 'Book a free 20 minute consultation and we will tell you exactly what your business needs, whether that is a new website, an app, stronger SEO or all three.',
+  btn: 'Book Free Consultation',
+};
+
+// ---- ABOUT PAGE ----
+
+export const ABOUT_HERO = {
+  badge: 'About Us',
+  headline: 'A Digital Growth Agency Built by Doing the Work',
+  sub: 'Serpeyes started as an SEO focused build and grew into a full digital growth agency because a great SEO strategy still needs a website and app worth ranking. Here is who we are and how we work.',
+  btn: 'Get a Free Consultation',
+};
+
+export const ABOUT_STORY = {
+  headline: 'Our Story',
+  paragraphs: [
+    'Serpeyes began with a simple frustration. SEO results only go so far when the website behind them is slow, hard to update or not built to convert. We kept referring that work out to other vendors until we decided to build the capability ourselves.',
+    'Today Serpeyes is a full digital growth agency. We build websites and apps, run SEO and AEO, and handle digital marketing, so every part of a business online presence works toward the same goal instead of being managed by five disconnected vendors.',
+    'We are based in Singapore and work with businesses across the UK, India and Southeast Asia, adapting every strategy to the market it needs to perform in.',
+  ],
+};
+
+export const ABOUT_MISSION = {
+  mission: 'Help businesses actually get found online, and grow because of it, by combining solid web development with AI driven SEO and answer engine optimisation. Less guesswork, more results.',
+  vision: 'To be the digital growth partner clients trust the way they would trust their sharpest in house team. Quick, data driven and never caught off guard by wherever search and AI decide to go next.',
+};
+
+export const ABOUT_VALUES_SECTION = {
+  badge: 'What We Stand For',
+  headline: 'Our Values',
+};
+
+export const ABOUT_VALUES = [
+  { title: 'Ownership', desc: 'If something is broken or unclear, that is the cue to fix it, not work around it.' },
+  { title: 'Integrity', desc: 'We do the right thing for a client even when it would be easier not to.' },
+  { title: 'Customer First', desc: 'If the client wins, we win. Every decision gets weighed against their outcome.' },
+  { title: 'Continuous Learning', desc: 'Search and AI change constantly, so staying current is part of the job, not an extra.' },
+  { title: 'Teamwork', desc: 'Websites, apps, SEO and marketing are built by one connected team, not siloed specialists.' },
+];
+
+export const ABOUT_FOUNDER = {
+  name: 'Dipanshu Kant',
+  role: 'Founder and CEO',
+  quote: 'Serpeyes started as one person trying to build smarter, AI powered tools. It grew into a team that cares about doing the work properly and building things that actually move the needle for clients.',
+};
+
+export const ABOUT_CTA = {
+  headline: 'Want to Work With Us?',
+  sub: 'Book a free consultation and tell us about your business. We will tell you honestly what would move the needle first.',
   btn: 'Book Free Consultation',
 };
 

@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  ABOUT_HERO,
+  ABOUT_STORY,
+  ABOUT_MISSION,
+  ABOUT_VALUES_SECTION,
+  ABOUT_VALUES,
+  ABOUT_FOUNDER,
+  ABOUT_CTA,
+  MARKETS_SECTION,
+  MARKETS,
+} from '../content/config.js';
+---
+
+<BaseLayout
+  title="About Serpeyes - Digital Growth Agency"
+  description="Serpeyes is a digital growth agency for websites, apps, SEO, AEO and digital marketing. Here is our story, mission and values."
+>
+  <main>
+    <section style="padding: 80px 24px 64px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
+      <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+        <span class="badge" style="margin-bottom: 16px; display: inline-block;">{ABOUT_HERO.badge}</span>
+        <h1 style="font-family: Sora, sans-serif; font-size: clamp(30px, 5vw, 50px); font-weight: 700; color: #0f172a; margin: 0 0 20px; letter-spacing: -0.02em;">
+          {ABOUT_HERO.headline}
+        </h1>
+        <p style="font-size: 17px; color: #475569; line-height: 1.7; margin: 0 0 36px;">
+          {ABOUT_HERO.sub}
+        </p>
+        <a href="/request-demo" class="btn-primary" style="padding: 14px 32px; border-radius: 10px; font-size: 16px; text-decoration: none; display: inline-block;">
+          {ABOUT_HERO.btn}
+        </a>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section style="padding: 72px 24px; background: white;">
+      <div style="max-width: 720px; margin: 0 auto;">
+        <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 34px); font-weight: 700; color: #0f172a; margin: 0 0 24px; letter-spacing: -0.02em;">
+          {ABOUT_STORY.headline}
+        </h2>
+        {ABOUT_STORY.paragraphs.map(p => (
+          <p style="font-size: 16px; color: #475569; line-height: 1.8; margin: 0 0 18px;">{p}</p>
+        ))}
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section style="padding: 72px 24px; background: #f8faff;">
+      <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        <div class="animate-on-scroll card-hover" style="background: white; border: 1px solid #cbd5e1; border-radius: 16px; padding: 32px 28px;">
+          <span class="badge" style="margin-bottom: 14px; display: inline-block;">Our Mission</span>
+          <p style="font-size: 15.5px; color: #475569; line-height: 1.8; margin: 0;">{ABOUT_MISSION.mission}</p>
+        </div>
+        <div class="animate-on-scroll card-hover" style="background: white; border: 1px solid #cbd5e1; border-radius: 16px; padding: 32px 28px;">
+          <span class="badge" style="margin-bottom: 14px; display: inline-block;">Our Vision</span>
+          <p style="font-size: 15.5px; color: #475569; line-height: 1.8; margin: 0;">{ABOUT_MISSION.vision}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section style="padding: 72px 24px; background: white;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <div class="animate-on-scroll" style="text-align: center; margin-bottom: 48px;">
+          <span class="badge" style="margin-bottom: 14px; display: inline-block;">{ABOUT_VALUES_SECTION.badge}</span>
+          <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #0f172a; margin: 0; letter-spacing: -0.02em;">
+            {ABOUT_VALUES_SECTION.headline}
+          </h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          {ABOUT_VALUES.map(v => (
+            <div class="animate-on-scroll card-hover" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 14px; padding: 24px 22px;">
+              <h3 style="font-family: Sora, sans-serif; font-size: 17px; font-weight: 700; color: #0f172a; margin: 0 0 8px;">{v.title}</h3>
+              <p style="font-size: 14px; color: #475569; line-height: 1.7; margin: 0;">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder -->
+    <section style="padding: 72px 24px; background: #f8faff;">
+      <div style="max-width: 700px; margin: 0 auto;">
+        <div class="animate-on-scroll" style="background: white; border: 1px solid #cbd5e1; border-radius: 16px; padding: 36px 32px; display: flex; gap: 20px; align-items: flex-start;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: #1B4FD8; color: white; font-family: Sora, sans-serif; font-weight: 700; font-size: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            DK
+          </div>
+          <div>
+            <p style="font-size: 15.5px; color: #334155; line-height: 1.8; margin: 0 0 14px; font-style: italic;">"{ABOUT_FOUNDER.quote}"</p>
+            <p style="font-family: Sora, sans-serif; font-size: 15px; font-weight: 700; color: #0f172a; margin: 0;">{ABOUT_FOUNDER.name}</p>
+            <p style="font-size: 13px; color: #94a3b8; margin: 2px 0 0;">{ABOUT_FOUNDER.role}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Markets -->
+    <section style="padding: 72px 24px; background: white;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <div class="animate-on-scroll" style="text-align: center; margin-bottom: 48px;">
+          <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #0f172a; margin: 0 0 12px;">
+            {MARKETS_SECTION.headline}
+          </h2>
+          <p style="font-size: 16px; color: #64748b; max-width: 700px; margin: 0 auto;">
+            {MARKETS_SECTION.sub}
+          </p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+          {MARKETS.map(market => (
+            <div class="animate-on-scroll card-hover" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 14px; padding: 28px 24px; text-align: center;">
+              <div style="font-size: 40px; margin-bottom: 12px;">{market.flag}</div>
+              <h3 style="font-family: Sora, sans-serif; font-size: 18px; font-weight: 700; color: #0f172a; margin: 0 0 10px;">
+                {market.market}
+              </h3>
+              <p style="font-size: 14px; color: #475569; line-height: 1.7; margin: 0;">
+                {market.note}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 80px 24px; background: linear-gradient(135deg, #1B4FD8 0%, #1640c4 100%);">
+      <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: white; margin: 0 0 16px; letter-spacing: -0.02em;">
+          {ABOUT_CTA.headline}
+        </h2>
+        <p style="font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.7; margin: 0 0 32px;">
+          {ABOUT_CTA.sub}
+        </p>
+        <a href="/request-demo" style="padding: 14px 32px; background: white; color: #1B4FD8; border: none; border-radius: 10px; font-weight: 600; font-size: 16px; cursor: pointer; font-family: DM Sans, sans-serif; text-decoration: none; display: inline-block;">
+          {ABOUT_CTA.btn}
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

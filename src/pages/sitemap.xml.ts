@@ -28,6 +28,12 @@ export const GET: APIRoute = ({ site }) => {
       lastmod: new Date().toISOString(),
     },
     {
+      url: '/about',
+      changefreq: 'monthly',
+      priority: 0.7,
+      lastmod: new Date().toISOString(),
+    },
+    {
       url: '/request-demo',
       changefreq: 'monthly',
       priority: 0.8,
