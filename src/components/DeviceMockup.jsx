@@ -146,7 +146,7 @@ export default function DeviceMockup() {
 
       {/* Laptop group: bezel + screen + hinge + base, tilted as one rigid unit */}
       <div style={{ perspective: 1400 }}>
-        <div style={{ position: 'relative', transform: 'rotateY(13deg) rotateX(2deg) rotate(-1.5deg)', transformStyle: 'preserve-3d', transformOrigin: 'center center' }}>
+        <div style={{ position: 'relative', transform: 'rotateY(-13deg) rotateX(2deg) rotate(1.5deg)', transformStyle: 'preserve-3d', transformOrigin: 'center center' }}>
 
           {/* Laptop bezel */}
           <div style={{ background: 'linear-gradient(160deg, #2c2c31 0%, #131316 100%)', borderRadius: '15px 15px 4px 4px', padding: '15px 15px 11px', boxShadow: '0 40px 70px rgba(0,0,0,0.5)' }}>
