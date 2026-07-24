@@ -144,105 +144,112 @@ export default function DeviceMockup() {
         <span style={{ ...fadeStyle, fontFamily: 'Sora, sans-serif', fontSize: 11, fontWeight: 600, color: 'white', whiteSpace: 'nowrap' }}>{phase.badgeText}</span>
       </div>
 
-      {/* Laptop: flat, front-on, no tilt */}
-      <div style={{ position: 'relative' }}>
+      {/* Laptop group: bezel + screen + hinge + base, tilted as one rigid unit */}
+      <div style={{ perspective: 1400 }}>
+        <div style={{ position: 'relative', transform: 'rotateY(-13deg) rotateX(12deg) rotate(1.5deg)', transformStyle: 'preserve-3d', transformOrigin: 'center center' }}>
 
-        {/* Screen bezel */}
-        <div style={{ background: '#18181b', borderRadius: '13px 13px 3px 3px', padding: '13px 13px 9px', boxShadow: '0 30px 55px rgba(0,0,0,0.4)' }}>
-          <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#000', boxShadow: 'inset 0 0 0 1px #3f3f45', margin: '0 auto 9px' }} />
+          {/* Laptop bezel */}
+          <div style={{ background: 'linear-gradient(160deg, #2c2c31 0%, #131316 100%)', borderRadius: '15px 15px 4px 4px', padding: '15px 15px 11px', boxShadow: '0 40px 70px rgba(0,0,0,0.5)' }}>
+            <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#000', boxShadow: 'inset 0 0 0 1px #45454a', margin: '0 auto 11px' }} />
 
-          {/* Screen */}
-          <div style={{ background: 'white', borderRadius: 5, overflow: 'hidden' }}>
-            <div style={{ background: '#f1f5f9', borderBottom: '1px solid #e2e8f0', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div style={{ display: 'flex', gap: 5 }}>
-                <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#ef4444' }} />
-                <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#f59e0b' }} />
-                <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#22c55e' }} />
-              </div>
-              <div style={{ flex: 1, background: 'white', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 10px', fontSize: 11, color: '#94a3b8', fontFamily: 'DM Sans, sans-serif' }}>
-                yourbusiness.com
-              </div>
-            </div>
-
-            {/* Service tab strip */}
-            <div style={{ display: 'flex', gap: 4, padding: '10px 14px', borderBottom: '1px solid #f1f5f9', background: '#fbfcfe' }}>
-              {PHASES.map((p, i) => (
-                <button
-                  key={p.key}
-                  onClick={() => handleTabClick(i)}
-                  style={{
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontFamily: 'Sora, sans-serif',
-                    fontSize: 10.5,
-                    fontWeight: 700,
-                    padding: '5px 10px',
-                    borderRadius: 100,
-                    background: i === index ? p.accent : 'transparent',
-                    color: i === index ? 'white' : '#94a3b8',
-                    transition: 'background 0.25s ease, color 0.25s ease',
-                  }}
-                >
-                  {p.label}
-                </button>
-              ))}
-            </div>
-
-            <div style={{ padding: 20, fontFamily: 'DM Sans, sans-serif' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-                  <div style={{ width: 22, height: 22, background: phase.accent, borderRadius: 6, flexShrink: 0, transition: `background ${FADE_MS}ms ease` }} />
-                  <span style={{ fontFamily: 'Sora, sans-serif', fontSize: 13, fontWeight: 700, color: '#0f172a' }}>YourBrand</span>
+            {/* Screen */}
+            <div style={{ background: 'white', borderRadius: 6, overflow: 'hidden' }}>
+              <div style={{ background: '#f1f5f9', borderBottom: '1px solid #e2e8f0', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{ display: 'flex', gap: 5 }}>
+                  <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#ef4444' }} />
+                  <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#f59e0b' }} />
+                  <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#22c55e' }} />
                 </div>
-                <div style={{ display: 'flex', gap: 14, fontSize: 11, color: '#64748b', fontWeight: 600 }}>
-                  <span>Services</span>
-                  <span>Work</span>
-                  <span>Contact</span>
+                <div style={{ flex: 1, background: 'white', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 10px', fontSize: 11, color: '#94a3b8', fontFamily: 'DM Sans, sans-serif' }}>
+                  yourbusiness.com
                 </div>
               </div>
 
-              <h3 style={{ fontFamily: 'Sora, sans-serif', fontSize: 19, fontWeight: 700, color: '#0f172a', margin: '0 0 8px', lineHeight: 1.25 }}>
-                Grow Your Business Online
-              </h3>
-              <p style={{ ...fadeStyle, fontSize: 12, color: '#64748b', lineHeight: 1.6, margin: '0 0 18px', maxWidth: 300, minHeight: 32 }}>
-                {phase.tagline}
-              </p>
-
-              <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
-                <div style={{ height: 30, padding: '0 16px', background: phase.accent, borderRadius: 7, display: 'flex', alignItems: 'center', fontSize: 12, fontWeight: 700, color: 'white', fontFamily: 'Sora, sans-serif', transition: `background ${FADE_MS}ms ease` }}>Get Started</div>
-                <div style={{ height: 30, padding: '0 16px', background: 'white', border: `1.5px solid ${phase.accent}`, borderRadius: 7, display: 'flex', alignItems: 'center', fontSize: 12, fontWeight: 700, color: phase.accent, fontFamily: 'Sora, sans-serif', transition: `border-color ${FADE_MS}ms ease, color ${FADE_MS}ms ease` }}>Learn More</div>
-              </div>
-
-              <div style={{ ...fadeStyle, display: 'flex', gap: 10 }}>
-                {phase.stats.map((s, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, background: phase.tint, border: '1px solid #eef2f8', borderRadius: 8, padding: '9px 12px', width: 128, flexShrink: 0 }}>
-                    <span style={{ fontSize: 15 }}>{s.icon}</span>
-                    <div>
-                      <div style={{ fontFamily: 'Sora, sans-serif', fontSize: 14, fontWeight: 700, color: phase.accent, lineHeight: 1.1 }}>{s.value}</div>
-                      <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>{s.label}</div>
-                    </div>
-                  </div>
+              {/* Service tab strip */}
+              <div style={{ display: 'flex', gap: 4, padding: '10px 14px', borderBottom: '1px solid #f1f5f9', background: '#fbfcfe' }}>
+                {PHASES.map((p, i) => (
+                  <button
+                    key={p.key}
+                    onClick={() => handleTabClick(i)}
+                    style={{
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontFamily: 'Sora, sans-serif',
+                      fontSize: 10.5,
+                      fontWeight: 700,
+                      padding: '5px 10px',
+                      borderRadius: 100,
+                      background: i === index ? p.accent : 'transparent',
+                      color: i === index ? 'white' : '#94a3b8',
+                      transition: 'background 0.25s ease, color 0.25s ease',
+                    }}
+                  >
+                    {p.label}
+                  </button>
                 ))}
+              </div>
+
+              <div style={{ padding: 20, fontFamily: 'DM Sans, sans-serif' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+                    <div style={{ width: 22, height: 22, background: phase.accent, borderRadius: 6, flexShrink: 0, transition: `background ${FADE_MS}ms ease` }} />
+                    <span style={{ fontFamily: 'Sora, sans-serif', fontSize: 13, fontWeight: 700, color: '#0f172a' }}>YourBrand</span>
+                  </div>
+                  <div style={{ display: 'flex', gap: 14, fontSize: 11, color: '#64748b', fontWeight: 600 }}>
+                    <span>Services</span>
+                    <span>Work</span>
+                    <span>Contact</span>
+                  </div>
+                </div>
+
+                <h3 style={{ fontFamily: 'Sora, sans-serif', fontSize: 19, fontWeight: 700, color: '#0f172a', margin: '0 0 8px', lineHeight: 1.25 }}>
+                  Grow Your Business Online
+                </h3>
+                <p style={{ ...fadeStyle, fontSize: 12, color: '#64748b', lineHeight: 1.6, margin: '0 0 18px', maxWidth: 300, minHeight: 32 }}>
+                  {phase.tagline}
+                </p>
+
+                <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
+                  <div style={{ height: 30, padding: '0 16px', background: phase.accent, borderRadius: 7, display: 'flex', alignItems: 'center', fontSize: 12, fontWeight: 700, color: 'white', fontFamily: 'Sora, sans-serif', transition: `background ${FADE_MS}ms ease` }}>Get Started</div>
+                  <div style={{ height: 30, padding: '0 16px', background: 'white', border: `1.5px solid ${phase.accent}`, borderRadius: 7, display: 'flex', alignItems: 'center', fontSize: 12, fontWeight: 700, color: phase.accent, fontFamily: 'Sora, sans-serif', transition: `border-color ${FADE_MS}ms ease, color ${FADE_MS}ms ease` }}>Learn More</div>
+                </div>
+
+                <div style={{ ...fadeStyle, display: 'flex', gap: 10 }}>
+                  {phase.stats.map((s, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, background: phase.tint, border: '1px solid #eef2f8', borderRadius: 8, padding: '9px 12px', width: 128, flexShrink: 0 }}>
+                      <span style={{ fontSize: 15 }}>{s.icon}</span>
+                      <div>
+                        <div style={{ fontFamily: 'Sora, sans-serif', fontSize: 14, fontWeight: 700, color: phase.accent, lineHeight: 1.1 }}>{s.value}</div>
+                        <div style={{ fontSize: 9, color: '#64748b', fontWeight: 600 }}>{s.label}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Base: silver wedge, wider than the screen, with a trackpad-latch notch */}
-        <div style={{ position: 'relative', height: 16, background: 'linear-gradient(180deg, #e4e6eb 0%, #b9bcc4 100%)', margin: '0 -22px', borderRadius: '0 0 8px 8px', boxShadow: '0 14px 24px rgba(0,0,0,0.35)' }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'rgba(255,255,255,0.6)' }} />
-          <div style={{ position: 'absolute', top: -2, left: '50%', transform: 'translateX(-50%)', width: 56, height: 5, borderRadius: '0 0 6px 6px', background: '#9a9da6' }} />
+          {/* Hinge */}
+          <div style={{ height: 6, background: 'linear-gradient(180deg, #3d3d42 0%, #1a1a1c 100%)' }} />
+
+          {/* Base / keyboard deck, angled enough to show its top face */}
+          <div style={{ position: 'relative', height: 40, background: 'linear-gradient(180deg, #35353a 0%, #18181b 90%)', borderRadius: '3px 3px 11px 11px', margin: '0 -20px', boxShadow: '0 18px 30px rgba(0,0,0,0.5)', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'rgba(255,255,255,0.08)' }} />
+            <div style={{ position: 'absolute', bottom: 5, left: '50%', transform: 'translateX(-50%)', width: 64, height: 12, borderRadius: 3, border: '1px solid rgba(255,255,255,0.1)' }} />
+          </div>
+          <div style={{ width: '30%', height: 4, background: '#0a0a0b', borderRadius: '0 0 8px 8px', margin: '0 auto' }} />
         </div>
       </div>
 
-      {/* Phone mockup, tucked into the empty bottom-right corner, flat like the laptop */}
-      <div style={{ position: 'absolute', right: 4, bottom: 44, width: 136, background: '#0f172a', borderRadius: 26, padding: 8, boxShadow: '0 20px 40px rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.12)' }}>
-        {/* Side buttons */}
-        <div style={{ position: 'absolute', left: -2, top: 42, width: 2, height: 18, background: '#1e293b', borderRadius: '2px 0 0 2px' }} />
-        <div style={{ position: 'absolute', left: -2, top: 68, width: 2, height: 30, background: '#1e293b', borderRadius: '2px 0 0 2px' }} />
-        <div style={{ position: 'absolute', right: -2, top: 78, width: 2, height: 40, background: '#1e293b', borderRadius: '0 2px 2px 0' }} />
+      {/* Phone mockup, tucked into the empty bottom-right corner, tilted to match the laptop */}
+      <div style={{ position: 'absolute', right: 4, bottom: 44, perspective: 1000 }}>
+        <div style={{ position: 'relative', width: 136, background: '#0f172a', borderRadius: 26, padding: 8, boxShadow: '0 20px 40px rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.12)', transform: 'rotateY(-16deg) rotateX(3deg) rotate(2deg)', transformStyle: 'preserve-3d' }}>
+          {/* Side buttons */}
+          <div style={{ position: 'absolute', left: -2, top: 42, width: 2, height: 18, background: '#1e293b', borderRadius: '2px 0 0 2px' }} />
+          <div style={{ position: 'absolute', left: -2, top: 68, width: 2, height: 30, background: '#1e293b', borderRadius: '2px 0 0 2px' }} />
+          <div style={{ position: 'absolute', right: -2, top: 78, width: 2, height: 40, background: '#1e293b', borderRadius: '0 2px 2px 0' }} />
 
-        <div style={{ position: 'relative', background: 'white', borderRadius: 19, overflow: 'hidden', fontFamily: 'DM Sans, sans-serif' }}>
+          <div style={{ position: 'relative', background: 'white', borderRadius: 19, overflow: 'hidden', fontFamily: 'DM Sans, sans-serif' }}>
           {/* Notch */}
           <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 46, height: 14, background: '#0f172a', borderRadius: '0 0 10px 10px', zIndex: 2 }} />
 
@@ -270,6 +277,7 @@ export default function DeviceMockup() {
           <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: 7 }}>
             <div style={{ width: 40, height: 3, borderRadius: 2, background: '#cbd5e1' }} />
           </div>
+        </div>
         </div>
       </div>
     </div>
