@@ -104,12 +104,8 @@ export default function DeviceMockup() {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const timerRef = useRef(null);
-  const reducedMotionRef = useRef(false);
 
   useEffect(() => {
-    reducedMotionRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reducedMotionRef.current) return;
-
     timerRef.current = setInterval(() => {
       goTo((index + 1) % PHASES.length);
     }, AUTO_ADVANCE_MS);
@@ -140,17 +136,17 @@ export default function DeviceMockup() {
   };
 
   return (
-    <div style={{ position: 'relative', maxWidth: 480, margin: '0 auto', padding: '20px 24px 92px 0' }}>
+    <div style={{ position: 'relative', maxWidth: 480, margin: '0 auto', padding: '44px 24px 92px 0' }}>
       {/* Browser window */}
       <div style={{ position: 'relative', background: 'white', borderRadius: 14, overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.08)' }}>
 
         {/* Badge pinned to the top-left corner, crossfades with phase */}
-        <div style={{ position: 'absolute', top: -14, left: 20, zIndex: 2, display: 'flex', alignItems: 'center', gap: 7, background: '#0f172a', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 100, padding: '6px 14px 6px 6px', boxShadow: '0 10px 22px rgba(0,0,0,0.35)' }}>
+        <div style={{ position: 'absolute', top: -24, left: 20, zIndex: 2, display: 'flex', alignItems: 'center', gap: 7, background: '#0f172a', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 100, padding: '6px 14px 6px 6px', boxShadow: '0 10px 22px rgba(0,0,0,0.35)' }}>
           <div style={{ width: 22, height: 22, borderRadius: '50%', background: phase.tint, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, transition: `background ${FADE_MS}ms ease` }}>{phase.badgeIcon}</div>
           <span style={{ ...fadeStyle, fontFamily: 'Sora, sans-serif', fontSize: 11, fontWeight: 600, color: 'white', whiteSpace: 'nowrap' }}>{phase.badgeText}</span>
         </div>
 
-        <div style={{ background: '#f1f5f9', borderBottom: '1px solid #e2e8f0', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10, marginTop: 14 }}>
+        <div style={{ background: '#f1f5f9', borderBottom: '1px solid #e2e8f0', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10, marginTop: 26 }}>
           <div style={{ display: 'flex', gap: 5 }}>
             <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#ef4444' }} />
             <div style={{ width: 9, height: 9, borderRadius: '50%', background: '#f59e0b' }} />
