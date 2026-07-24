@@ -25,6 +25,7 @@ export default function EarlyAccessForm() {
     <div style={{ display: 'flex', gap: 8, maxWidth: 460, margin: '0 auto', flexWrap: 'wrap' }}>
       <input
         type="email"
+        className="early-access-input"
         placeholder={CTA_SECTION.placeholder}
         value={email}
         onChange={e => setEmail(e.target.value)}
@@ -32,6 +33,12 @@ export default function EarlyAccessForm() {
         onFocus={e => e.target.style.borderColor = 'white'}
         onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.3)'}
       />
+      <style>{`
+        .early-access-input::placeholder {
+          color: white;
+          opacity: 0.85;
+        }
+      `}</style>
       <button
         style={{ padding: '14px 24px', background: 'white', color: '#1B4FD8', border: 'none', borderRadius: 10, fontWeight: 600, fontSize: 15, cursor: 'pointer', fontFamily: 'DM Sans, sans-serif', transition: 'transform 0.15s ease' }}
         onClick={handleSubmit}
