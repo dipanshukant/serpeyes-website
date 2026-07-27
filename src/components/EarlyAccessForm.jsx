@@ -14,7 +14,9 @@ export default function EarlyAccessForm() {
   if (submitted) {
     return (
       <div style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 12, padding: '24px', color: 'white' }}>
-        <div style={{ fontSize: 32, marginBottom: 8 }}>🎉</div>
+        <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+        </div>
         <p style={{ fontSize: 17, fontWeight: 600, margin: '0 0 8px' }}>{CTA_SECTION.successTitle}</p>
         <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', margin: 0 }}>{CTA_SECTION.successSub}</p>
       </div>

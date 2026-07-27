@@ -71,7 +71,7 @@ import {
         <div class="about-values-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
           {ABOUT_VALUES.map(v => (
             <div class="animate-on-scroll card-hover" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 26px 22px;">
-              <div style="font-size: 26px; margin-bottom: 12px;">{v.icon}</div>
+              <div style="width: 34px; height: 34px; margin-bottom: 12px;" set:html={v.icon} />
               <h3 style="font-family: Sora, sans-serif; font-size: 17px; font-weight: 700; color: white; margin: 0 0 8px;">{v.title}</h3>
               <p style="font-size: 14px; color: #9fb2d9; line-height: 1.7; margin: 0;">{v.desc}</p>
             </div>

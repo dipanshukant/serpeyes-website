@@ -10,7 +10,7 @@ const { icon, title, description, dark = false } = Astro.props;
 ---
 
 <div class="animate-on-scroll card-hover" style={`background: ${dark ? '#1e293b' : '#f1f5f9'}; border: 1px solid ${dark ? '#334155' : '#cbd5e1'}; border-radius: 14px; padding: 28px 24px;`}>
-  <div style="font-size: 28px; margin-bottom: 14px;">{icon}</div>
+  <div style="width: 40px; height: 40px; margin-bottom: 14px;" set:html={icon} />
   <h3 style={`font-family: Sora, sans-serif; font-size: 17px; font-weight: 600; color: ${dark ? 'white' : '#0f172a'}; margin: 0 0 10px;`}>
     {title}
   </h3>

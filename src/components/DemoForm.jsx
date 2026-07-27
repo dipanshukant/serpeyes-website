@@ -96,7 +96,9 @@ export default function DemoForm() {
   if (submitted) {
     return (
       <div className="animate-on-scroll" style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 16, padding: '48px 32px', textAlign: 'center', fontFamily: 'Sora, sans-serif' }}>
-        <div style={{ width: 64, height: 64, background: '#dcfce7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontSize: 28 }}>✅</div>
+        <div style={{ width: 64, height: 64, background: '#dcfce7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#166534" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+        </div>
         <h2 style={{ fontFamily: 'Sora, sans-serif', fontSize: 24, fontWeight: 700, color: '#166534', margin: '0 0 12px' }}>
           Enquiry Received!
         </h2>
