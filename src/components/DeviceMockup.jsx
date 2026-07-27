@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 // Homepage hero mockup, ported from the Claude Design project
-// "Homepage Mockup Animation". Cycles through five services with a dark
-// glowing panel, sliding tab indicator, and gentle float animations.
+// "Homepage Mockup Animation". Cycles through five services, no background
+// panel or glow, just the floating badge/laptop/phone on the hero itself.
 
 const TABS = [
   {
@@ -85,10 +85,8 @@ const CANVAS_H = 800;
 export default function DeviceMockup() {
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
-  const [scale, setScale] = useState(1);
   const timerRef = useRef(null);
   const fadeTimerRef = useRef(null);
-  const wrapperRef = useRef(null);
 
   useEffect(() => {
     timerRef.current = setInterval(() => advance(), ADVANCE_MS);
@@ -98,17 +96,6 @@ export default function DeviceMockup() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index]);
-
-  useEffect(() => {
-    const el = wrapperRef.current;
-    if (!el || typeof ResizeObserver === 'undefined') return;
-    const ro = new ResizeObserver(entries => {
-      const w = entries[0].contentRect.width;
-      if (w > 0) setScale(Math.min(1, w / CANVAS_W));
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
 
   const advance = () => {
     setFading(true);
@@ -136,29 +123,23 @@ export default function DeviceMockup() {
   const fontStack = { sora: "'Sora', sans-serif", dm: "'DM Sans', sans-serif" };
 
   return (
-    <div ref={wrapperRef} style={{ width: '100%', maxWidth: CANVAS_W, margin: '0 auto' }}>
+    <div style={{ width: '100%', maxWidth: CANVAS_W, aspectRatio: `${CANVAS_W} / ${CANVAS_H}`, position: 'relative', overflow: 'hidden', background: 'transparent', fontFamily: fontStack.dm, containerType: 'inline-size' }}>
       <style>{`
         @keyframes dmFloatLaptop { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         @keyframes dmFloatPhone { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
         @keyframes dmFloatBadge { 0%,100% { transform: translateY(0) rotate(3deg); } 50% { transform: translateY(-8px) rotate(1deg); } }
-        @keyframes dmDrift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(20px,-16px); } }
       `}</style>
 
-      <div style={{ width: CANVAS_W, height: CANVAS_H, transform: `scale(${scale})`, transformOrigin: 'top left' }}>
-        <div style={{ width: CANVAS_W, height: CANVAS_H, position: 'relative', overflow: 'hidden', background: 'radial-gradient(120% 100% at 20% 10%, #111634 0%, #0a0d1f 55%, #070912 100%)', borderRadius: 24, fontFamily: fontStack.dm }}>
-
-          {/* Glow blobs */}
-          <div style={{ position: 'absolute', width: 340, height: 340, borderRadius: '50%', top: -60, left: -80, background: accent, opacity: 0.22, filter: 'blur(70px)', transition: 'background 0.6s ease', animation: 'dmDrift 9s ease-in-out infinite' }} />
-          <div style={{ position: 'absolute', width: 300, height: 300, borderRadius: '50%', bottom: -60, right: -60, background: accent, opacity: 0.16, filter: 'blur(80px)', transition: 'background 0.6s ease', animation: 'dmDrift 11s ease-in-out infinite reverse' }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, width: CANVAS_W, height: CANVAS_H, transform: `scale(calc(0.85 * 100cqw / ${CANVAS_W}px))`, transformOrigin: 'top left' }}>
 
           {/* Badge */}
-          <div style={{ position: 'absolute', top: 80, left: 44, zIndex: 5, display: 'flex', alignItems: 'center', gap: 10, padding: '11px 20px 11px 12px', borderRadius: 999, background: accent, boxShadow: '0 14px 30px -8px rgba(0,0,0,0.55)', animation: 'dmFloatBadge 5s ease-in-out infinite', transition: 'background 0.6s ease' }}>
+          <div style={{ position: 'absolute', top: 80, left: 74, zIndex: 5, display: 'flex', alignItems: 'center', gap: 10, padding: '11px 20px 11px 12px', borderRadius: 999, background: accent, boxShadow: '0 14px 30px -8px rgba(0,0,0,0.55)', animation: 'dmFloatBadge 5s ease-in-out infinite', transition: 'background 0.6s ease' }}>
             <div style={{ width: 26, height: 26, borderRadius: '50%', background: 'rgba(255,255,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 14, fontWeight: 700, flexShrink: 0 }}>{active.badgeIcon}</div>
             <div style={{ color: '#fff', fontFamily: fontStack.dm, fontWeight: 700, fontSize: 14, whiteSpace: 'nowrap', opacity: contentOpacity, transform: contentShift, transition: 'opacity 0.3s ease, transform 0.3s ease' }}>{active.badgeText}</div>
           </div>
 
           {/* Laptop */}
-          <div style={{ position: 'absolute', top: 150, left: 44, width: 560, transform: 'rotate(4deg)', transformOrigin: 'top left' }}>
+          <div style={{ position: 'absolute', top: 150, left: 74, width: 560, transform: 'rotate(4deg)', transformOrigin: 'top left' }}>
             <div style={{ animation: 'dmFloatLaptop 6s ease-in-out infinite' }}>
               <div style={{ background: 'linear-gradient(180deg, #2b2f3a, #15171d)', borderRadius: 18, padding: '14px 14px 26px', boxShadow: '0 30px 60px -20px rgba(0,0,0,0.65)' }}>
                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#3a3d46', margin: '0 auto 10px' }} />
@@ -233,7 +214,7 @@ export default function DeviceMockup() {
           </div>
 
           {/* Phone */}
-          <div style={{ position: 'absolute', bottom: 6, right: 44, width: 200, transform: 'rotate(6deg)', zIndex: 6 }}>
+          <div style={{ position: 'absolute', bottom: 6, right: 14, width: 200, transform: 'rotate(6deg)', zIndex: 6 }}>
             <div style={{ animation: 'dmFloatPhone 5.5s ease-in-out infinite' }}>
               <div style={{ background: 'linear-gradient(180deg, #2b2f3a, #15171d)', borderRadius: 30, padding: 10, boxShadow: '0 24px 50px -16px rgba(0,0,0,0.6)' }}>
                 <div style={{ background: '#f8faff', borderRadius: 22, overflow: 'hidden', padding: '16px 14px 18px', position: 'relative' }}>
@@ -264,7 +245,6 @@ export default function DeviceMockup() {
             </div>
           </div>
 
-        </div>
       </div>
     </div>
   );
