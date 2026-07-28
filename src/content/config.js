@@ -431,7 +431,6 @@ export const ABOUT_VALUES = [
 ];
 
 export const ABOUT_FOUNDER = {
-  name: 'Dipanshu Kant',
   role: 'Founder and CEO',
   quote: 'Serpeyes started as one person trying to build smarter, AI powered tools. It grew into a team that cares about doing the work properly and building things that actually move the needle for clients.',
 };
