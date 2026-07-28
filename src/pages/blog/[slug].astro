@@ -29,8 +29,10 @@ const tocItems = isLaunchPost
       { id: 'why-this-matters', label: 'Why This Matters' },
       { id: 'the-questions-to-ask', label: 'The Questions to Ask' },
       { id: 'good-answer-vs-bad-answer', label: 'A Good Answer vs a Bad Answer' },
+      { id: 'why-different-from-seo', label: 'Different From Google SEO' },
       { id: 'how-to-fix-it', label: 'How to Fix It' },
       { id: 'how-often-to-check', label: 'How Often to Check' },
+      { id: 'a-few-quick-questions', label: 'A Few Quick Questions' },
       { id: 'get-help', label: 'Get Help If You Are Stuck' },
     ]
   : [
@@ -44,12 +46,56 @@ const tocItems = isLaunchPost
 const sameTagPosts = BLOG_POSTS.filter((item) => item.slug !== post.slug && item.tag === post.tag);
 const otherPosts = BLOG_POSTS.filter((item) => item.slug !== post.slug && item.tag !== post.tag);
 const relatedPosts = [...sameTagPosts, ...otherPosts].slice(0, 3);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.metaTitle || post.title,
+  description: post.metaDescription || post.excerpt,
+  datePublished: post.date,
+  dateModified: post.date,
+  image: new URL(post.featuredImage, Astro.site).toString(),
+  url: canonicalURL,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalURL },
+  author: { '@type': 'Organization', name: 'Serpeyes', url: 'https://serpeyes.com' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Serpeyes',
+    logo: { '@type': 'ImageObject', url: new URL('/logo.svg', Astro.site).toString() },
+  },
+};
+
+const faqSchema = isAeoCheckPost ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Does ranking high on Google mean I will show up in AI search too?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Not automatically. It can help, but AEO leans more on clear, consistent facts than on backlinks and search rankings.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which AI tool matters most, ChatGPT or Perplexity?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Check both, and Google AI Overviews too if you can. They pull information from different places and do not always give the same answer about the same business.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to start showing up after fixing my details?',
+      acceptedAnswer: { '@type': 'Answer', text: 'There is no fixed timeline. AI tools update on their own schedule, not yours, which is exactly why checking regularly matters more than getting it perfect once.' },
+    },
+  ],
+} : null;
 ---
 
 <BaseLayout
   title={post.metaTitle || `${post.title} - Serpeyes Blog`}
   description={post.metaDescription || post.excerpt}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <div id="reading-progress" style="position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #1B4FD8 0%, #3b82f6 100%); z-index: 100;"></div>
   <main>
     <section style="padding: 64px 24px 24px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
@@ -167,36 +213,57 @@ const relatedPosts = [...sameTagPosts, ...otherPosts].slice(0, 3);
               <>
                 <section id="why-this-matters" style="scroll-margin-top: 110px; margin-top: 26px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Why This Matters</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">More people are asking AI tools like ChatGPT for help finding a business. Instead of searching on Google, they just ask. If your business does not show up in that answer, that customer never finds you. They do not go looking further. They just pick from whatever the AI told them.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">More people are asking AI tools like ChatGPT, Perplexity and Google AI Overviews for help finding a business, instead of typing a search into Google and scrolling through a list of links. They ask a direct question and act on whatever the AI says back.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">This is usually called AI search, and the work of getting found in it is called AEO, short for Answer Engine Optimisation. It sounds similar to normal SEO, but it works differently. Ranking well on Google does not automatically mean an AI tool knows about your business, or that it will mention you when someone asks.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If your business does not show up in that answer, that customer does not go looking further to find you. They just pick from whatever the AI already told them. That is the whole problem this article is here to help you check, and fix.</p>
                 </section>
 
                 <section id="the-questions-to-ask" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">The Questions to Ask</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Open ChatGPT, Perplexity, or any AI chat tool you have. Type in the kind of question a real customer would ask. Not your business name. A real question, like they do not know you exist yet.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">For example, if you run an aircon company in Singapore, try asking, who is a good aircon company in Singapore. If you run a bakery in London, ask, where is a good bakery in London.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Ask it two or three different ways. Change a word here and there. See what comes back each time.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Open ChatGPT, Perplexity, or any AI chat tool you already use. Type in the kind of question a real customer would ask. Not your business name. A real question, written like you do not know your own business exists yet.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">For example, if you run an aircon company in Singapore, try asking, who is a good aircon company in Singapore. If you run a bakery in London, ask, where is a good bakery in London. If you run a law firm, ask, who is a reliable divorce lawyer in my city.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Ask it two or three different ways. Change a word here and there. Ask about the exact service first, then ask a more general question about your industry in your area.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Try more than one AI tool too. ChatGPT, Perplexity and Google AI Overviews do not always agree. What one of them knows about your business, another one might not have seen at all.</p>
                 </section>
 
                 <section id="good-answer-vs-bad-answer" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">A Good Answer vs a Bad Answer</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">A good answer names your business. It might even explain why, like your reviews, your services, or your location.</p>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">A bad answer either skips your business completely, or gets your details wrong. Wrong phone number. Wrong address. Wrong opening hours. That is almost worse than not showing up at all, because now the AI is telling people the wrong thing about you.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">A good answer names your business by name. Often it goes further and gives a short reason, pointing to your reviews, your specific services, or your location.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">A bad answer is one of two things. Either your business is skipped completely, or it shows up with wrong details. Wrong phone number. Wrong address. Wrong opening hours. Wrong services.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Wrong details are almost worse than not showing up at all, because the AI is now confidently telling a potential customer the wrong thing about you, and you have no way to correct it in the moment.</p>
+                </section>
+
+                <section id="why-different-from-seo" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Why This Is Different From Google SEO</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">You might already rank well on Google. That does not automatically carry over to AI search, and this surprises a lot of business owners the first time they check.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Google SEO is largely about ranking one page against millions of others, built up through backlinks, keywords and technical fixes over years. AEO cares about something more direct, whether an AI model has read clear, consistent facts about your business somewhere, and trusts those facts enough to repeat them to a stranger.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">A business with an ordinary Google ranking but clean, consistent information everywhere can genuinely beat a business that ranks page one on Google but has messy or contradictory details online. Ranking well on Google helps, but it does not guarantee you show up in AI search. The two are related. They are not the same job.</p>
                 </section>
 
                 <section id="how-to-fix-it" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">How to Fix It</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">If you did not show up, or the details were wrong, here is where to start. Do these in order.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">If you did not show up, or the details were wrong, here is where to start. Do these roughly in this order, because the earlier ones make the later ones actually work.</p>
                   <ul style="margin: 0 0 16px 20px; padding: 0; color: #334155; font-size: 16px; line-height: 1.9;">
-                    <li style="margin-bottom: 10px;"><strong>Make your details match everywhere.</strong> Your business name, address and phone number should be exactly the same on your website, your Google listing, and any directory you are on. Even small differences confuse AI tools.</li>
-                    <li style="margin-bottom: 10px;"><strong>Say what you do in plain words.</strong> Not just pretty pictures. Actual sentences like, we fix aircon units in Singapore, same day service available.</li>
-                    <li style="margin-bottom: 10px;"><strong>Keep your Google Business Profile filled in.</strong> Hours, photos, services, all of it. AI tools use this information too.</li>
-                    <li><strong>Get real reviews.</strong> AI tools notice when real customers are talking about a business online.</li>
+                    <li style="margin-bottom: 10px;"><strong>Make your details match everywhere.</strong> Your business name, address and phone number should be exactly the same on your website, your Google Business Profile, and any directory you are listed on. Even small differences, a missing unit number, an old phone number still floating around online, are enough to confuse AI tools about which details are actually correct.</li>
+                    <li style="margin-bottom: 10px;"><strong>Say what you do in plain words.</strong> Not just pretty pictures and a logo. Actual sentences an AI model can read and quote, like, we fix aircon units in Singapore, same day service available. If a page cannot be read and understood in plain text, it cannot be repeated back to a customer either.</li>
+                    <li style="margin-bottom: 10px;"><strong>Keep your Google Business Profile filled in.</strong> Hours, photos, services, categories, all of it. This is one of the sources AI tools lean on heavily for local business facts, and an empty or outdated profile actively works against you.</li>
+                    <li><strong>Get real reviews, and keep getting them.</strong> AI tools notice when real customers are actively talking about a business online. A handful of old reviews from years ago says something very different to these systems than a steady stream of recent ones.</li>
                   </ul>
                 </section>
 
                 <section id="how-often-to-check" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">How Often to Check</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Do this check every month or two. AI answers change as the tools update. What worked last month might not work today. This is not a once and done task.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Do this check every month or two, not just once. AI answers change as the underlying tools update, sometimes without any announcement. What worked last month might not work today, and what does not work today might start working next month for reasons that are not always visible from the outside. Treat it as an ongoing habit, not a task you cross off a list.</p>
+                </section>
+
+                <section id="a-few-quick-questions" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">A Few Quick Questions</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 6px;"><strong>Does ranking high on Google mean I will show up in AI search too?</strong></p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Not automatically. It can help, but AEO leans more on clear, consistent facts than on backlinks and search rankings.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 6px;"><strong>Which AI tool matters most, ChatGPT or Perplexity?</strong></p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Check both, and Google AI Overviews too if you can. They pull information from different places and do not always give the same answer about the same business.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 6px;"><strong>How long does it take to start showing up after fixing my details?</strong></p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">There is no fixed timeline. AI tools update on their own schedule, not yours, which is exactly why checking regularly matters more than getting it perfect once.</p>
                 </section>
 
                 <section id="get-help" style="scroll-margin-top: 110px; margin-top: 28px;">

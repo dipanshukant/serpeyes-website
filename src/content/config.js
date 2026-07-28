@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Serpeyes',
   email: 'hello@serpeyes.com',
   phone: '+65 81933964',
-  location: 'Singapore',
+  location: '11 E Coast Rd, #11-01 The Odeon Katong, Singapore 428722',
   copyright: '2026 Serpeyes. All rights reserved.',
 };
 
@@ -518,7 +518,7 @@ export const BLOG_POSTS = [
     tag: 'AEO',
     title: 'How to Check If Your Business Shows Up in AI Search (And What to Do If It Does Not)',
     metaTitle: 'Check If Your Business Shows Up in AI Search',
-    metaDescription: 'A simple way to see if ChatGPT and other AI tools know about your business, and what to fix if they do not.',
+    metaDescription: 'A simple way to check if ChatGPT and other AI tools know your business exists, and exactly what to do if they do not show up.',
     excerpt: 'A simple way to check if ChatGPT and other AI tools know your business exists, and exactly what to do if they do not.',
     date: 'Jul 2026',
     readTime: '5 min read',
