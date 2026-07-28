@@ -513,5 +513,16 @@ export const BLOG_HERO = {
 };
 
 export const BLOG_POSTS = [
+  {
+    slug: 'how-to-check-if-your-business-shows-up-in-ai-search',
+    tag: 'AEO',
+    title: 'How to Check If Your Business Shows Up in AI Search (And What to Do If It Does Not)',
+    metaTitle: 'Check If Your Business Shows Up in AI Search',
+    metaDescription: 'A simple way to see if ChatGPT and other AI tools know about your business, and what to fix if they do not.',
+    excerpt: 'A simple way to check if ChatGPT and other AI tools know your business exists, and exactly what to do if they do not.',
+    date: 'Jul 2026',
+    readTime: '5 min read',
+    featuredImage: '/logo.svg',
+  },
   { slug: 'serpeyes-digital-growth-agency-what-we-do', tag: 'Company Update', title: 'Serpeyes Is Now a Full Digital Growth Agency. Here Is What Changed.', excerpt: 'We have expanded from SEO into a complete digital growth agency: websites, apps, SEO, AEO and marketing. Here is what that means for our clients.', date: 'Jul 2026', readTime: '6 min read', featuredImage: '/logo.svg' },
 ];
