@@ -76,21 +76,21 @@ import {
     </section>
 
     <!-- Process: stepped vertical list, numbers mean something here -->
-    <section style="padding: 80px 24px; background: #f8faff;">
+    <section style="padding: 80px 24px; background: #0b1226;">
       <div style="max-width: 720px; margin: 0 auto;">
         <div style="margin-bottom: 44px;">
-          <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: #0f172a; margin: 0 0 12px; letter-spacing: -0.02em;">
+          <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: white; margin: 0 0 12px; letter-spacing: -0.02em;">
             {AEO_PROCESS_SECTION.headline}
           </h2>
-          <p style="font-size: 15.5px; color: #64748b; margin: 0;">{AEO_PROCESS_SECTION.sub}</p>
+          <p style="font-size: 15.5px; color: #9fb2d9; margin: 0;">{AEO_PROCESS_SECTION.sub}</p>
         </div>
         <div>
           {AEO_PROCESS.map((step, i) => (
-            <div style={`display: flex; gap: 24px; padding: 22px 0; ${i < AEO_PROCESS.length - 1 ? 'border-bottom: 1px solid #e2e8f0;' : ''}`}>
-              <div style="font-family: Sora, sans-serif; font-size: 22px; font-weight: 700; color: #cbd5e1; flex-shrink: 0; width: 44px;">{step.step}</div>
+            <div style={`display: flex; gap: 24px; padding: 22px 0; ${i < AEO_PROCESS.length - 1 ? 'border-bottom: 1px solid #253154;' : ''}`}>
+              <div style="font-family: Sora, sans-serif; font-size: 22px; font-weight: 700; color: #3b4d78; flex-shrink: 0; width: 44px;">{step.step}</div>
               <div>
-                <h3 style="font-family: Sora, sans-serif; font-size: 17px; font-weight: 700; color: #0f172a; margin: 0 0 6px;">{step.title}</h3>
-                <p style="font-size: 14.5px; color: #475569; line-height: 1.7; margin: 0;">{step.desc}</p>
+                <h3 style="font-family: Sora, sans-serif; font-size: 17px; font-weight: 700; color: white; margin: 0 0 6px;">{step.title}</h3>
+                <p style="font-size: 14.5px; color: #9fb2d9; line-height: 1.7; margin: 0;">{step.desc}</p>
               </div>
             </div>
           ))}
