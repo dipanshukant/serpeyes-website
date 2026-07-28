@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Serpeyes',
   email: 'hello@serpeyes.com',
   phone: '+65 81933964',
-  location: '11 E Coast Rd, #11-01 The Odeon Katong, Singapore 428722',
+  location: 'Singapore',
   copyright: '2026 Serpeyes. All rights reserved.',
 };
 
