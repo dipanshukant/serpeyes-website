@@ -14,6 +14,7 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
+  { label: 'AEO', href: '/aeo' },
   { label: 'Web Development', href: '/web-development' },
   { label: 'App Development', href: '/app-development' },
   { label: 'Blog', href: '/blog' },
@@ -439,6 +440,68 @@ export const ABOUT_CTA = {
   headline: 'Want to Work With Us?',
   sub: 'Book a free consultation and tell us about your business. We will tell you honestly what would move the needle first.',
   btn: 'Book Free Consultation',
+};
+
+// ---- AEO PAGE ----
+
+export const AEO_HERO = {
+  badge: 'A Newer Kind of Search',
+  headline: 'People Are Starting to Ask AI Instead of Google',
+  sub: 'Someone needs an aircon company, a lawyer, a web agency. A few years ago they would have typed it into Google. Now more and more people just ask ChatGPT or Perplexity directly, and act on whatever the AI tells them. If your business is not part of that answer, you were never in the running. That is the whole problem AEO exists to fix.',
+  btn: 'Find Out If You Are Missing',
+};
+
+export const AEO_COMPARISON = {
+  headline: 'The Same Question, Two Different Places to Show Up',
+  sub: 'This is not a new marketing channel stacked on top of the old one. It is the same customer intent, showing up somewhere your SEO does not reach.',
+  before: {
+    label: 'Google Search',
+    query: 'best aircon servicing singapore',
+    body: 'Ten blue links. Your ranking depends on backlinks, on page SEO, and years of accumulated authority. You have been optimising for this for a decade.',
+  },
+  after: {
+    label: 'Ask ChatGPT',
+    query: 'best aircon servicing singapore',
+    body: 'One written answer, usually naming two or three businesses by name, built from what the AI has read about them. No ranking position. No blue link. Either you are named, or you are not.',
+  },
+};
+
+export const AEO_EXPLAINER = {
+  headline: 'What AEO Actually Is',
+  paragraphs: [
+    'Answer Engine Optimisation is the practice of structuring your website and content so AI tools can actually find, understand and confidently repeat information about your business, instead of just crawling it for keywords.',
+    'It overlaps with SEO but is not the same job. Good SEO gets a page to rank. Good AEO gets a fact about your business, your services, your service area, your credibility, stated clearly enough that an AI model will quote it back to someone asking.',
+    'Nobody outside a handful of specialists has this fully figured out yet, including the AI companies themselves. What we do is grounded in what is currently observable: structured data, clear factual statements, consistent information across the web, and content written to directly answer the questions people actually ask.',
+  ],
+};
+
+export const AEO_PROCESS_SECTION = {
+  headline: 'How We Actually Approach It',
+  sub: 'Four steps, done in order, because doing them out of order wastes the earlier ones.',
+};
+
+export const AEO_PROCESS = [
+  { step: '01', title: 'Check where you stand', desc: 'We ask the AI tools directly, the same questions your customers would, and see whether your business comes up, gets it wrong, or is not there at all.' },
+  { step: '02', title: 'Fix the facts first', desc: 'Inconsistent business details across your site, directories and profiles actively hurt you here. We clean that up before anything else.' },
+  { step: '03', title: 'Write to be quoted', desc: 'Content structured as direct, unambiguous answers to real questions, not keyword-stuffed copy written for a ranking algorithm.' },
+  { step: '04', title: 'Recheck and adjust', desc: 'AI answers change as models update. We check again on a schedule, not once and forgotten.' },
+];
+
+export const AEO_LIMITS_SECTION = {
+  headline: 'What We Will Not Promise You',
+  sub: 'Anyone guaranteeing you will be cited by name in AI answers is guessing, same as anyone who used to guarantee a page one Google ranking.',
+};
+
+export const AEO_LIMITS = [
+  'AI answers change with every model update, sometimes overnight, in ways nobody outside the AI labs can fully predict.',
+  'There is no dashboard that reliably tracks every AI mention the way rank trackers do for Google. Measurement here is still catching up to the channel.',
+  'Some categories of business get named far more often than others. A local trade with clear, factual information tends to do better than a business selling something abstract.',
+];
+
+export const AEO_CTA = {
+  headline: 'Ask ChatGPT About Your Own Business Right Now',
+  sub: 'Try it yourself before you talk to us. Ask an AI tool something a real customer would ask about your industry, in your city, and see what comes back. Then tell us what you found.',
+  btn: 'Book a Free AEO Check',
 };
 
 // ---- BLOG PAGE ----
