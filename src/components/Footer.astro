@@ -37,7 +37,9 @@ import { SITE, NAV_LINKS, FOOTER_RESOURCES, FOOTER_SOCIALS } from '../content/co
       <div>
         <h4 style="color: white; font-family: Sora, sans-serif; font-size: 14px; font-weight: 600; margin: 0 0 16px;">Contact</h4>
         <p style="font-size: 14px; color: #64748b; margin: 0 0 8px;">{SITE.email}</p>
-        <p style="font-size: 14px; color: #64748b; margin: 0 0 8px;">{SITE.phone}</p>
+        {SITE.phones.map(p => (
+          <p style="font-size: 14px; color: #64748b; margin: 0 0 8px;">{p.flag} {p.number}</p>
+        ))}
         <p style="font-size: 14px; color: #64748b; margin: 0 0 20px;">{SITE.location}</p>
         <div style="display: flex; gap: 12px;">
           {FOOTER_SOCIALS.map(social => (
