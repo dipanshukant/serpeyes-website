@@ -7,8 +7,16 @@ export const SITE = {
   name: 'Serpeyes',
   email: 'hello@serpeyes.com',
   phones: [
-    { flag: '🇸🇬', number: '+65 81933964' },
-    { flag: '🇺🇸', number: '+1-840-877-8879' },
+    {
+      svg: `<svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="flag-sg"><rect width="20" height="14" rx="2"/></clipPath></defs><g clip-path="url(#flag-sg)"><rect width="20" height="7" fill="#EF3340"/><rect y="7" width="20" height="7" fill="#fff"/><circle cx="4.6" cy="3.5" r="2.1" fill="#fff"/><circle cx="5.5" cy="3.5" r="1.8" fill="#EF3340"/></g></svg>`,
+      number: '+65 81933964',
+      tel: '+6581933964',
+    },
+    {
+      svg: `<svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="flag-us"><rect width="20" height="14" rx="2"/></clipPath></defs><g clip-path="url(#flag-us)"><rect width="20" height="14" fill="#fff"/><rect y="0" width="20" height="1.08" fill="#B22234"/><rect y="2.15" width="20" height="1.08" fill="#B22234"/><rect y="4.3" width="20" height="1.08" fill="#B22234"/><rect y="6.45" width="20" height="1.08" fill="#B22234"/><rect y="8.6" width="20" height="1.08" fill="#B22234"/><rect y="10.75" width="20" height="1.08" fill="#B22234"/><rect y="12.9" width="20" height="1.08" fill="#B22234"/><rect width="9" height="7.5" fill="#3C3B6E"/></g></svg>`,
+      number: '+1-840-877-8879',
+      tel: '+18408778879',
+    },
   ],
   location: '11 E Coast Rd, #11-01 The Odeon Katong, Singapore 428722',
   copyright: '2026 Serpeyes. All rights reserved.',

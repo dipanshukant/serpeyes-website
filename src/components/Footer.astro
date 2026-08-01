@@ -38,7 +38,10 @@ import { SITE, NAV_LINKS, FOOTER_RESOURCES, FOOTER_SOCIALS } from '../content/co
         <h4 style="color: white; font-family: Sora, sans-serif; font-size: 14px; font-weight: 600; margin: 0 0 16px;">Contact</h4>
         <p style="font-size: 14px; color: #64748b; margin: 0 0 8px;">{SITE.email}</p>
         {SITE.phones.map(p => (
-          <p style="font-size: 14px; color: #64748b; margin: 0 0 8px;">{p.flag} {p.number}</p>
+          <a href={`tel:${p.tel}`} style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #64748b; margin: 0 0 8px; text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color='white'" onmouseleave="this.style.color='#64748b'">
+            <span style="display: inline-flex; width: 20px; height: 14px; flex-shrink: 0; border-radius: 2px; overflow: hidden;" set:html={p.svg} />
+            {p.number}
+          </a>
         ))}
         <p style="font-size: 14px; color: #64748b; margin: 0 0 20px;">{SITE.location}</p>
         <div style="display: flex; gap: 12px;">
