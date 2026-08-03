@@ -48,6 +48,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const webhookSecret = getEnv(locals, 'STRIPE_WEBHOOK_SECRET');
   const resendKey = getEnv(locals, 'RESEND_API_KEY');
   const fromEmail = getEnv(locals, 'CONTACT_FROM_EMAIL') || 'Serpeyes <onboarding@resend.dev>';
+  const founderEmail = 'Dipanshu Kant <dipanshu@serpeyes.com>';
 
   if (!stripeSecret || !webhookSecret || !resendKey) {
     return new Response('Missing env vars', { status: 500 });
@@ -80,27 +81,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
       const customerEmail = session.customer_details?.email;
       const customerName = session.customer_details?.name || 'there';
+      const firstName = customerName.trim().split(' ')[0] || 'there';
       const planName = lineItems[0]?.description || 'Serpeyes Retainer';
       const monthlyAmount = ((lineItems[0]?.amount_total || 0) / 100).toFixed(2);
 
+      // Personal note from the founder, not a boxed invoice/confirmation template.
       const customerHtml = `
-        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;">
-          <div style="background:#0f172a;padding:30px;text-align:center;">
-            <span style="color:#fff;font-size:20px;font-weight:700;">Serpeyes</span>
-          </div>
-          <div style="padding:32px;">
-            <h2 style="color:#0f172a;margin-top:0;">You're all set, ${customerName}</h2>
-            <p>Thank you for signing up for the <strong>${planName}</strong>. Your subscription is active.</p>
-            <table style="width:100%;border-collapse:collapse;margin:24px 0;">
-              <tr><td style="padding:10px;background:#f1f5f9;font-weight:bold;width:160px;">Plan</td><td style="padding:10px;">${planName}</td></tr>
-              <tr><td style="padding:10px;background:#f1f5f9;font-weight:bold;">Billing</td><td style="padding:10px;">SGD ${monthlyAmount} / month, 3-month minimum commitment</td></tr>
-            </table>
-            <p>We will reach out within 1 business day to kick off onboarding. For any questions, email us at <a href="mailto:hello@serpeyes.com">hello@serpeyes.com</a>.</p>
-            <p style="margin-top:32px;">Best regards,<br><strong>The Serpeyes Team</strong></p>
-          </div>
-          <div style="background:#f1f5f9;padding:16px;text-align:center;font-size:12px;color:#64748b;">
-            Serpeyes · serpeyes.com
-          </div>
+        <div style="font-family:Georgia,'Times New Roman',serif;max-width:560px;margin:0 auto;padding:8px;color:#1a1a1a;font-size:15.5px;line-height:1.7;">
+          <p>Hi ${firstName},</p>
+          <p>Thanks for signing up for the <strong>${planName}</strong>. I'm Dipanshu, founder of Serpeyes — I wanted to personally reach out rather than send an automated confirmation.</p>
+          <p>Your subscription is active (SGD ${monthlyAmount}/month, 3-month minimum commitment). I'll be in touch within 1 business day to kick off onboarding and get the right details from you to start.</p>
+          <p>If you have any questions before then, just reply to this email — it comes straight to me.</p>
+          <p style="margin-top:28px;">Talk soon,<br>Dipanshu Kant<br>Founder &amp; CEO, Serpeyes</p>
         </div>
       `;
 
@@ -120,7 +112,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       `;
 
       if (customerEmail) {
-        await sendEmail(resendKey, fromEmail, customerEmail, 'Welcome to Serpeyes — Subscription Confirmed', customerHtml);
+        await sendEmail(resendKey, founderEmail, customerEmail, 'Welcome to Serpeyes', customerHtml);
       }
       const adminSubject = `New Retainer Signup: ${customerName} — ${planName}`;
       await sendEmail(resendKey, fromEmail, 'hello@serpeyes.com', adminSubject, adminHtml);
