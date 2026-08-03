@@ -46,6 +46,12 @@ export const GET: APIRoute = ({ site }) => {
       lastmod: new Date().toISOString(),
     },
     {
+      url: '/pricing',
+      changefreq: 'monthly',
+      priority: 0.9,
+      lastmod: new Date().toISOString(),
+    },
+    {
       url: '/blog',
       changefreq: 'weekly',
       priority: 0.6,

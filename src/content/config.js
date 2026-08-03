@@ -28,6 +28,7 @@ export const NAV_LINKS = [
   { label: 'AEO', href: '/aeo' },
   { label: 'Web Development', href: '/web-development' },
   { label: 'App Development', href: '/app-development' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
 ];
 
@@ -535,4 +536,68 @@ export const BLOG_POSTS = [
     featuredImage: '/logo.svg',
   },
   { slug: 'serpeyes-digital-growth-agency-what-we-do', tag: 'Company Update', title: 'Serpeyes Is Now a Full Digital Growth Agency. Here Is What Changed.', excerpt: 'We have expanded from SEO into a complete digital growth agency: websites, apps, SEO, AEO and marketing. Here is what that means for our clients.', date: 'Jul 2026', readTime: '6 min read', featuredImage: '/logo.svg' },
+];
+
+// ---- PRICING PAGE ----
+// NOTE: priceMonthly values below are placeholders. Update to your real
+// monthly rate (in SGD) before this page goes live and starts taking payments.
+
+export const PRICING_HERO = {
+  badge: 'Pricing',
+  headline: 'Plans Built Around How Long Growth Actually Takes',
+  sub: 'SEO and AEO results take real time to show up in rankings and AI answers. Our retainers run on a 3-month minimum so the work has room to actually work, billed monthly.',
+};
+
+export const PRICING_RETAINERS = [
+  {
+    id: 'seo-aeo',
+    name: 'SEO + AEO Retainer',
+    tagline: 'Get found on Google and in AI answers like ChatGPT and Perplexity.',
+    priceMonthly: 1500,
+    currency: 'SGD',
+    billing: 'per month, 3-month minimum commitment',
+    features: [
+      'Technical SEO audit and fixes',
+      'On-page and content optimisation',
+      'AEO structured data and answer-ready content',
+      'Monthly ranking and AI-visibility report',
+      'Direct access to your account lead',
+    ],
+    cta: 'Get Started',
+    popular: false,
+  },
+  {
+    id: 'seo-aeo-marketing',
+    name: 'SEO + AEO + Digital Marketing Retainer',
+    tagline: 'Everything in the SEO + AEO plan, plus social media management.',
+    priceMonthly: 2800,
+    currency: 'SGD',
+    billing: 'per month, 3-month minimum commitment',
+    features: [
+      'Everything in the SEO + AEO Retainer',
+      'Instagram, Facebook and YouTube management',
+      'Additional social channels if needed',
+      'Monthly content calendar',
+      'Combined SEO, AEO and social performance report',
+    ],
+    cta: 'Get Started',
+    popular: true,
+  },
+];
+
+export const PRICING_QUOTES = [
+  {
+    id: 'web-development',
+    name: 'Web Development',
+    tagline: 'Custom-built websites, scoped and quoted after a short call with us.',
+    cta: 'Request a Quote',
+    href: '/request-demo',
+  },
+  {
+    id: 'app-development',
+    name: 'App Development',
+    tagline: 'iOS, Android or cross-platform apps, scoped and quoted after a short call with us.',
+    cta: 'Request a Quote',
+    href: '/request-demo',
+  },
 ];
