@@ -98,7 +98,7 @@ export const POST: APIRoute = async ({ request, locals, url }) => {
 
     const resendKey = runtimeEnv.RESEND_API_KEY || metaEnv.RESEND_API_KEY || processEnv.RESEND_API_KEY;
     const toEmail = runtimeEnv.CONTACT_TO_EMAIL || metaEnv.CONTACT_TO_EMAIL || processEnv.CONTACT_TO_EMAIL;
-    const fromEmail = runtimeEnv.CONTACT_FROM_EMAIL || metaEnv.CONTACT_FROM_EMAIL || processEnv.CONTACT_FROM_EMAIL || 'Serpeyes Contact <onboarding@resend.dev>';
+    const fromEmail = runtimeEnv.CONTACT_FROM_EMAIL || metaEnv.CONTACT_FROM_EMAIL || processEnv.CONTACT_FROM_EMAIL || 'SerpEyes Contact <onboarding@resend.dev>';
 
     if (!resendKey || !toEmail) {
       return new Response(JSON.stringify({ error: 'Server email configuration is missing' }), {

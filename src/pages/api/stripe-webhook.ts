@@ -47,7 +47,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const stripeSecret = getEnv(locals, 'STRIPE_SECRET_KEY');
   const webhookSecret = getEnv(locals, 'STRIPE_WEBHOOK_SECRET');
   const resendKey = getEnv(locals, 'RESEND_API_KEY');
-  const fromEmail = getEnv(locals, 'CONTACT_FROM_EMAIL') || 'Serpeyes <onboarding@resend.dev>';
+  const fromEmail = getEnv(locals, 'CONTACT_FROM_EMAIL') || 'SerpEyes <onboarding@resend.dev>';
   const founderEmail = 'Dipanshu Kant <dipanshu@serpeyes.com>';
 
   if (!stripeSecret || !webhookSecret || !resendKey) {
@@ -82,17 +82,17 @@ export const POST: APIRoute = async ({ request, locals }) => {
       const customerEmail = session.customer_details?.email;
       const customerName = session.customer_details?.name || 'there';
       const firstName = customerName.trim().split(' ')[0] || 'there';
-      const planName = lineItems[0]?.description || 'Serpeyes Retainer';
+      const planName = lineItems[0]?.description || 'SerpEyes Retainer';
       const monthlyAmount = ((lineItems[0]?.amount_total || 0) / 100).toFixed(2);
 
       // Personal note from the founder, not a boxed invoice/confirmation template.
       const customerHtml = `
         <div style="font-family:Georgia,'Times New Roman',serif;max-width:560px;margin:0 auto;padding:8px;color:#1a1a1a;font-size:15.5px;line-height:1.7;">
           <p>Hi ${firstName},</p>
-          <p>Thanks for signing up for the <strong>${planName}</strong>. I'm Dipanshu, founder of Serpeyes, and I wanted to personally reach out rather than send an automated confirmation.</p>
+          <p>Thanks for signing up for the <strong>${planName}</strong>. I'm Dipanshu, founder of SerpEyes, and I wanted to personally reach out rather than send an automated confirmation.</p>
           <p>Your subscription is active (SGD ${monthlyAmount}/month, 3-month minimum commitment). I'll be in touch within 1 business day to kick off onboarding and get the right details from you to start.</p>
           <p>If you have any questions before then, just reply to this email, it comes straight to me.</p>
-          <p style="margin-top:28px;">Talk soon,<br>Dipanshu Kant<br>Founder &amp; CEO, Serpeyes</p>
+          <p style="margin-top:28px;">Talk soon,<br>Dipanshu Kant<br>Founder &amp; CEO, SerpEyes</p>
         </div>
       `;
 
@@ -112,7 +112,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       `;
 
       if (customerEmail) {
-        await sendEmail(resendKey, founderEmail, customerEmail, 'Welcome to Serpeyes', customerHtml);
+        await sendEmail(resendKey, founderEmail, customerEmail, 'Welcome to SerpEyes', customerHtml);
       }
       const adminSubject = `New Retainer Signup: ${customerName}, ${planName}`;
       await sendEmail(resendKey, fromEmail, 'hello@serpeyes.com', adminSubject, adminHtml);

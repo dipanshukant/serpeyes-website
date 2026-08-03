@@ -16,7 +16,7 @@ const isAeoCheckPost = post.slug === 'how-to-check-if-your-business-shows-up-in-
 const tocItems = isLaunchPost
   ? [
       { id: 'it-started-with-a-gap', label: 'It Started with a Gap' },
-      { id: 'what-serpeyes-is-now', label: 'What Serpeyes Is Now' },
+      { id: 'what-serpeyes-is-now', label: 'What SerpEyes Is Now' },
       { id: 'what-we-offer', label: 'What We Offer' },
       { id: 'why-we-expanded', label: 'Why We Expanded' },
       { id: 'who-this-is-for', label: 'Who This Is For' },
@@ -59,10 +59,10 @@ const articleSchema = {
   image: new URL(post.featuredImage, Astro.site).toString(),
   url: canonicalURL,
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalURL },
-  author: { '@type': 'Organization', name: 'Serpeyes', url: 'https://serpeyes.com' },
+  author: { '@type': 'Organization', name: 'SerpEyes', url: 'https://serpeyes.com' },
   publisher: {
     '@type': 'Organization',
-    name: 'Serpeyes',
+    name: 'SerpEyes',
     logo: { '@type': 'ImageObject', url: new URL('/logo.svg', Astro.site).toString() },
   },
 };
@@ -91,7 +91,7 @@ const faqSchema = isAeoCheckPost ? {
 ---
 
 <BaseLayout
-  title={post.metaTitle || `${post.title} - Serpeyes Blog`}
+  title={post.metaTitle || `${post.title} - SerpEyes Blog`}
   description={post.metaDescription || post.excerpt}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
@@ -152,14 +152,14 @@ const faqSchema = isAeoCheckPost ? {
               <>
                 <section id="it-started-with-a-gap" style="scroll-margin-top: 110px; margin-top: 26px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">It Started with a Gap</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We started Serpeyes focused on one thing: SEO. Along the way, the same pattern kept showing up.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We started SerpEyes focused on one thing: SEO. Along the way, the same pattern kept showing up.</p>
                   <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Clients with strong SEO potential were held back by a website that was slow, hard to update or simply not built to convert. Clients who wanted an app had nowhere to turn without hiring a second, unrelated vendor. Clients who wanted marketing support ended up managing three separate teams that never talked to each other.</p>
                   <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">We kept referring this work out. Eventually we stopped referring it out and started building the capability ourselves.</p>
                 </section>
 
                 <section id="what-serpeyes-is-now" style="scroll-margin-top: 110px; margin-top: 28px;">
-                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What Serpeyes Is Now</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Serpeyes is a digital growth agency. We help businesses establish, optimise and scale their online presence through website development, mobile app development, SEO, AEO and digital marketing.</p>
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What SerpEyes Is Now</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">SerpEyes is a digital growth agency. We help businesses establish, optimise and scale their online presence through website development, mobile app development, SEO, AEO and digital marketing.</p>
                   <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">We are not trying to be everything to everyone. We focus on the parts of a business's digital presence that need to work together to actually produce growth: the site or app people land on, and the search and marketing systems that bring them there.</p>
                 </section>
 
@@ -184,7 +184,7 @@ const faqSchema = isAeoCheckPost ? {
 
                 <section id="who-this-is-for" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Who This Is For</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Serpeyes works with businesses at different stages.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">SerpEyes works with businesses at different stages.</p>
                   <ul style="margin: 0 0 16px 20px; padding: 0; color: #334155; font-size: 16px; line-height: 1.9;">
                     <li style="margin-bottom: 8px;">If you need a new website or online store, see <a href="/web-development" style="color: #1B4FD8; text-decoration: underline;">Web Development</a>.</li>
                     <li style="margin-bottom: 8px;">If you have an app idea or need one built, see <a href="/app-development" style="color: #1B4FD8; text-decoration: underline;">App Development</a>.</li>
@@ -205,7 +205,7 @@ const faqSchema = isAeoCheckPost ? {
 
                 <section id="one-last-thing" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">One Last Thing</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We kept the name Serpeyes because the idea behind it has not changed: seeing what others miss. That used to mean SEO signals other tools ignored. Now it means seeing the whole picture of a business's digital presence, not just one piece of it.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">We kept the name SerpEyes because the idea behind it has not changed: seeing what others miss. That used to mean SEO signals other tools ignored. Now it means seeing the whole picture of a business's digital presence, not just one piece of it.</p>
                   <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If that resonates, <a href="/request-demo" style="color: #1B4FD8; text-decoration: underline;">get in touch</a>. We will respond within one business day.</p>
                 </section>
               </>
@@ -268,7 +268,7 @@ const faqSchema = isAeoCheckPost ? {
 
                 <section id="get-help" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Get Help If You Are Stuck</h2>
-                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If you tried this and your business is missing, or the details are wrong, and you are not sure how to fix it, that is exactly what <a href="/about" style="color: #1B4FD8; text-decoration: underline;">Serpeyes</a> does. <a href="/aeo" style="color: #1B4FD8; text-decoration: underline;">Book a free AEO check</a> and we will show you exactly what is missing and how to fix it.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If you tried this and your business is missing, or the details are wrong, and you are not sure how to fix it, that is exactly what <a href="/about" style="color: #1B4FD8; text-decoration: underline;">SerpEyes</a> does. <a href="/aeo" style="color: #1B4FD8; text-decoration: underline;">Book a free AEO check</a> and we will show you exactly what is missing and how to fix it.</p>
                 </section>
               </>
             ) : (

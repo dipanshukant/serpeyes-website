@@ -4,7 +4,7 @@
 // =============================================================
 
 export const SITE = {
-  name: 'Serpeyes',
+  name: 'SerpEyes',
   email: 'hello@serpeyes.com',
   phones: [
     {
@@ -19,7 +19,7 @@ export const SITE = {
     },
   ],
   location: '11 E Coast Rd, #11-01 The Odeon Katong, Singapore 428722',
-  copyright: '2026 Serpeyes. All rights reserved.',
+  copyright: '2026 SerpEyes. All rights reserved.',
 };
 
 export const NAV_LINKS = [
@@ -41,16 +41,16 @@ export const HERO = {
   badge: 'Web Development. App Development. SEO. AEO. Marketing',
   headline: 'Digital Growth Built for',
   headlineAccent: 'Businesses Ready to Scale',
-  subheadline: 'Serpeyes is a digital growth agency that helps businesses establish, optimise and scale their online presence. Websites, mobile apps, SEO, AEO and result-driven marketing, delivered by one team instead of five vendors.',
+  subheadline: 'SerpEyes is a digital growth agency that helps businesses establish, optimise and scale their online presence. Websites, mobile apps, SEO, AEO and result-driven marketing, delivered by one team instead of five vendors.',
   btn1: 'Get a Free Consultation',
   btn2: 'View Our Services',
   footnote: 'Free website and SEO audit included. No obligation.',
 };
 
 export const DIFF_SECTION = {
-  badge: 'Why Serpeyes',
+  badge: 'Why SerpEyes',
   headline: 'One Growth Partner Instead of Five Vendors.',
-  sub: 'Most agencies specialise in one piece: a website, or ads, or SEO. Serpeyes builds and grows the whole system, so every part works toward the same goal, more qualified customers.',
+  sub: 'Most agencies specialise in one piece: a website, or ads, or SEO. SerpEyes builds and grows the whole system, so every part works toward the same goal, more qualified customers.',
 };
 
 export const DIFF_CARDS = [
@@ -65,7 +65,7 @@ export const DIFF_CARDS = [
 export const FEATURES_SECTION = {
   badge: 'Our Services',
   headline: 'Everything Your Business Needs to Grow Online',
-  sub: 'From your first website to ongoing marketing and search visibility, Serpeyes covers every stage of your digital presence under one roof.',
+  sub: 'From your first website to ongoing marketing and search visibility, SerpEyes covers every stage of your digital presence under one roof.',
 };
 
 export const FEATURES = [
@@ -143,9 +143,9 @@ export const SOCIAL_PROOF_LABEL = 'Trusted by growing businesses across multiple
 export const TRUST_TAGS = ['Business Owners', 'Startups', 'E-commerce Stores', 'Clinics and Practices', 'Service Businesses'];
 
 export const TESTIMONIALS = [
-  { quote: 'Serpeyes built our website and handled our SEO from day one. We finally have a digital presence that actually brings in enquiries.', name: 'Sarah T.', role: 'Business Owner, Singapore' },
+  { quote: 'SerpEyes built our website and handled our SEO from day one. We finally have a digital presence that actually brings in enquiries.', name: 'Sarah T.', role: 'Business Owner, Singapore' },
   { quote: 'They built our app and kept iterating with us after launch. Communication was clear and nothing felt rushed.', name: 'Marcus L.', role: 'Founder, Retail Startup' },
-  { quote: 'As a small business owner I never understood SEO or web development. Serpeyes made it simple and showed me exactly what my clinic needed to grow online.', name: 'Dr. Priya R.', role: 'Clinic Owner, Tampines' },
+  { quote: 'As a small business owner I never understood SEO or web development. SerpEyes made it simple and showed me exactly what my clinic needed to grow online.', name: 'Dr. Priya R.', role: 'Clinic Owner, Tampines' },
 ];
 
 export const CTA_SECTION = {
@@ -272,7 +272,7 @@ export const APPDEV_CARDS = [
 ];
 
 export const APPDEV_TESTIMONIALS = [
-  { quote: 'Serpeyes took our idea from a rough sketch to a working app in a few months. Communication was clear the whole way through.', name: 'Wei C.', role: 'Founder, Retail Startup' },
+  { quote: 'SerpEyes took our idea from a rough sketch to a working app in a few months. Communication was clear the whole way through.', name: 'Wei C.', role: 'Founder, Retail Startup' },
   { quote: 'They understood exactly what we needed without over-engineering it. The app has been stable since launch.', name: 'Arun P.', role: 'Operations Lead' },
 ];
 
@@ -410,15 +410,15 @@ export const SERVICES_CTA = {
 export const ABOUT_HERO = {
   badge: 'About Us',
   headline: 'A Digital Growth Agency Built by Doing the Work',
-  sub: 'Serpeyes started as an SEO focused build and grew into a full digital growth agency because a great SEO strategy still needs a website and app worth ranking. Here is who we are and how we work.',
+  sub: 'SerpEyes started as an SEO focused build and grew into a full digital growth agency because a great SEO strategy still needs a website and app worth ranking. Here is who we are and how we work.',
   btn: 'Get a Free Consultation',
 };
 
 export const ABOUT_STORY = {
   headline: 'Our Story',
   paragraphs: [
-    'Serpeyes began with a simple frustration. SEO results only go so far when the website behind them is slow, hard to update or not built to convert. We kept referring that work out to other vendors until we decided to build the capability ourselves.',
-    'Today Serpeyes is a full digital growth agency. We build websites and apps, run SEO and AEO, and handle digital marketing, so every part of a business online presence works toward the same goal instead of being managed by five disconnected vendors.',
+    'SerpEyes began with a simple frustration. SEO results only go so far when the website behind them is slow, hard to update or not built to convert. We kept referring that work out to other vendors until we decided to build the capability ourselves.',
+    'Today SerpEyes is a full digital growth agency. We build websites and apps, run SEO and AEO, and handle digital marketing, so every part of a business online presence works toward the same goal instead of being managed by five disconnected vendors.',
     'We are based in Singapore and work with businesses across the UK, India and Southeast Asia, adapting every strategy to the market it needs to perform in.',
   ],
 };
@@ -444,7 +444,7 @@ export const ABOUT_VALUES = [
 
 export const ABOUT_FOUNDER = {
   role: 'Founder and CEO',
-  quote: 'Serpeyes started as one person trying to build smarter, AI powered tools. It grew into a team that cares about doing the work properly and building things that actually move the needle for clients.',
+  quote: 'SerpEyes started as one person trying to build smarter, AI powered tools. It grew into a team that cares about doing the work properly and building things that actually move the needle for clients.',
 };
 
 export const ABOUT_CTA = {
@@ -518,7 +518,7 @@ export const AEO_CTA = {
 // ---- BLOG PAGE ----
 
 export const BLOG_HERO = {
-  badge: 'The Serpeyes Blog',
+  badge: 'The SerpEyes Blog',
   headline: 'Insights on Web, Apps, SEO and Growth',
   sub: 'Practical guides on website development, app building, SEO, AEO and digital marketing for businesses that want to grow online.',
 };
@@ -535,7 +535,7 @@ export const BLOG_POSTS = [
     readTime: '5 min read',
     featuredImage: '/logo.svg',
   },
-  { slug: 'serpeyes-digital-growth-agency-what-we-do', tag: 'Company Update', title: 'Serpeyes Is Now a Full Digital Growth Agency. Here Is What Changed.', excerpt: 'We have expanded from SEO into a complete digital growth agency: websites, apps, SEO, AEO and marketing. Here is what that means for our clients.', date: 'Jul 2026', readTime: '6 min read', featuredImage: '/logo.svg' },
+  { slug: 'serpeyes-digital-growth-agency-what-we-do', tag: 'Company Update', title: 'SerpEyes Is Now a Full Digital Growth Agency. Here Is What Changed.', excerpt: 'We have expanded from SEO into a complete digital growth agency: websites, apps, SEO, AEO and marketing. Here is what that means for our clients.', date: 'Jul 2026', readTime: '6 min read', featuredImage: '/logo.svg' },
 ];
 
 // ---- PRICING PAGE ----
