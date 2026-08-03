@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { PRICING_HERO, PRICING_RETAINERS, PRICING_QUOTES } from '../content/config.js';
+import { PRICING_HERO, PRICING_RETAINERS, PRICING_QUOTES, PRICING_CURRENCIES } from '../content/config.js';
 ---
 
 <BaseLayout
@@ -20,7 +20,22 @@ import { PRICING_HERO, PRICING_RETAINERS, PRICING_QUOTES } from '../content/conf
       </div>
     </section>
 
-    <section style="padding: 24px 24px 72px; background: white;">
+    <section style="padding: 24px 24px 0; background: white;">
+      <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 32px;">
+        <label for="currency-select" style="font-size: 14px; color: #64748b;">Show prices in</label>
+        <select
+          id="currency-select"
+          data-currencies={JSON.stringify(PRICING_CURRENCIES)}
+          style="font-size: 14px; font-weight: 600; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 12px; background: white; cursor: pointer; font-family: 'DM Sans', sans-serif;"
+        >
+          {PRICING_CURRENCIES.map(c => (
+            <option value={c.code}>{c.code}</option>
+          ))}
+        </select>
+      </div>
+    </section>
+
+    <section style="padding: 0 24px 72px; background: white;">
       <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
         {PRICING_RETAINERS.map(plan => (
           <div
@@ -39,12 +54,17 @@ import { PRICING_HERO, PRICING_RETAINERS, PRICING_QUOTES } from '../content/conf
               {plan.tagline}
             </p>
             <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px;">
-              <span style="font-family: Sora, sans-serif; font-size: 38px; font-weight: 700; color: #0f172a;">
-                {plan.currency} {plan.priceMonthly.toLocaleString()}
+              <span
+                class="price-amount"
+                data-base-price={plan.priceMonthly}
+                style="font-family: Sora, sans-serif; font-size: 38px; font-weight: 700; color: #0f172a;"
+              >
+                S${plan.priceMonthly.toLocaleString()}
               </span>
               <span style="font-size: 15px; color: #64748b;">/mo</span>
             </div>
-            <p style="font-size: 13px; color: #94a3b8; margin: 0 0 24px;">{plan.billing}</p>
+            <p style="font-size: 13px; color: #94a3b8; margin: 0 0 4px;">{plan.billing}</p>
+            <p class="price-fx-note" style="font-size: 12px; color: #94a3b8; margin: 0 0 20px; display: none;">Approximate. You are billed in SGD; your card issuer converts it.</p>
             <ul style="list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 12px;">
               {plan.features.map(f => (
                 <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: #334155; line-height: 1.5;">
@@ -97,6 +117,30 @@ import { PRICING_HERO, PRICING_RETAINERS, PRICING_QUOTES } from '../content/conf
 </BaseLayout>
 
 <script>
+  const currencySelect = document.getElementById('currency-select') as HTMLSelectElement | null;
+  if (currencySelect) {
+    const currencies: { code: string; symbol: string; rate: number }[] = JSON.parse(
+      currencySelect.dataset.currencies || '[]'
+    );
+    const priceEls = document.querySelectorAll<HTMLElement>('.price-amount');
+    const fxNoteEls = document.querySelectorAll<HTMLElement>('.price-fx-note');
+
+    function applyCurrency(code: string) {
+      const currency = currencies.find((c) => c.code === code) || currencies[0];
+      priceEls.forEach((el) => {
+        const base = parseFloat(el.dataset.basePrice || '0');
+        const converted = Math.round(base * currency.rate);
+        el.textContent = `${currency.symbol}${converted.toLocaleString()}`;
+      });
+      fxNoteEls.forEach((el) => {
+        el.style.display = currency.code === 'SGD' ? 'none' : 'block';
+      });
+    }
+
+    currencySelect.addEventListener('change', () => applyCurrency(currencySelect.value));
+    applyCurrency(currencySelect.value);
+  }
+
   document.querySelectorAll<HTMLButtonElement>('.buy-btn').forEach((btn) => {
     btn.addEventListener('click', async () => {
       const originalText = btn.textContent;

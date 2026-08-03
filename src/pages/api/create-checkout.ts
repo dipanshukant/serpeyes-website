@@ -5,8 +5,8 @@ export const prerender = false;
 // Server-side price source of truth — never trust a price from the client.
 // Keep these in sync with PRICING_RETAINERS in src/content/config.js.
 const PLANS: Record<string, { name: string; priceMonthly: number }> = {
-  'seo-aeo': { name: 'SEO + AEO Retainer', priceMonthly: 1500 },
-  'seo-aeo-marketing': { name: 'SEO + AEO + Digital Marketing Retainer', priceMonthly: 2800 },
+  'seo-aeo': { name: 'SEO + AEO Retainer', priceMonthly: 599 },
+  'seo-aeo-marketing': { name: 'SEO + AEO + Digital Marketing Retainer', priceMonthly: 799 },
 };
 
 function getEnv(locals: App.Locals, key: string): string | undefined {

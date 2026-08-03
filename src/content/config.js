@@ -548,12 +548,23 @@ export const PRICING_HERO = {
   sub: 'SEO and AEO results take real time to show up in rankings and AI answers. Our retainers run on a 3-month minimum so the work has room to actually work, billed monthly.',
 };
 
+// Approximate display-only conversion rates from SGD. Actual billing is always in SGD —
+// other currencies are shown for reference only, converted client-side at checkout time
+// by the customer's card issuer.
+export const PRICING_CURRENCIES = [
+  { code: 'SGD', symbol: 'S$', rate: 1 },
+  { code: 'USD', symbol: '$', rate: 0.75 },
+  { code: 'GBP', symbol: '£', rate: 0.59 },
+  { code: 'INR', symbol: '₹', rate: 62 },
+  { code: 'AUD', symbol: 'A$', rate: 1.15 },
+];
+
 export const PRICING_RETAINERS = [
   {
     id: 'seo-aeo',
     name: 'SEO + AEO Retainer',
     tagline: 'Get found on Google and in AI answers like ChatGPT and Perplexity.',
-    priceMonthly: 1500,
+    priceMonthly: 599,
     currency: 'SGD',
     billing: 'per month, 3-month minimum commitment',
     features: [
@@ -570,7 +581,7 @@ export const PRICING_RETAINERS = [
     id: 'seo-aeo-marketing',
     name: 'SEO + AEO + Digital Marketing Retainer',
     tagline: 'Everything in the SEO + AEO plan, plus social media management.',
-    priceMonthly: 2800,
+    priceMonthly: 799,
     currency: 'SGD',
     billing: 'per month, 3-month minimum commitment',
     features: [
