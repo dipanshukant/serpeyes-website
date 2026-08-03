@@ -548,15 +548,17 @@ export const PRICING_HERO = {
   sub: 'SEO and AEO results take real time to show up in rankings and AI answers. Our retainers run on a 3-month minimum so the work has room to actually work, billed monthly.',
 };
 
-// Approximate display-only conversion rates from SGD. Actual billing is always in SGD —
-// other currencies are shown for reference only, converted client-side at checkout time
-// by the customer's card issuer.
+// Fallback-only conversion rates from SGD, used solely if the live rate fetch
+// (frankfurter.dev, fetched client-side on page load) fails. Pulled from
+// https://api.frankfurter.dev/v1/latest?base=SGD on 2026-08-03 — real rates,
+// not estimates. The live fetch overwrites these on every page load when it succeeds.
+// Actual billing is always in SGD — other currencies are shown for reference only.
 export const PRICING_CURRENCIES = [
   { code: 'SGD', symbol: 'S$', rate: 1 },
-  { code: 'USD', symbol: '$', rate: 0.75 },
-  { code: 'GBP', symbol: '£', rate: 0.59 },
-  { code: 'INR', symbol: '₹', rate: 62 },
-  { code: 'AUD', symbol: 'A$', rate: 1.15 },
+  { code: 'USD', symbol: '$', rate: 0.78029 },
+  { code: 'GBP', symbol: '£', rate: 0.57927 },
+  { code: 'INR', symbol: '₹', rate: 74.39 },
+  { code: 'AUD', symbol: 'A$', rate: 1.1136 },
 ];
 
 export const PRICING_RETAINERS = [

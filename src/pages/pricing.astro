@@ -117,28 +117,70 @@ import { PRICING_HERO, PRICING_RETAINERS, PRICING_QUOTES, PRICING_CURRENCIES } f
 </BaseLayout>
 
 <script>
+  // ── Currency converter (live rates, ported from the UWSM site) ─────────────
   const currencySelect = document.getElementById('currency-select') as HTMLSelectElement | null;
+
   if (currencySelect) {
-    const currencies: { code: string; symbol: string; rate: number }[] = JSON.parse(
+    const fallbackCurrencies: { code: string; symbol: string; rate: number }[] = JSON.parse(
       currencySelect.dataset.currencies || '[]'
     );
+    const SYMBOLS: Record<string, string> = Object.fromEntries(
+      fallbackCurrencies.map((c) => [c.code, c.symbol])
+    );
+    const FALLBACK: Record<string, number> = Object.fromEntries(
+      fallbackCurrencies.map((c) => [c.code, c.rate])
+    );
+
+    const CACHE_KEY = 'serpeyes-fx-rates';
+    const CACHE_TS_KEY = 'serpeyes-fx-ts';
+    const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+
+    let liveRates: Record<string, number> = { ...FALLBACK };
+
+    async function fetchRates(): Promise<void> {
+      try {
+        const tsRaw = localStorage.getItem(CACHE_TS_KEY);
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (tsRaw && cached && Date.now() - Number(tsRaw) < CACHE_TTL) {
+          liveRates = { SGD: 1, ...JSON.parse(cached) };
+          return;
+        }
+        const symbols = Object.keys(SYMBOLS).filter((c) => c !== 'SGD').join(',');
+        const res = await fetch(`https://api.frankfurter.dev/v1/latest?base=SGD&symbols=${symbols}`);
+        if (!res.ok) throw new Error('fetch failed');
+        const data = (await res.json()) as { rates: Record<string, number> };
+        liveRates = { SGD: 1, ...data.rates };
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data.rates));
+        localStorage.setItem(CACHE_TS_KEY, String(Date.now()));
+      } catch {
+        // silently fall back to FALLBACK rates already set
+      }
+    }
+
     const priceEls = document.querySelectorAll<HTMLElement>('.price-amount');
     const fxNoteEls = document.querySelectorAll<HTMLElement>('.price-fx-note');
 
     function applyCurrency(code: string) {
-      const currency = currencies.find((c) => c.code === code) || currencies[0];
+      const rate = liveRates[code] ?? 1;
+      const symbol = SYMBOLS[code] ?? code;
       priceEls.forEach((el) => {
         const base = parseFloat(el.dataset.basePrice || '0');
-        const converted = Math.round(base * currency.rate);
-        el.textContent = `${currency.symbol}${converted.toLocaleString()}`;
+        const converted = Math.round(base * rate * 10) / 10;
+        el.textContent = `${symbol}${converted.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}`;
       });
       fxNoteEls.forEach((el) => {
-        el.style.display = currency.code === 'SGD' ? 'none' : 'block';
+        el.style.display = code === 'SGD' ? 'none' : 'block';
       });
+      try {
+        localStorage.setItem('serpeyes-currency', code);
+      } catch (_) {}
     }
 
+    const saved = localStorage.getItem('serpeyes-currency') ?? 'SGD';
+    currencySelect.value = saved;
+    applyCurrency(saved); // instant paint with fallback rates
+    fetchRates().then(() => applyCurrency(currencySelect.value)); // refresh once live rates load
     currencySelect.addEventListener('change', () => applyCurrency(currencySelect.value));
-    applyCurrency(currencySelect.value);
   }
 
   document.querySelectorAll<HTMLButtonElement>('.buy-btn').forEach((btn) => {
