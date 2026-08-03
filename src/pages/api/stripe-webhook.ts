@@ -89,9 +89,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
       const customerHtml = `
         <div style="font-family:Georgia,'Times New Roman',serif;max-width:560px;margin:0 auto;padding:8px;color:#1a1a1a;font-size:15.5px;line-height:1.7;">
           <p>Hi ${firstName},</p>
-          <p>Thanks for signing up for the <strong>${planName}</strong>. I'm Dipanshu, founder of Serpeyes — I wanted to personally reach out rather than send an automated confirmation.</p>
+          <p>Thanks for signing up for the <strong>${planName}</strong>. I'm Dipanshu, founder of Serpeyes, and I wanted to personally reach out rather than send an automated confirmation.</p>
           <p>Your subscription is active (SGD ${monthlyAmount}/month, 3-month minimum commitment). I'll be in touch within 1 business day to kick off onboarding and get the right details from you to start.</p>
-          <p>If you have any questions before then, just reply to this email — it comes straight to me.</p>
+          <p>If you have any questions before then, just reply to this email, it comes straight to me.</p>
           <p style="margin-top:28px;">Talk soon,<br>Dipanshu Kant<br>Founder &amp; CEO, Serpeyes</p>
         </div>
       `;
@@ -114,7 +114,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       if (customerEmail) {
         await sendEmail(resendKey, founderEmail, customerEmail, 'Welcome to Serpeyes', customerHtml);
       }
-      const adminSubject = `New Retainer Signup: ${customerName} — ${planName}`;
+      const adminSubject = `New Retainer Signup: ${customerName}, ${planName}`;
       await sendEmail(resendKey, fromEmail, 'hello@serpeyes.com', adminSubject, adminHtml);
       await sendEmail(resendKey, fromEmail, 'kantdipanshu97@gmail.com', adminSubject, adminHtml);
 

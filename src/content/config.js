@@ -550,9 +550,9 @@ export const PRICING_HERO = {
 
 // Fallback-only conversion rates from SGD, used solely if the live rate fetch
 // (frankfurter.dev, fetched client-side on page load) fails. Pulled from
-// https://api.frankfurter.dev/v1/latest?base=SGD on 2026-08-03 — real rates,
+// https://api.frankfurter.dev/v1/latest?base=SGD on 2026-08-03, real rates,
 // not estimates. The live fetch overwrites these on every page load when it succeeds.
-// Actual billing is always in SGD — other currencies are shown for reference only.
+// Actual billing is always in SGD, other currencies are shown for reference only.
 export const PRICING_CURRENCIES = [
   { code: 'SGD', symbol: 'S$', rate: 1 },
   { code: 'USD', symbol: '$', rate: 0.78029 },
