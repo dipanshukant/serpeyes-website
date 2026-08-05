@@ -106,7 +106,16 @@ narrative, not just an SEO result in isolation.
   covered).
 - **`src/pages/case-studies/k2l-aircon.astro`** (new):
   - Business: K2L Aircon Singapore, reconditioned/used air conditioner
-    sales with installation and warranty, from S$700 installed.
+    sales with installation and warranty, from S$700 installed. 10+ years
+    experience across all major brands and system types (split, cassette,
+    ducted, central). Workmanship warranty with free re-fix if the same
+    issue recurs. General servicing from $50/unit. Covers all of
+    Singapore (named areas include Bedok, Tampines, Jurong, Clementi,
+    Toa Payoh, Ang Mo Kio, Woodlands, Punggol), HDB, condo, office and
+    commercial. Site blocks automated fetching (403/Cloudflare), so this
+    is sourced from search results, not a direct site read like the
+    other two, no specific named customer testimonials were found
+    publicly, don't invent one.
   - Real proof: ranks in ChatGPT for "best aircon company to buy second
     hand ac in singapore" (screenshot provided by user), ranks Google
     page 1 for "buy used aircon in singapore" (per user).
