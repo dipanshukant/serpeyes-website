@@ -424,8 +424,8 @@ export const ABOUT_STORY = {
 };
 
 export const ABOUT_MISSION = {
-  mission: 'Help businesses actually get found online, and grow because of it, by combining solid web development with AI driven SEO and answer engine optimisation. Less guesswork, more results.',
-  vision: 'To be the digital growth partner clients trust the way they would trust their sharpest in house team. Quick, data driven and never caught off guard by wherever search and AI decide to go next.',
+  mission: 'Get businesses found and recommended by AI, by combining Answer Engine Optimisation with the web development, app development and marketing that make it possible. Less guesswork, more citations.',
+  vision: 'To be the agency businesses trust to keep them visible wherever search goes next, Google today, AI answer engines now, and whatever comes after.',
 };
 
 export const ABOUT_VALUES_SECTION = {
@@ -544,8 +544,8 @@ export const BLOG_POSTS = [
 
 export const PRICING_HERO = {
   badge: 'Pricing',
-  headline: 'Plans Built Around How Long Growth Actually Takes',
-  sub: 'SEO and AEO results take real time to show up in rankings and AI answers. Our retainers run on a 3-month minimum so the work has room to actually work, billed monthly.',
+  headline: 'Plans Built Around How Long AEO Growth Actually Takes',
+  sub: 'AEO and GEO results take real time to show up in AI answers and rankings. Our retainers run on a 3-month minimum so the work has room to actually work, billed monthly.',
 };
 
 // Fallback-only conversion rates from SGD, used solely if the live rate fetch
