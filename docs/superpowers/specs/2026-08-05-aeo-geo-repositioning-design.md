@@ -16,7 +16,8 @@ Two work streams:
 - **Part A**: Positioning, how the site talks to human visitors.
 - **Part B**: Technical AI-visibility, making serpeyes.com itself citable by
   AI answer engines, practicing what the agency sells.
-- **Part C**: Real case studies (K2L Aircon, Truleum Loft Specialist) as proof.
+- **Part C**: Real case studies (K2L Aircon, Truleum Loft Specialist, United
+  World Sports Management) as proof.
 
 Site-wide constraints that apply to every new/changed piece of copy:
 - No em dashes (—) or en dashes (–) anywhere, including inside code strings
@@ -93,16 +94,16 @@ more than help. Revisit USA once a first client/case study exists.
 
 ## Part C: Case studies
 
-Both K2L Aircon (Singapore) and Truleum Loft Specialist (Cambridge, UK) had
-their websites **built by SerpEyes from scratch**, then optimized for SEO/
-AEO. This is a complete story (build, optimize, get cited) that directly
-supports the Part A positioning narrative, not just an SEO result in
-isolation.
+All three businesses below had their websites **built by SerpEyes from
+scratch**, then optimized for SEO/AEO. This is a complete story (build,
+optimize, get cited) that directly supports the Part A positioning
+narrative, not just an SEO result in isolation.
 
 - **`src/pages/case-studies/index.astro`** (new): fixes the existing dead
   footer link (`FOOTER_RESOURCES` already has "Case Studies" pointing to
-  `#`). Lists both case studies with a summary card each, room to add more
-  later (Scanstar, Gotrans, etc. are existing SG clients not yet covered).
+  `#`). Lists all three case studies with a summary card each, room to add
+  more later (Scanstar, Gotrans, etc. are existing SG clients not yet
+  covered).
 - **`src/pages/case-studies/k2l-aircon.astro`** (new):
   - Business: K2L Aircon Singapore, reconditioned/used air conditioner
     sales with installation and warranty, from S$700 installed.
@@ -127,18 +128,46 @@ isolation.
     their own customers directly. This is real proof of the "app
     development as a supporting service" narrative from Part A, not a
     generic feature list.
-  - Open question, not yet answered: does K2L have an equivalent custom
-    build to include, or is K2L's case study SEO/AEO-only? Default:
-    SEO/AEO-only unless told otherwise before implementation.
-- **Data presentation**: Search Console numbers (clicks, impressions,
-  position, CTR) are redrawn as native styled stat tiles and a simple trend
-  chart matching the site's own design system, not embedded screenshots of
-  the Google UI, keeps the pages visually cohesive ("beautiful layout" per
-  the user's request). Use the `dataviz` skill's guidance for chart/stat
-  styling when implementing.
+  - K2L's case study is confirmed SEO/AEO only, no custom app section.
+- **`src/pages/case-studies/united-world-sports-management.astro`** (new):
+  - Business: United World Sports Management, cricket coaching academy
+    in Singapore, plus a cricket equipment ecommerce store (bats, pads,
+    gloves, helmets from Kookaburra, GM, DSC, SG and others). Also runs
+    international cricket tours and holiday camps. Established 2016,
+    official LMS (Last Man Stands) franchise partner, AB de Villiers
+    named as LMS Global Ambassador connection.
+  - SerpEyes built both the marketing site and the ecommerce store.
+  - Real proof: appears in ChatGPT results for "best cricket coaching
+    academy in singapore" (listed 5th of 5 with a "best for: all-round
+    cricket ecosystem" callout, screenshot provided by user, present a
+    genuine inclusion, not overstate as a #1 ranking). Ranks Google top 3
+    for cricket equipment Singapore keywords (per user, not independently
+    verified beyond the user's statement).
+  - Real Search Console data (last 6 months): 714 clicks, 17.8k
+    impressions, average position 3.2, 4% CTR, the strongest raw traffic
+    number of the three case studies.
+  - Presented under the client business name "United World Sports
+    Management" per the user's explicit instruction, no ownership
+    disclosure line, this was raised as a consideration (same legal
+    entity name, UWSM Pte Ltd, that appeared as SerpEyes' own registered
+    operating company earlier in this project) and the user chose to
+    proceed without disclosure.
+- **Data presentation**:
+  - Search Console numbers (clicks, impressions, position, CTR) are
+    redrawn as native styled stat tiles and a simple trend chart matching
+    the site's own design system, not embedded screenshots of the Google
+    UI, keeps the pages visually cohesive ("beautiful layout" per the
+    user's request). Use the `dataviz` skill's guidance for chart/stat
+    styling when implementing.
+  - AI-citation proof (the ChatGPT screenshots) are different: these are
+    embedded as actual images (can't be meaningfully redrawn as a stat),
+    presented inside a clean macOS-style browser/app window mockup frame
+    (rounded corners, traffic-light dots, a URL/title bar) rather than a
+    raw cropped screenshot, per the user's request for a more polished,
+    professional look.
 - **Client visuals**: real logos provided and saved at
-  `public/case-studies/k2l-logo.png` and
-  `public/case-studies/truleum-logo.png`. Use these on the respective case
+  `public/case-studies/k2l-logo.png`, `public/case-studies/truleum-logo.png`,
+  and `public/case-studies/uwsm-logo.webp`. Use these on the respective case
   study pages and index cards.
 - **Footer**: `FOOTER_RESOURCES`'s "Case Studies" link updated from `#` to
   `/case-studies`.
