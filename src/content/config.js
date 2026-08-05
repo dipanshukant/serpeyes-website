@@ -49,7 +49,7 @@ export const HERO = {
 
 export const DIFF_SECTION = {
   badge: 'Why SerpEyes',
-  headline: 'We Get You Cited by AI, Then Build Everything That Makes It Stick.',
+  headline: 'We Build the Foundation, Then Get You Cited by AI.',
   sub: 'Most agencies chase Google rankings alone. SerpEyes optimises for how people actually search now, asking ChatGPT and Perplexity directly, and builds the technical foundation AI needs to trust and cite your business.',
 };
 
