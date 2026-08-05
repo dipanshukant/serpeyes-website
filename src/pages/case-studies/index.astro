@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const studies = [
+  {
+    href: '/case-studies/k2l-aircon',
+    logo: '/case-studies/k2l-logo.png',
+    name: 'K2L Aircon',
+    summary: 'Built from scratch, now ranked in Google and cited in ChatGPT for used aircon searches in Singapore.',
+    stat: '5.2%',
+    statLabel: 'click-through rate',
+  },
+  {
+    href: '/case-studies/truleum-lofts',
+    logo: '/case-studies/truleum-logo.png',
+    name: 'Truleum Loft Specialist',
+    summary: 'Website and a custom invoicing app, then ranked page one on Google for loft conversions in Cambridge.',
+    stat: '173',
+    statLabel: 'clicks in 6 months',
+  },
+  {
+    href: '/case-studies/united-world-sports-management',
+    logo: '/case-studies/uwsm-logo.webp',
+    name: 'United World Sports Management',
+    summary: 'Website and ecommerce store built from scratch, now top 3 on Google and cited in ChatGPT in Singapore.',
+    stat: '714',
+    statLabel: 'clicks in 6 months',
+  },
+];
+---
+
+<BaseLayout
+  title="Case Studies: Real SerpEyes Client Results and Proof"
+  description="Real SerpEyes client results: websites we built from scratch that now rank on Google and get cited by ChatGPT and other AI answer engines today."
+>
+  <main>
+    <section style="padding: 80px 24px 56px; background: linear-gradient(180deg, #f8faff 0%, white 100%); text-align: center;">
+      <div style="max-width: 700px; margin: 0 auto;">
+        <span class="badge" style="margin-bottom: 16px; display: inline-block;">Case Studies</span>
+        <h1 style="font-family: Sora, sans-serif; font-size: clamp(28px, 5vw, 44px); font-weight: 700; color: #0f172a; margin: 0 0 20px; letter-spacing: -0.02em;">
+          Real Clients, Real Results
+        </h1>
+        <p style="font-size: 16px; color: #475569; line-height: 1.7; margin: 0;">
+          Every business below had their website built by SerpEyes from scratch, then optimised for search and AI visibility. Here is what happened next.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding: 24px 24px 88px; background: white;">
+      <div style="max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        {studies.map(study => (
+          <a href={study.href} class="card-hover" style="display: block; background: white; border: 1px solid #cbd5e1; border-radius: 16px; padding: 32px 28px; text-decoration: none;">
+            <img src={study.logo} alt={`${study.name} logo`} style="height: 36px; width: auto; margin-bottom: 20px;" />
+            <h2 style="font-family: Sora, sans-serif; font-size: 19px; font-weight: 700; color: #0f172a; margin: 0 0 10px;">{study.name}</h2>
+            <p style="font-size: 14.5px; color: #64748b; line-height: 1.7; margin: 0 0 20px;">{study.summary}</p>
+            <div style="display: flex; align-items: baseline; gap: 6px;">
+              <span style="font-family: Sora, sans-serif; font-size: 24px; font-weight: 700; color: #1B4FD8;">{study.stat}</span>
+              <span style="font-size: 13px; color: #94a3b8;">{study.statLabel}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
