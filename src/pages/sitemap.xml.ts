@@ -75,6 +75,42 @@ export const GET: APIRoute = ({ site }) => {
       priority: 0.7,
       lastmod: new Date().toISOString(),
     },
+    {
+      url: '/aeo/singapore',
+      changefreq: 'monthly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    },
+    {
+      url: '/aeo/uk',
+      changefreq: 'monthly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    },
+    {
+      url: '/case-studies',
+      changefreq: 'monthly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    },
+    {
+      url: '/case-studies/k2l-aircon',
+      changefreq: 'monthly',
+      priority: 0.7,
+      lastmod: new Date().toISOString(),
+    },
+    {
+      url: '/case-studies/truleum-lofts',
+      changefreq: 'monthly',
+      priority: 0.7,
+      lastmod: new Date().toISOString(),
+    },
+    {
+      url: '/case-studies/united-world-sports-management',
+      changefreq: 'monthly',
+      priority: 0.7,
+      lastmod: new Date().toISOString(),
+    },
     // Add individual blog posts
     ...BLOG_POSTS.map(post => ({
       url: `/blog/${post.slug}`,
