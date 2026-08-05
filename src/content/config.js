@@ -364,8 +364,8 @@ export const QUOTE_SECTION = {
 };
 
 export const MARKETS_SECTION = {
-  headline: 'Markets We Have Worked In',
-  sub: 'We have delivered websites, apps and growth campaigns for businesses across multiple markets. Each one requires a different approach. We research yours before we start.',
+  headline: 'Where We Actually Work',
+  sub: 'Singapore is our home market with the deepest track record. The UK and US are real, active markets we are building the same track record in, not places we claim to serve without proof.',
 };
 
 export const MARKETS = [
@@ -374,28 +374,21 @@ export const MARKETS = [
     color: '#1B4FD8',
     bg: '#eff4ff',
     market: 'Singapore',
-    note: 'Our home market. Deep expertise in local search behaviour, digital habits and what actually drives growth for Singapore businesses.',
+    note: 'Our home market, with a registered office, real client work and the deepest track record. See our Singapore-based case studies for proof, not just a claim.',
   },
   {
     code: 'UK',
     color: '#059669',
     bg: '#f0fdf4',
     market: 'United Kingdom',
-    note: 'Websites, apps and local SEO for UK businesses, including Google Business Profile, local directories and regional search intent.',
+    note: 'A registered UK office and real client work in Cambridgeshire. Growing, with a genuine result behind it already, not a market we just say we cover.',
   },
   {
-    code: 'IN',
+    code: 'US',
     color: '#ea580c',
     bg: '#fff7ed',
-    market: 'India',
-    note: 'Digital growth services for Indian businesses across major cities, with local market considerations built into every project.',
-  },
-  {
-    code: 'SEA',
-    color: '#7c3aed',
-    bg: '#f5f3ff',
-    market: 'Southeast Asia',
-    note: 'Malaysia, Indonesia, Philippines and beyond. Growing markets with significant digital opportunities and less saturated competition.',
+    market: 'United States',
+    note: 'Active outreach and early conversations underway. We are building US proof the same way we built it in the UK, honestly, one real client at a time.',
   },
 ];
 
@@ -409,17 +402,17 @@ export const SERVICES_CTA = {
 
 export const ABOUT_HERO = {
   badge: 'About Us',
-  headline: 'A Digital Growth Agency Built by Doing the Work',
-  sub: 'SerpEyes started as an SEO focused build and grew into a full digital growth agency because a great SEO strategy still needs a website and app worth ranking. Here is who we are and how we work.',
+  headline: 'We Started With SEO. We Stayed to Solve a Bigger Problem.',
+  sub: 'SerpEyes began as an SEO focused build. We kept hitting the same wall, strong rankings did not matter if the website behind them was slow, hard to update, or invisible to the AI tools people now ask instead of Google. So we built the rest of the system ourselves.',
   btn: 'Get a Free Consultation',
 };
 
 export const ABOUT_STORY = {
   headline: 'Our Story',
   paragraphs: [
-    'SerpEyes began with a simple frustration. SEO results only go so far when the website behind them is slow, hard to update or not built to convert. We kept referring that work out to other vendors until we decided to build the capability ourselves.',
-    'Today SerpEyes is a full digital growth agency. We build websites and apps, run SEO and AEO, and handle digital marketing, so every part of a business online presence works toward the same goal instead of being managed by five disconnected vendors.',
-    'We are based in Singapore and work with businesses across the UK, India and Southeast Asia, adapting every strategy to the market it needs to perform in.',
+    'SerpEyes started as an SEO focused build. Rankings would climb, then stall against the same wall every time, the website behind them was slow, hard to update, or not built to actually convert the traffic it earned. We kept referring that work out to other vendors, until we decided to build the capability ourselves instead.',
+    'Then search itself started changing. People stopped scrolling through ten blue links and started asking ChatGPT and Perplexity directly. Ranking well on Google no longer guaranteed a customer ever found you. That shift is why AEO and GEO, getting cited inside AI answers, became the core of what we do, with web development, app development and marketing built specifically to support that goal, not run alongside it as separate services.',
+    'We do not show mockups as proof. Every case study on this site is a real client, a real website we built from scratch, and real Search Console numbers behind the results. We are based in Singapore, with a growing presence in the UK and active work underway in the US.',
   ],
 };
 
