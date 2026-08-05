@@ -41,7 +41,7 @@ export const HERO = {
   badge: 'Answer Engine Optimisation and Generative Engine Optimisation',
   headline: 'Get Found When Customers Ask',
   headlineAccent: 'AI, Not Just Google',
-  subheadline: 'SerpEyes gets your business cited in ChatGPT, Perplexity and Google AI Overviews, then builds the website, app and marketing systems that make it possible. One team, one goal: your business is the answer AI gives.',
+  subheadline: 'SerpEyes builds the website, app and marketing systems that get your business cited in ChatGPT, Perplexity and Google AI Overviews. One team, one goal: your business is the answer AI gives.',
   btn1: 'Get a Free AEO Check',
   btn2: 'See How It Works',
   footnote: 'Free AI visibility and website audit included. No obligation.',
@@ -64,7 +64,7 @@ export const DIFF_CARDS = [
 
 export const FEATURES_SECTION = {
   badge: 'What We Offer',
-  headline: 'AEO First, Then the Systems That Support It',
+  headline: 'AEO Is the Goal. These Systems Get You There.',
   sub: 'Answer Engine Optimisation is the goal. Everything else we build exists to help you get there and stay there.',
 };
 
