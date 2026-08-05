@@ -12,6 +12,7 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 const isLaunchPost = post.slug === 'serpeyes-digital-growth-agency-what-we-do';
 const isAeoCheckPost = post.slug === 'how-to-check-if-your-business-shows-up-in-ai-search';
+const isAeoVsGeoPost = post.slug === 'aeo-vs-ai-seo-vs-geo-explained';
 
 const tocItems = isLaunchPost
   ? [
@@ -34,6 +35,18 @@ const tocItems = isLaunchPost
       { id: 'how-often-to-check', label: 'How Often to Check' },
       { id: 'a-few-quick-questions', label: 'A Few Quick Questions' },
       { id: 'get-help', label: 'Get Help If You Are Stuck' },
+    ]
+  : isAeoVsGeoPost
+  ? [
+      { id: 'why-so-many-terms', label: 'Why So Many Terms' },
+      { id: 'what-is-seo', label: 'What Is SEO' },
+      { id: 'what-is-aeo', label: 'What Is AEO' },
+      { id: 'what-is-geo', label: 'What Is GEO' },
+      { id: 'aeo-vs-geo-difference', label: 'AEO vs GEO: The Real Difference' },
+      { id: 'what-is-ai-seo', label: 'What Is AI SEO' },
+      { id: 'simple-comparison', label: 'A Simple Comparison' },
+      { id: 'why-it-matters', label: 'Why This Matters for You' },
+      { id: 'get-help', label: 'Get Help With This' },
     ]
   : [
       { id: 'why-this-matters', label: 'Why this matters' },
@@ -269,6 +282,65 @@ const faqSchema = isAeoCheckPost ? {
                 <section id="get-help" style="scroll-margin-top: 110px; margin-top: 28px;">
                   <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Get Help If You Are Stuck</h2>
                   <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If you tried this and your business is missing, or the details are wrong, and you are not sure how to fix it, that is exactly what <a href="/about" style="color: #1B4FD8; text-decoration: underline;">SerpEyes</a> does. <a href="/aeo" style="color: #1B4FD8; text-decoration: underline;">Book a free AEO check</a> and we will show you exactly what is missing and how to fix it.</p>
+                </section>
+              </>
+            ) : isAeoVsGeoPost ? (
+              <>
+                <section id="why-so-many-terms" style="scroll-margin-top: 110px; margin-top: 26px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Why So Many Terms</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">You have probably seen SEO, AEO, AI SEO and GEO all used to talk about the same general idea, getting your business found online. That is confusing, even for adults.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">This article explains each term in plain words, no confusing jargon, so you actually understand what people mean when they use them.</p>
+                </section>
+
+                <section id="what-is-seo" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What Is SEO</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">SEO stands for Search Engine Optimisation.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Think of Google as a giant library with billions of books, but no librarian to help you. SEO is the work of making your book, your website, easy to find and worth reading, so Google puts it near the top of the shelf when someone searches for something related to it.</p>
+                </section>
+
+                <section id="what-is-aeo" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What Is AEO</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">AEO stands for <a href="/aeo" style="color: #1B4FD8; text-decoration: underline;">Answer Engine Optimisation</a>.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Imagine a teacher asks the whole class a question. Lots of students raise their hands, but the teacher can only call on one. AEO is the work of making sure your business is the one the teacher picks, when a customer asks something like who is a good dentist near me. It is not about being on a list. It is about being the answer.</p>
+                </section>
+
+                <section id="what-is-geo" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What Is GEO</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">GEO stands for Generative Engine Optimisation. It is newer and more specific than AEO.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">When you ask <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">ChatGPT</a> a question, it does not just point at one webpage. It writes a brand new paragraph, in its own words, using facts it has picked up from many places. GEO is the work of making sure your business is one of those facts, so you get mentioned inside the AI's own written answer, not just picked as a single link.</p>
+                </section>
+
+                <section id="aeo-vs-geo-difference" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">AEO vs GEO: The Real Difference</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">AEO and GEO sound almost the same, and most people use them to mean the same thing. That is fine for everyday use.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">If you want the precise difference, AEO is older and wider. It covers any tool that gives a direct answer instead of a list of links, including voice assistants like Siri and Google's answer boxes. GEO is newer and narrower. It focuses only on AI tools that generate a written answer, like ChatGPT and <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" style="color: #1B4FD8; text-decoration: underline;">Perplexity</a>. Every GEO result is a kind of AEO result. Not every AEO result is GEO.</p>
+                </section>
+
+                <section id="what-is-ai-seo" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">What Is AI SEO</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">AI SEO is not an official, exact term the way SEO and AEO are. Different people use it to mean different things.</p>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Some people use it to mean AEO and GEO combined. Others use it to mean using AI tools to help write regular SEO content faster. If someone says AI SEO to you, the safest move is to ask what they actually mean, because the term alone does not tell you much.</p>
+                </section>
+
+                <section id="simple-comparison" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">A Simple Comparison</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0 0 16px;">Here is the short version, side by side.</p>
+                  <ul style="margin: 0 0 16px 20px; padding: 0; color: #334155; font-size: 16px; line-height: 1.9;">
+                    <li style="margin-bottom: 8px;"><strong>SEO:</strong> helps you show up in a list of links on Google.</li>
+                    <li style="margin-bottom: 8px;"><strong>AEO:</strong> helps you get picked as the one direct answer, on Google, Siri, or an AI tool.</li>
+                    <li style="margin-bottom: 8px;"><strong>GEO:</strong> helps you become one of the facts an AI tool uses when it writes its own answer, like ChatGPT.</li>
+                    <li><strong>AI SEO:</strong> not one exact thing, usually means AEO and GEO together, or using AI to help with normal SEO work.</li>
+                  </ul>
+                </section>
+
+                <section id="why-it-matters" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Why This Matters for You</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">More people are skipping the list of links completely and just asking an AI tool for the answer. If your business is not part of that answer, it does not matter how good your website looks, that customer already made a choice before they ever visited your site. That is why <a href="/about" style="color: #1B4FD8; text-decoration: underline;">SerpEyes</a> treats AEO and GEO as one connected goal, not two separate side projects.</p>
+                </section>
+
+                <section id="get-help" style="scroll-margin-top: 110px; margin-top: 28px;">
+                  <h2 style="font-family: Sora, sans-serif; font-size: 24px; color: #0f172a; margin: 0 0 12px;">Get Help With This</h2>
+                  <p style="font-size: 16px; color: #334155; line-height: 1.9; margin: 0;">Not sure if your business actually shows up when people ask AI tools these kinds of questions? Read our other guide, <a href="/blog/how-to-check-if-your-business-shows-up-in-ai-search" style="color: #1B4FD8; text-decoration: underline;">how to check if your business shows up in AI search</a>, or <a href="/aeo" style="color: #1B4FD8; text-decoration: underline;">book a free AEO check</a> and we will show you exactly where you stand.</p>
                 </section>
               </>
             ) : (
