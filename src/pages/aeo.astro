@@ -8,14 +8,35 @@ import {
   AEO_PROCESS,
   AEO_LIMITS_SECTION,
   AEO_LIMITS,
+  AEO_FAQ,
   AEO_CTA,
 } from '../content/config.js';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": AEO_FAQ.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a },
+  })),
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Answer Engine Optimisation",
+  "provider": { "@type": "Organization", "name": "SerpEyes" },
+  "description": "Answer Engine Optimisation and Generative Engine Optimisation services, getting businesses cited in ChatGPT, Perplexity and Google AI Overviews.",
+};
 ---
 
 <BaseLayout
   title="AEO (Answer Engine Optimisation) - SerpEyes"
   description="Answer Engine Optimisation from SerpEyes. Get found when people ask ChatGPT, Perplexity and AI Overviews instead of typing into Google."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <main>
     <!-- Hero: left aligned, not centered like the rest of the site -->
     <section style="padding: 80px 24px 64px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
@@ -113,6 +134,21 @@ import {
             </li>
           ))}
         </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 80px 24px; background: white;">
+      <div style="max-width: 720px; margin: 0 auto;">
+        <h2 style="font-family: Sora, sans-serif; font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: #0f172a; margin: 0 0 32px; letter-spacing: -0.02em;">
+          Common Questions
+        </h2>
+        {AEO_FAQ.map(item => (
+          <div style="border-bottom: 1px solid #eef2f8; padding: 22px 0;">
+            <h3 style="font-family: Sora, sans-serif; font-size: 16.5px; font-weight: 700; color: #0f172a; margin: 0 0 8px;">{item.q}</h3>
+            <p style="font-size: 15px; color: #475569; line-height: 1.75; margin: 0;">{item.a}</p>
+          </div>
+        ))}
       </div>
     </section>
 

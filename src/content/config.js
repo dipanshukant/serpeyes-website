@@ -509,6 +509,29 @@ export const AEO_LIMITS = [
   'Some categories of business get named far more often than others. A local trade with clear, factual information tends to do better than a business selling something abstract.',
 ];
 
+export const AEO_FAQ = [
+  {
+    q: 'What is AEO (Answer Engine Optimisation)?',
+    a: 'AEO is the practice of structuring your website and content so AI tools like ChatGPT, Perplexity and Google AI Overviews can find, understand and cite your business when someone asks a relevant question.',
+  },
+  {
+    q: 'Is AEO different from GEO?',
+    a: 'GEO (Generative Engine Optimisation) describes the same goal, getting cited inside AI-generated answers. SerpEyes treats AEO and GEO as one combined service, not two separate offerings.',
+  },
+  {
+    q: 'How long does AEO take to show results?',
+    a: 'Most clients see initial movement within 6 to 8 weeks, with stronger results by month 3. That is why our retainers run on a 3-month minimum, AI indexing and trust signals take real time to build.',
+  },
+  {
+    q: 'Do I still need traditional SEO if I do AEO?',
+    a: 'Yes. AI answer engines pull from many of the same signals traditional search engines use, clean structure, clear content and technical health. SerpEyes runs SEO and AEO together, not as separate tracks.',
+  },
+  {
+    q: 'Can any business benefit from AEO?',
+    a: 'Any business whose customers ask questions online benefits from AEO, from service businesses to ecommerce stores. The specific tactics vary, but the goal is the same: being the answer AI gives.',
+  },
+];
+
 export const AEO_CTA = {
   headline: 'Ask ChatGPT About Your Own Business Right Now',
   sub: 'Try it yourself before you talk to us. Ask an AI tool something a real customer would ask about your industry, in your city, and see what comes back. Then tell us what you found.',
