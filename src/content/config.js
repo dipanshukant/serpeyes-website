@@ -162,7 +162,7 @@ export const CTA_SECTION = {
 export const WEBDEV_HERO = {
   badge: 'Web Development',
   headline: 'Websites and eCommerce Platforms Built to Convert',
-  sub: 'A website that just looks good is not enough. We build fast, modern, secure websites and online stores designed around your customer journey and built to turn visitors into leads and sales.',
+  sub: 'A website that just looks good is not enough. We build fast, modern, secure websites and online stores designed around your customer journey, and around what AI engines need to crawl, understand and cite. This is the foundation every SerpEyes AEO strategy is built on.',
   btn: 'Start Your Website Project',
 };
 
@@ -222,7 +222,7 @@ export const WEBDEV_CTA = {
 export const APPDEV_HERO = {
   badge: 'App Development',
   headline: 'Android and iOS Apps Built Around Your Business Goals',
-  sub: 'From idea to launch, we design and build mobile apps that solve a real problem for your users and fit naturally into how your business already works.',
+  sub: 'From idea to launch, we design and build mobile apps that solve a real problem for your users and extend your business into the channels your customers already use, alongside the AI visibility work we do everywhere else.',
   btn: 'Start Your App Project',
 };
 
