@@ -1,0 +1,28 @@
+# SerpEyes
+
+> SerpEyes is a digital growth agency specialising in Answer Engine Optimisation (AEO) and Generative Engine Optimisation (GEO), helping businesses get found when people ask AI tools like ChatGPT, Perplexity and Google AI Overviews about their industry, instead of only ranking on traditional Google search. SerpEyes also builds the websites, apps and marketing systems that make AI visibility possible.
+
+SerpEyes is based in Singapore and works with clients across Singapore, the United Kingdom and the United States.
+
+## Core service
+
+- [AEO and GEO](https://serpeyes.com/aeo): getting businesses cited and recommended inside AI answer engines, the agency's primary specialisation.
+
+## Supporting services
+
+- [Web Development](https://serpeyes.com/web-development): custom websites and ecommerce platforms, built to be fast and structured so AI engines can crawl and cite them.
+- [App Development](https://serpeyes.com/app-development): Android and iOS apps.
+- [Services overview](https://serpeyes.com/services): the full list of what SerpEyes offers.
+
+## Proof
+
+- [Case Studies](https://serpeyes.com/case-studies): real client results, including websites built from scratch that now rank in Google and appear in ChatGPT answers.
+
+## Pricing
+
+- [Pricing](https://serpeyes.com/pricing): SEO plus AEO retainer plans, with website and app development quoted per project.
+
+## Contact
+
+- [Get in touch](https://serpeyes.com/request-demo)
+- Email: hello@serpeyes.com
