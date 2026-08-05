@@ -2,6 +2,7 @@
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppWidget from '../components/WhatsAppWidget.jsx';
+import { SITE } from '../content/config.js';
 
 interface Props {
   title: string;
@@ -107,6 +108,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       els.forEach(el => obs.observe(el));
     });
   </script>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SerpEyes",
+    "url": "https://serpeyes.com",
+    "logo": "https://serpeyes.com/logo.svg",
+    "email": SITE.email,
+    "sameAs": [],
+    "description": "SerpEyes is a digital growth agency specialising in Answer Engine Optimisation and Generative Engine Optimisation, helping businesses get found in AI answers and on Google.",
+  })} />
 </head>
 <body>
   <Nav />
