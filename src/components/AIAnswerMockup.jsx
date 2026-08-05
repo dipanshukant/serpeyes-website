@@ -84,7 +84,6 @@ export default function AIAnswerMockup() {
   }, []);
 
   useEffect(() => {
-    if (reducedMotion) return;
     const id = setInterval(() => {
       const now = performance.now();
       let t = now - startRef.current;
@@ -97,7 +96,7 @@ export default function AIAnswerMockup() {
       setElapsed(t);
     }, TICK_MS);
     return () => clearInterval(id);
-  }, [reducedMotion]);
+  }, []);
 
   const scene = SCENES[sceneIndex];
   const brandStart = scene.answer.indexOf(scene.brand);
@@ -105,35 +104,29 @@ export default function AIAnswerMockup() {
   const fontStack = { sora: "'Sora', sans-serif", dm: "'DM Sans', sans-serif" };
 
   let cardOpacity = 1;
-  let charCount = scene.answer.length;
-  let visibleBadges = BADGES.length;
-  let glowActive = false;
-
-  if (!reducedMotion) {
-    if (elapsed < T.cardIn) {
-      cardOpacity = elapsed / T.cardIn;
-    } else if (elapsed > T.fadeEnd) {
-      cardOpacity = Math.max(0, 1 - (elapsed - T.fadeEnd) / (T.loopEnd - T.fadeEnd));
-    }
-
-    const typeProgress = Math.min(1, Math.max(0, (elapsed - T.typeStart) / T.typeDuration));
-    charCount = Math.floor(typeProgress * scene.answer.length);
-
-    const badgesStart = T.typeStart + T.typeDuration + 200;
-    visibleBadges = 0;
-    BADGES.forEach((_, i) => {
-      if (elapsed >= badgesStart + i * T.badgeGap) visibleBadges += 1;
-    });
-
-    const glowStart = T.typeStart + (brandStart / scene.answer.length) * T.typeDuration;
-    glowActive = elapsed >= glowStart && elapsed < glowStart + 450;
+  if (elapsed < T.cardIn) {
+    cardOpacity = elapsed / T.cardIn;
+  } else if (elapsed > T.fadeEnd) {
+    cardOpacity = Math.max(0, 1 - (elapsed - T.fadeEnd) / (T.loopEnd - T.fadeEnd));
   }
+
+  const typeProgress = Math.min(1, Math.max(0, (elapsed - T.typeStart) / T.typeDuration));
+  const charCount = Math.floor(typeProgress * scene.answer.length);
+
+  const badgesStart = T.typeStart + T.typeDuration + 200;
+  let visibleBadges = 0;
+  BADGES.forEach((_, i) => {
+    if (elapsed >= badgesStart + i * T.badgeGap) visibleBadges += 1;
+  });
+
+  const glowStart = T.typeStart + (brandStart / scene.answer.length) * T.typeDuration;
+  const glowActive = elapsed >= glowStart && elapsed < glowStart + 450;
 
   const displayed = scene.answer.slice(0, charCount);
   const pre = displayed.slice(0, Math.min(charCount, brandStart));
   const mid = charCount > brandStart ? displayed.slice(brandStart, Math.min(charCount, brandEnd)) : '';
   const post = charCount > brandEnd ? displayed.slice(brandEnd, charCount) : '';
-  const showCaret = charCount < scene.answer.length && !reducedMotion;
+  const showCaret = charCount < scene.answer.length;
 
   return (
     <div style={{ width: '100%', maxWidth: CANVAS_W, aspectRatio: `${CANVAS_W} / ${CANVAS_H}`, position: 'relative', fontFamily: fontStack.dm, containerType: 'inline-size' }}>
