@@ -38,91 +38,91 @@ export const FOOTER_SOCIALS = ['LinkedIn', 'Twitter'];
 // ---- HOMEPAGE ----
 
 export const HERO = {
-  badge: 'Web Development. App Development. SEO. AEO. Marketing',
-  headline: 'Digital Growth Built for',
-  headlineAccent: 'Businesses Ready to Scale',
-  subheadline: 'SerpEyes is a digital growth agency that helps businesses establish, optimise and scale their online presence. Websites, mobile apps, SEO, AEO and result-driven marketing, delivered by one team instead of five vendors.',
-  btn1: 'Get a Free Consultation',
-  btn2: 'View Our Services',
-  footnote: 'Free website and SEO audit included. No obligation.',
+  badge: 'Answer Engine Optimisation and Generative Engine Optimisation',
+  headline: 'Get Found When Customers Ask',
+  headlineAccent: 'AI, Not Just Google',
+  subheadline: 'SerpEyes gets your business cited in ChatGPT, Perplexity and Google AI Overviews, then builds the website, app and marketing systems that make it possible. One team, one goal: your business is the answer AI gives.',
+  btn1: 'Get a Free AEO Check',
+  btn2: 'See How It Works',
+  footnote: 'Free AI visibility and website audit included. No obligation.',
 };
 
 export const DIFF_SECTION = {
   badge: 'Why SerpEyes',
-  headline: 'One Growth Partner Instead of Five Vendors.',
-  sub: 'Most agencies specialise in one piece: a website, or ads, or SEO. SerpEyes builds and grows the whole system, so every part works toward the same goal, more qualified customers.',
+  headline: 'We Get You Cited by AI, Then Build Everything That Makes It Stick.',
+  sub: 'Most agencies chase Google rankings alone. SerpEyes optimises for how people actually search now, asking ChatGPT and Perplexity directly, and builds the technical foundation AI needs to trust and cite your business.',
 };
 
 export const DIFF_CARDS = [
-  { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>`, title: 'One Team, Every Channel', desc: 'Your website, app, SEO and marketing built by one team that already knows your brand. No handoffs between vendors and no mismatched strategies pulling in different directions.' },
-  { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>`, title: 'AI-Powered Workflows', desc: 'We use AI-driven research, content and automation to move faster than traditional agencies, without cutting corners on quality or strategy.' },
+  { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.8" fill="#60a5fa" fill-opacity="0.15"/><path d="M18.8 4.5l.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8.8-1.7z"/></svg>`, title: 'AEO Is What We Do First', desc: 'While other agencies treat AI search as an afterthought, it is our specialisation. We structure your content and site so ChatGPT, Perplexity and Google AI Overviews can find, understand and recommend your business.' },
+  { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`, title: 'Websites and Apps That Support the Goal', desc: 'A site that is slow or poorly structured cannot be cited, no matter how good the SEO strategy is. We build the technical foundation your AEO strategy actually needs to work.' },
   { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="2 20 22 20"/></svg>`, title: 'Data-Driven, Not Guesswork', desc: 'Every decision, design choice, keyword or campaign is backed by data on what your customers actually search for and respond to.' },
-  { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.8" fill="#60a5fa" fill-opacity="0.15"/><path d="M18.8 4.5l.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8.8-1.7z"/></svg>`, title: 'Built for AI Search Too', desc: 'Search is changing. We optimise for AEO, Answer Engine Optimisation, so your business shows up in ChatGPT, Perplexity and Google AI Overviews, not just Google.' },
+  { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>`, title: 'AI-Powered Workflows', desc: 'We use AI-driven research, content and automation to move faster than traditional agencies, without cutting corners on quality or strategy.' },
   { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`, title: 'Focused on Measurable Growth', desc: 'We track leads, conversions and revenue impact, not vanity metrics. You always know what your investment is actually producing.' },
   { icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`, title: 'Built to Scale With You', desc: 'From your first website to a full multi-channel growth engine, our systems are built to grow alongside your business, not need replacing in a year.' },
 ];
 
 export const FEATURES_SECTION = {
-  badge: 'Our Services',
-  headline: 'Everything Your Business Needs to Grow Online',
-  sub: 'From your first website to ongoing marketing and search visibility, SerpEyes covers every stage of your digital presence under one roof.',
+  badge: 'What We Offer',
+  headline: 'AEO First, Then the Systems That Support It',
+  sub: 'Answer Engine Optimisation is the goal. Everything else we build exists to help you get there and stay there.',
 };
 
 export const FEATURES = [
   {
+    iconBg: '#fdf2f8',
+    accent: '#db2777',
+    title: 'AEO (Answer Engine Optimisation)',
+    desc: 'We structure and optimise your content so AI tools like ChatGPT, Perplexity and Google AI Overviews can find, understand and recommend your business. This is what we specialise in.',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.8" fill="#db2777" fill-opacity="0.15"/><path d="M18.8 4.5l.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8.8-1.7z"/></svg>`,
+  },
+  {
     iconBg: '#eff4ff',
     accent: '#1B4FD8',
     title: 'Custom Website Development',
-    desc: 'Business websites and eCommerce platforms built on modern, fast, secure technology. Designed to convert visitors into enquiries and sales, not just look good.',
+    desc: 'Business websites and eCommerce platforms built fast, structured and crawlable, the technical foundation your AEO strategy needs to get cited.',
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1B4FD8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
   },
   {
     iconBg: '#f0fdf4',
     accent: '#059669',
     title: 'Mobile App Development',
-    desc: 'Native and cross platform Android and iOS apps built around your business goals, from concept and UI/UX design through to launch and maintenance.',
+    desc: 'Native and cross platform Android and iOS apps, extending your AI visibility to where your customers already are, not just the browser.',
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
   },
   {
     iconBg: '#f5f3ff',
     accent: '#7c3aed',
     title: 'UI/UX Design',
-    desc: 'Interfaces designed around how real users behave, not guesswork. Clear flows, strong visual hierarchy and layouts that make it easy for customers to act.',
+    desc: 'Interfaces designed around how real users behave, clear flows that keep visitors on a site AI engines already trust enough to send them to.',
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
   },
   {
     iconBg: '#fff7ed',
     accent: '#ea580c',
     title: 'Search Engine Optimisation',
-    desc: 'Technical, on-page and content SEO strategies built to grow your organic visibility and search rankings over time, not disappear after month one.',
+    desc: 'Technical, on-page and content SEO that grows your organic Google visibility alongside your AI visibility, the two increasingly work together.',
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>`,
-  },
-  {
-    iconBg: '#fdf2f8',
-    accent: '#db2777',
-    title: 'AEO (Answer Engine Optimisation)',
-    desc: 'We structure and optimise your content so AI tools like ChatGPT, Perplexity and Google AI Overviews can find, understand and recommend your business.',
-    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.8" fill="#db2777" fill-opacity="0.15"/><path d="M18.8 4.5l.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8.8-1.7z"/></svg>`,
   },
   {
     iconBg: '#f0fdf4',
     accent: '#059669',
-    title: 'Digital Marketing & Social Media',
-    desc: 'Social media marketing, content strategy and campaigns that build awareness and turn attention into qualified leads, not just impressions.',
+    title: 'Digital Marketing and Social Media',
+    desc: 'Social media marketing and content that builds the brand signals AI engines and Google both weigh when deciding who to recommend.',
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4a1 1 0 001 1h3l4 4V5L7 9H4a1 1 0 00-1 1z"/><path d="M15 8a5 5 0 010 8"/><path d="M18 5a9 9 0 010 14"/></svg>`,
   },
   {
     iconBg: '#eff4ff',
     accent: '#1B4FD8',
-    title: 'Website Maintenance & Performance',
-    desc: 'Ongoing monitoring, updates, security and speed optimisation, so your site keeps performing and stays secure long after launch day.',
+    title: 'Website Maintenance and Performance',
+    desc: 'Ongoing monitoring, updates, security and speed optimisation, so the technical foundation your AEO results depend on never slips.',
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1B4FD8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`,
   },
   {
     iconBg: '#fefce8',
     accent: '#ca8a04',
-    title: 'Analytics & Reporting',
-    desc: 'Clear, regular reporting on traffic, rankings, conversions and campaign performance, so you always know exactly what is working and what is not.',
+    title: 'Analytics and Reporting',
+    desc: 'Clear, regular reporting on rankings, AI citations, traffic and conversions, so you always know exactly what is working.',
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="2 20 22 20"/></svg>`,
   },
 ];
