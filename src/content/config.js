@@ -556,7 +556,7 @@ export const BLOG_POSTS = [
     excerpt: 'A simple way to check if ChatGPT and other AI tools know your business exists, and exactly what to do if they do not.',
     date: 'Jul 2026',
     readTime: '5 min read',
-    featuredImage: '/blog/ai-search-chatbot.jpg',
+    featuredImage: '/blog/check-business-ai-search-results.webp',
   },
   {
     slug: 'aeo-vs-ai-seo-vs-geo-explained',
@@ -567,7 +567,7 @@ export const BLOG_POSTS = [
     excerpt: 'AEO, AI SEO and GEO get used interchangeably, but they are not the same thing. Here is what each one actually means, explained simply.',
     date: 'Aug 2026',
     readTime: '5 min read',
-    featuredImage: '/blog/ai-brain-network.jpg',
+    featuredImage: '/blog/aeo-ai-seo-geo-human-ai-collaboration.webp',
   },
 ];
 
