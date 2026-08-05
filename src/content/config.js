@@ -567,7 +567,7 @@ export const BLOG_POSTS = [
     excerpt: 'AEO, AI SEO and GEO get used interchangeably, but they are not the same thing. Here is what each one actually means, explained simply.',
     date: 'Aug 2026',
     readTime: '5 min read',
-    featuredImage: '/blog/ai-search-chatbot.jpg',
+    featuredImage: '/blog/ai-brain-network.jpg',
   },
 ];
 
