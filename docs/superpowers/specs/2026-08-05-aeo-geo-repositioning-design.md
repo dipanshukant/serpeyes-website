@@ -164,7 +164,11 @@ narrative, not just an SEO result in isolation.
   - No individual staff/owner names mentioned anywhere in this case
     study (explicit user instruction), business-level facts only, e.g.
     credentials like "ECB Level 1 certified coaching" can be mentioned
-    without attaching them to a named person.
+    without attaching them to a named person. Clarified during
+    implementation: this targets UWSM's own private staff/owner (e.g.
+    do not name the founder), it does NOT extend to AB de Villiers, a
+    public LMS Global Ambassador brand partnership fact, which is a
+    legitimate credibility point and stays on the page.
 - **Data presentation**:
   - Search Console numbers (clicks, impressions, position, CTR) are
     redrawn as native styled stat tiles and a simple trend chart matching
