@@ -631,8 +631,8 @@ const serviceSchema = {
 ---
 
 <BaseLayout
-  title="AEO Services in the UK - SerpEyes"
-  description="Answer Engine Optimisation for UK businesses. Get cited in ChatGPT and rank on Google. Registered UK office, real UK client results."
+  title="AEO Services for UK Businesses in Cambridge - SerpEyes"
+  description="Answer Engine Optimisation for UK businesses. Get cited in ChatGPT, Perplexity and rank on Google. Registered UK office, real UK client results."
 >
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <main>
@@ -987,8 +987,8 @@ import BrowserMockup from '../../components/case-studies/BrowserMockup.astro';
 ---
 
 <BaseLayout
-  title="K2L Aircon Case Study - SerpEyes"
-  description="How SerpEyes built K2L Aircon's website and got them cited in ChatGPT and ranked page one on Google for used aircon searches."
+  title="K2L Aircon SEO and AEO Case Study Results - SerpEyes"
+  description="How SerpEyes built K2L Aircon's website from scratch, then got them cited in ChatGPT and ranked page one on Google for used aircon searches."
 >
   <main>
     <section style="padding: 72px 24px 48px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
@@ -1086,8 +1086,8 @@ import CaseStudyStat from '../../components/case-studies/CaseStudyStat.astro';
 ---
 
 <BaseLayout
-  title="Truleum Case Study - SerpEyes"
-  description="How SerpEyes built Truleum's website and a custom invoicing app, then got them ranking page one on Google in Cambridge."
+  title="Truleum Loft Specialist AEO Case Study - SerpEyes UK"
+  description="How SerpEyes built Truleum's website and a custom invoicing app from scratch, then got them ranking page one on Google in Cambridge, UK. Real results."
 >
   <main>
     <section style="padding: 72px 24px 48px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
@@ -1186,8 +1186,8 @@ import BrowserMockup from '../../components/case-studies/BrowserMockup.astro';
 ---
 
 <BaseLayout
-  title="United World Sports Case Study - SerpEyes"
-  description="How SerpEyes built United World Sports Management's website and store, and got them ranking and cited by ChatGPT in Singapore."
+  title="United World Sports Management Case Study - SerpEyes"
+  description="How SerpEyes built United World Sports Management's website and ecommerce store, then got them ranked and cited by ChatGPT in Singapore, for real."
 >
   <main>
     <section style="padding: 72px 24px 48px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
@@ -1306,8 +1306,8 @@ const studies = [
 ---
 
 <BaseLayout
-  title="Case Studies - SerpEyes"
-  description="Real SerpEyes client results: websites we built from scratch that now rank on Google and get cited by ChatGPT and other AI tools."
+  title="Case Studies: Real SerpEyes Client Results and Proof"
+  description="Real SerpEyes client results: websites we built from scratch that now rank on Google and get cited by ChatGPT and other AI answer engines today."
 >
   <main>
     <section style="padding: 80px 24px 56px; background: linear-gradient(180deg, #f8faff 0%, white 100%); text-align: center;">
