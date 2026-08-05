@@ -7,7 +7,7 @@ const studies = [
     logo: '/case-studies/k2l-logo.png',
     name: 'K2L Aircon',
     summary: 'Built from scratch, now ranked in Google and cited in ChatGPT for used aircon searches in Singapore.',
-    stat: '5.2%',
+    stat: '1.1%',
     statLabel: 'click-through rate',
   },
   {
@@ -50,7 +50,7 @@ const studies = [
       <div style="max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
         {studies.map(study => (
           <a href={study.href} class="card-hover" style="display: block; background: white; border: 1px solid #cbd5e1; border-radius: 16px; padding: 32px 28px; text-decoration: none;">
-            <img src={study.logo} alt={`${study.name} logo`} style="height: 36px; width: auto; margin-bottom: 20px;" />
+            <img src={study.logo} alt={`${study.name} logo`} style="height: 48px; width: auto; margin-bottom: 20px;" />
             <h2 style="font-family: Sora, sans-serif; font-size: 19px; font-weight: 700; color: #0f172a; margin: 0 0 10px;">{study.name}</h2>
             <p style="font-size: 14.5px; color: #64748b; line-height: 1.7; margin: 0 0 20px;">{study.summary}</p>
             <div style="display: flex; align-items: baseline; gap: 6px;">
