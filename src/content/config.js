@@ -558,7 +558,6 @@ export const BLOG_POSTS = [
     readTime: '5 min read',
     featuredImage: '/logo.svg',
   },
-  { slug: 'serpeyes-digital-growth-agency-what-we-do', tag: 'Company Update', title: 'SerpEyes Is Now a Full Digital Growth Agency. Here Is What Changed.', excerpt: 'We have expanded from SEO into a complete digital growth agency: websites, apps, SEO, AEO and marketing. Here is what that means for our clients.', date: 'Jul 2026', readTime: '6 min read', featuredImage: '/logo.svg' },
 ];
 
 // ---- PRICING PAGE ----
