@@ -1,118 +1,121 @@
-# SerpEyes - Astro Website
+# SerpEyes Website
 
-A modern, fast marketing website for SerpEyes, a Singapore-focused SEO platform. Built with Astro, React, and Tailwind CSS, optimized for Cloudflare Pages deployment.
+Marketing website for SerpEyes, a digital growth agency specialising in Answer Engine
+Optimisation (AEO) and Generative Engine Optimisation (GEO), with web development, app
+development and digital marketing as supporting services. Built with Astro, React and
+Tailwind CSS, deployed on Cloudflare Pages.
 
-## 🚀 Project Overview
+## Project Overview
 
-**Product**: SerpEyes - All-In-One SEO Platform for Singapore  
-**Target Audience**: Marketing agencies, freelancers, and small business owners in Singapore  
-**Stage**: Pre-launch marketing website  
-**Purpose**: Generate leads, book demos, build waitlist
+**Company**: SerpEyes, digital growth agency
+**Specialisation**: AEO/GEO, getting businesses cited in ChatGPT, Perplexity and Google
+AI Overviews, backed by real website/app development capability
+**Markets**: Singapore (primary), United Kingdom, United States (in progress)
+**Purpose**: Generate leads, book consultations, sell SEO+AEO retainer subscriptions,
+showcase real client case studies
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-serpeyes-astro/
+serpeyes-website/
 ├── public/
-│   ├── favicon.svg          # Site favicon
-│   ├── robots.txt           # SEO crawler instructions
-│   ├── _headers             # Cloudflare security headers
-│   └── _redirects           # URL redirect rules
+│   ├── favicon.ico / favicon-*.png
+│   ├── robots.txt              # Explicitly allows major AI crawlers (GPTBot, PerplexityBot, etc)
+│   ├── llms.txt                # Summary file for AI crawlers, per the emerging llms.txt convention
+│   └── case-studies/           # Client logos and proof screenshots
 ├── src/
 │   ├── components/
-│   │   ├── ui/              # Reusable UI components
-│   │   │   ├── Badge.astro
-│   │   │   ├── SectionHeader.astro
-│   │   │   └── FeatureCard.astro
-│   │   ├── Nav.astro        # Navigation with mobile menu
-│   │   ├── Footer.astro     # Site footer
-│   │   ├── HeroScanner.jsx  # Interactive SEO scanner (React)
-│   │   ├── DemoForm.jsx     # Demo request form (React)
-│   │   └── EarlyAccessForm.jsx # Email capture form (React)
+│   │   ├── ui/                 # Badge, SectionHeader, FeatureCard
+│   │   ├── case-studies/       # CaseStudyStat (stat tile), BrowserMockup (macOS screenshot frame)
+│   │   ├── Nav.astro
+│   │   ├── Footer.astro
+│   │   ├── DeviceMockup.jsx    # Homepage hero animated device mockup (React)
+│   │   ├── DemoForm.jsx        # Contact/demo request form (React)
+│   │   ├── EarlyAccessForm.jsx # Email capture form (React)
+│   │   └── WhatsAppWidget.jsx  # Floating WhatsApp contact button (React)
 │   ├── content/
-│   │   └── config.js        # ALL content configuration
+│   │   └── config.js           # ALL site content lives here, single source of truth
 │   ├── layouts/
-│   │   └── BaseLayout.astro # Shared layout with head/meta tags
+│   │   └── BaseLayout.astro    # Shared layout: head/meta tags, Organization JSON-LD, Nav, Footer
 │   └── pages/
-│       ├── index.astro      # Homepage
-│       ├── for-agencies.astro
-│       ├── for-freelancers.astro
-│       ├── seo-services.astro
+│       ├── index.astro         # Homepage
+│       ├── about.astro
+│       ├── aeo.astro           # Main AEO/GEO service page (FAQ + Service schema)
+│       ├── aeo/
+│       │   ├── singapore.astro # Singapore-specific AEO landing page
+│       │   └── uk.astro        # UK-specific AEO landing page
+│       ├── services.astro
+│       ├── web-development.astro
+│       ├── app-development.astro
+│       ├── pricing.astro       # SEO+AEO retainer plans with Stripe checkout
+│       ├── case-studies/
+│       │   ├── index.astro
+│       │   ├── k2l-aircon.astro
+│       │   ├── truleum-lofts.astro
+│       │   └── united-world-sports-management.astro
+│       ├── blog.astro
+│       ├── blog/[slug].astro   # Dynamic blog post route, generated from BLOG_POSTS
+│       ├── seo-glossary.astro
 │       ├── request-demo.astro
-│       └── blog.astro
-├── astro.config.mjs         # Astro configuration
-├── tailwind.config.mjs      # Tailwind CSS configuration
-└── package.json             # Dependencies
+│       ├── thank-you.astro     # Post-checkout success page
+│       ├── privacy.astro
+│       ├── terms.astro
+│       ├── sitemap.xml.ts
+│       └── api/
+│           ├── contact.ts          # Contact form submission, sends via Resend
+│           ├── create-checkout.ts  # Creates a Stripe subscription checkout session
+│           ├── stripe-webhook.ts   # Handles checkout.session.completed, sends confirmation emails
+│           └── test-checkout.ts    # Unlisted diagnostic endpoint, generates a $0.50 test session
+├── astro.config.mjs
+├── tailwind.config.mjs
+├── .env.example             # Required environment variables
+└── package.json
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Framework**: Astro 4.x (static site generation)
-- **UI Library**: React 18 (for interactive components only)
-- **Styling**: Tailwind CSS 3.x
-- **Fonts**: Google Fonts (Sora, DM Sans)
-- **Deployment**: Cloudflare Pages
-- **Language**: JavaScript (no TypeScript)
+- **Framework**: Astro 4.x, hybrid output (static pages + on-demand API routes)
+- **UI Library**: React 18 (interactive components only, loaded with `client:load`)
+- **Styling**: Tailwind CSS 3.x (base styles disabled, most styling is inline per-component)
+- **Fonts**: Sora (headings), DM Sans (body), self-hosted via Google Fonts
+- **Deployment**: Cloudflare Pages, `@astrojs/cloudflare` adapter
+- **Payments**: Stripe (subscription checkout for retainer plans), integrated via direct
+  REST API calls, not the `stripe` npm package, keeps it compatible with the Cloudflare
+  Workers runtime
+- **Email**: Resend, used by the contact form and post-checkout confirmation emails
+- **Language**: JavaScript for content/pages, TypeScript for the `api/` routes
 
-## 📝 Content Management
+## Content Management
 
-All website content is centralized in `src/content/config.js`. This file contains:
+Nearly all website copy lives in `src/content/config.js`: hero text, service descriptions,
+FAQ content, pricing plan details, testimonials, blog post metadata, contact info. Edit
+that file for content changes, most `.astro` files just render whatever it exports.
 
-- Site metadata (name, contact info, copyright)
-- Navigation links
-- Homepage content (hero, features, testimonials, etc.)
-- Page-specific content for all routes
-- Scanner component data
+Exceptions: the case study pages (`src/pages/case-studies/*.astro`) and the AEO geo pages
+(`src/pages/aeo/singapore.astro`, `src/pages/aeo/uk.astro`) have their copy written
+directly in the page files rather than in config.js, since each is a one-off page with
+unique content, not a repeated template.
 
-**To update content**: Edit `src/content/config.js` - no need to touch any `.astro` or `.jsx` files.
+## Environment Variables
 
-## 🎨 Design System
+Copy `.env.example` to `.env` for local development. In production these are set as
+Cloudflare Pages environment variables, not committed to the repo.
 
-### Colors
-- **Primary Brand**: `#1B4FD8` (brand-600)
-- **Brand Scale**: 50-900 defined in `tailwind.config.mjs`
+| Variable | Used by | Notes |
+|---|---|---|
+| `STRIPE_SECRET_KEY` | `api/create-checkout.ts`, `api/stripe-webhook.ts`, `api/test-checkout.ts` | Same Stripe account/dashboard is shared with another business, switch between `sk_test_...` and `sk_live_...` as needed |
+| `STRIPE_WEBHOOK_SECRET` | `api/stripe-webhook.ts` | Per-endpoint AND per-mode, test mode and live mode each need their own webhook endpoint registered in Stripe with their own secret |
+| `RESEND_API_KEY` | `api/contact.ts`, `api/stripe-webhook.ts` | |
+| `CONTACT_TO_EMAIL` | `api/contact.ts` | Inbox that receives contact form leads |
+| `CONTACT_FROM_EMAIL` | `api/contact.ts`, `api/stripe-webhook.ts` | Optional, has a fallback if unset |
 
-### Typography
-- **Headings**: Sora (font-display)
-- **Body**: DM Sans (font-body)
+The Stripe checkout flow creates monthly subscription sessions for the two retainer plans
+defined in `PRICING_RETAINERS` (`src/content/config.js`), with prices duplicated
+server-side in `PLANS` inside `api/create-checkout.ts`, the client never dictates price.
+The webhook sends a personal-toned confirmation email from the founder to the customer,
+and a data-table notification email to the internal team.
 
-### CSS Classes
-- `.badge` - Pill-shaped labels
-- `.btn-primary` - Primary CTA button
-- `.btn-outline` - Outlined button
-- `.card-hover` - Card with hover lift effect
-- `.gradient-text` - Blue gradient text
-- `.hero-bg` - Hero section background
-- `.animate-on-scroll` - Fade-up on scroll animation
-
-### Animations
-- `fadeUp` - Fade in from bottom
-- `fadeIn` - Simple fade in
-- `blink` - Cursor blink
-- `pulse-dot` - Pulsing dot
-- `fadeSlideUp` - Slide up with fade
-
-## 🧩 Interactive Components
-
-Only three components use React (with `client:load`):
-
-1. **HeroScanner** (`HeroScanner.jsx`)
-   - Animated SEO scanner demo
-   - Auto-loops through typing → scanning → results phases
-   - Shows fake website being analyzed with real-time checks
-
-2. **DemoForm** (`DemoForm.jsx`)
-   - Request demo form with validation
-   - Fields: name, email, company, type, message
-   - Shows success confirmation on submit
-
-3. **EarlyAccessForm** (`EarlyAccessForm.jsx`)
-   - Simple email capture for waitlist
-   - Shows success message on submit
-
-All other components are static `.astro` files for optimal performance.
-
-## 🚦 Getting Started
+## Getting Started
 
 ### Install Dependencies
 ```bash
@@ -136,130 +139,83 @@ Output: `dist/` folder
 npm run preview
 ```
 
-## 📄 Pages & Routes
+There is no automated test suite. Changes are verified with `npm run build` succeeding
+and manually checking the built `dist/` output for expected content.
 
-| Route | File | Title | Description |
-|-------|------|-------|-------------|
-| `/` | `index.astro` | RankAura - All-In-One SEO Platform for Singapore | Homepage with hero, features, testimonials |
-| `/for-agencies` | `for-agencies.astro` | RankAura for Agencies | Agency-focused landing page |
-| `/for-freelancers` | `for-freelancers.astro` | RankAura for Freelancers | Freelancer-focused landing page |
-| `/seo-services` | `seo-services.astro` | Singapore SEO Services | Managed SEO service with pricing |
-| `/request-demo` | `request-demo.astro` | Request a Demo | Demo request form page |
-| `/blog` | `blog.astro` | Singapore SEO Blog | Blog post listing |
+## Pages & Routes
 
-Each page has unique meta tags (title, description, OG tags) defined in the page file.
+| Route | Purpose |
+|---|---|
+| `/` | Homepage |
+| `/about` | Company story, mission, values |
+| `/aeo` | Main AEO/GEO service page, deliberately not using the standard badge/card template |
+| `/aeo/singapore` | Singapore-specific AEO landing page |
+| `/aeo/uk` | UK-specific AEO landing page |
+| `/services` | Full service list overview |
+| `/web-development` | Web development service page |
+| `/app-development` | App development service page |
+| `/pricing` | SEO+AEO retainer plans with live currency display and Stripe checkout |
+| `/case-studies` | Case study index |
+| `/case-studies/k2l-aircon` | K2L Aircon (Singapore) |
+| `/case-studies/truleum-lofts` | Truleum Loft Specialist (Cambridge, UK) |
+| `/case-studies/united-world-sports-management` | United World Sports Management (Singapore) |
+| `/blog` | Blog index |
+| `/blog/[slug]` | Individual blog posts, generated from `BLOG_POSTS` in config.js |
+| `/seo-glossary` | SEO/AEO term glossary |
+| `/request-demo` | Contact form |
+| `/thank-you` | Post-checkout success page |
+| `/privacy`, `/terms` | Legal pages |
 
-## ✏️ Common Changes
+Each page sets its own meta title/description via `BaseLayout`'s `title`/`description`
+props. New pages should keep meta titles to 50-55 characters and descriptions to
+140-155 characters where practical.
 
-### Update Navigation Links
-Edit `NAV_LINKS` array in `src/content/config.js`:
-```js
-export const NAV_LINKS = [
-  { label: 'For Agencies', href: '/for-agencies' },
-  // Add more links here
-];
-```
+## Design System
 
-### Change Hero Section Content
-Edit `HERO` object in `src/content/config.js`:
-```js
-export const HERO = {
-  badge: 'Coming Soon to Singapore',
-  headline: 'SEO Built for',
-  headlineAccent: 'Singapore Businesses',
-  // ...
-};
-```
+### Colors
+- **Primary**: `#1B4FD8` (buttons, links, primary accent)
+- **Ink/Body/Muted text**: `#0f172a` / `#475569` / `#94a3b8`
+- **Surfaces**: white, `#f8faff` (page background), `#f1f5f9` (card fill), `#e2e8f0`
+  (darker alternating section background)
+- **Service accent colors**: green `#059669`, purple `#7c3aed`, orange `#ea580c`, pink
+  `#db2777` (AEO), gold `#ca8a04`, each tied to a specific service/icon, not interchangeable
 
-### Add a New Testimonial
-Add to `TESTIMONIALS` array in `src/content/config.js`:
-```js
-export const TESTIMONIALS = [
-  { quote: '...', name: 'John Doe', role: 'CEO, Company' },
-  // Add new testimonial here
-];
-```
+### Typography
+- **Headings**: Sora, weights 600/700/800
+- **Body/UI**: DM Sans, weights 400/500/700
 
-### Update Footer Contact Info
-Edit `SITE` object in `src/content/config.js`:
-```js
-export const SITE = {
-  name: 'SerpEyes',
-  email: 'hello@serpeyes.com',
-  phone: '+65 8xxx xxxx',
-  // ...
-};
-```
+### CSS Classes
+- `.badge` - Pill-shaped eyebrow labels
+- `.btn-primary` - Primary CTA button
+- `.card-hover` - Card with hover lift effect
+- `.animate-on-scroll` - Fade-up on scroll animation
 
-### Modify Pricing Plans
-Edit `PLANS` array in `src/content/config.js`:
-```js
-export const PLANS = [
-  {
-    name: 'Starter',
-    price: '$799',
-    period: '/month',
-    popular: false,
-    desc: '...',
-    features: ['...'],
-  },
-  // Modify or add plans here
-];
-```
+### Content Rules
+- No em dashes (—) or en dashes (–) anywhere in copy, use commas or periods instead
+- Brand name is always "SerpEyes" (capital S, capital E) in display text, the domain,
+  email addresses and internal identifiers stay lowercase (`serpeyes.com`, localStorage
+  keys, etc)
+- AEO and GEO are treated as one combined concept in copy, not explained as two separate
+  disciplines
 
-## 🎯 SEO Features
+## Interactive Components
 
-- Unique meta titles and descriptions per page
-- Open Graph tags for social sharing
-- Twitter Card tags
-- Canonical URLs
-- Semantic HTML structure
-- Scroll-triggered animations for engagement
-- Fast loading with static generation
-- Optimized images and assets
+Four components use React with `client:load`:
 
-## 🔒 Security Headers
+1. **DeviceMockup** - Animated rotating device mockup in the homepage hero, pure CSS
+   scaling via `container-type: inline-size`, no JS-based resize measurement
+2. **DemoForm** - Contact/request-demo form, posts to `api/contact.ts`
+3. **EarlyAccessForm** - Simple email capture
+4. **WhatsAppWidget** - Floating WhatsApp contact button, mobile-visible
 
-Configured in `public/_headers`:
-- X-Frame-Options: DENY
-- X-Content-Type-Options: nosniff
-- X-XSS-Protection enabled
-- Referrer-Policy configured
-- Permissions-Policy for camera/mic/location
+All other components are static `.astro` files.
 
-## 📱 Mobile Responsiveness
+## Deployment
 
-- Hamburger menu for mobile navigation
-- Responsive grid layouts using CSS Grid
-- `clamp()` for fluid typography
-- Touch-friendly button sizes
-- Tested on mobile viewports
+See `DEPLOYMENT.md` for Cloudflare Pages deployment instructions. The site deploys
+automatically from the `main` branch, there is no staging branch or PR-based workflow,
+changes are pushed directly to `main`.
 
-## 🐛 Troubleshooting
+## Support
 
-### Build Errors
-- Ensure all imports in `.astro` files use `.js` extension for config
-- Check that React components have `client:load` directive
-- Verify all content config exports are named exports
-
-### Styling Issues
-- Tailwind classes in `.astro` files work normally
-- Inline styles in `.jsx` files use camelCase (e.g., `backgroundColor`)
-- Global styles are in `BaseLayout.astro` `<style is:global>` tag
-
-### Navigation Not Working
-- Ensure links use `/path` format (not `#/path`)
-- Check `Astro.url.pathname` for active link detection
-- Mobile menu toggle script is in `Nav.astro`
-
-## 📦 Deployment
-
-See `DEPLOYMENT.md` for complete Cloudflare Pages deployment instructions.
-
-## 🤝 Contributing
-
-This is a marketing website for SerpEyes. For content updates, edit `src/content/config.js`. For structural changes, modify the appropriate `.astro` or `.jsx` files.
-
-## 📞 Support
-
-For questions or issues, contact the SerpEyes team at hello@serpeyes.com
+For questions, contact the SerpEyes team at hello@serpeyes.com
