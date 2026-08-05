@@ -152,6 +152,10 @@ narrative, not just an SEO result in isolation.
     entity name, UWSM Pte Ltd, that appeared as SerpEyes' own registered
     operating company earlier in this project) and the user chose to
     proceed without disclosure.
+  - No individual staff/owner names mentioned anywhere in this case
+    study (explicit user instruction), business-level facts only, e.g.
+    credentials like "ECB Level 1 certified coaching" can be mentioned
+    without attaching them to a named person.
 - **Data presentation**:
   - Search Console numbers (clicks, impressions, position, CTR) are
     redrawn as native styled stat tiles and a simple trend chart matching
