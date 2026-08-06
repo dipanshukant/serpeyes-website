@@ -137,7 +137,7 @@ export default function AIAnswerMockup() {
         @keyframes aiBadgeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
       `}</style>
 
-      <div style={{ position: 'absolute', top: 0, left: 0, width: CANVAS_W, height: CANVAS_H, transform: `scale(calc(0.92 * 100cqw / ${CANVAS_W}px))`, transformOrigin: 'top left' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, width: CANVAS_W, height: CANVAS_H, marginTop: 50, transform: `scale(calc(0.92 * 100cqw / ${CANVAS_W}px))`, transformOrigin: 'top left' }}>
 
         {/* Floating badge */}
         <div style={{ position: 'absolute', top: 10, left: 40, zIndex: 5, display: 'flex', alignItems: 'center', gap: 10, padding: '11px 20px 11px 12px', borderRadius: 999, background: '#1B4FD8', boxShadow: '0 14px 30px -8px rgba(0,0,0,0.55)', animation: reducedMotion ? 'none' : 'aiFloatBadge 5s ease-in-out infinite' }}>

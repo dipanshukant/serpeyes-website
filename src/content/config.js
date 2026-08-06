@@ -23,12 +23,12 @@ export const SITE = {
 };
 
 export const NAV_LINKS = [
+  { label: 'About', href: '/about' },
   { label: 'AEO', href: '/aeo' },
   { label: 'Services', href: '/services' },
   { label: 'Web Development', href: '/web-development' },
   { label: 'App Development', href: '/app-development' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
 ];
 
