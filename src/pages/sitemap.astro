@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BLOG_POSTS } from '../content/config.js';
+
+const groups = [
+  {
+    heading: 'Main',
+    links: [
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '/about' },
+      { label: 'AEO', href: '/aeo' },
+      { label: 'Services', href: '/services' },
+      { label: 'Web Development', href: '/web-development' },
+      { label: 'App Development', href: '/app-development' },
+      { label: 'Pricing', href: '/pricing' },
+    ],
+  },
+  {
+    heading: 'AEO by Market',
+    links: [
+      { label: 'AEO in Singapore', href: '/aeo/singapore' },
+      { label: 'AEO in the UK', href: '/aeo/uk' },
+    ],
+  },
+  {
+    heading: 'Case Studies',
+    links: [
+      { label: 'All Case Studies', href: '/case-studies' },
+      { label: 'K2L Aircon', href: '/case-studies/k2l-aircon' },
+      { label: 'Truleum Loft Specialist', href: '/case-studies/truleum-lofts' },
+      { label: 'United World Sports Management', href: '/case-studies/united-world-sports-management' },
+    ],
+  },
+  {
+    heading: 'Blog',
+    links: [
+      { label: 'Blog', href: '/blog' },
+      ...BLOG_POSTS.map((post) => ({ label: post.title, href: `/blog/${post.slug}` })),
+    ],
+  },
+  {
+    heading: 'Other',
+    links: [
+      { label: 'SEO Glossary', href: '/seo-glossary' },
+      { label: 'Request a Demo', href: '/request-demo' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Sitemap - SerpEyes"
+  description="A full list of every page on the SerpEyes website, organised by section, for easy browsing."
+>
+  <main>
+    <section style="padding: 80px 24px 56px; background: linear-gradient(180deg, #f8faff 0%, white 100%);">
+      <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+        <span class="badge" style="margin-bottom: 16px; display: inline-block;">Sitemap</span>
+        <h1 style="font-family: Sora, sans-serif; font-size: clamp(28px, 5vw, 44px); font-weight: 700; color: #0f172a; margin: 0 0 16px; letter-spacing: -0.02em;">
+          Every Page on SerpEyes
+        </h1>
+        <p style="font-size: 16px; color: #475569; line-height: 1.7; margin: 0;">
+          Looking for something specific? Here is every page on the site, grouped by section.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding: 24px 24px 88px; background: white;">
+      <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px;">
+        {groups.map(group => (
+          <div>
+            <h2 style="font-family: Sora, sans-serif; font-size: 15px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 16px;">
+              {group.heading}
+            </h2>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+              {group.links.map(link => (
+                <li>
+                  <a href={link.href} style="font-size: 15px; color: #1B4FD8; text-decoration: none; line-height: 1.5;">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

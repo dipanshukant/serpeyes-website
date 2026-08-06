@@ -37,7 +37,7 @@ import { SITE, NAV_LINKS, FOOTER_RESOURCES, FOOTER_SOCIALS } from '../content/co
         <h4 style="color: white; font-family: Sora, sans-serif; font-size: 14px; font-weight: 600; margin: 0 0 16px;">Resources</h4>
         {FOOTER_RESOURCES.map(item => (
           <div style="margin-bottom: 10px;">
-            <a href={item === 'Blog' ? '/blog' : item === 'Services' ? '/services' : item === 'Case Studies' ? '/case-studies' : '#'} style="color: #64748b; text-decoration: none; font-size: 14px;" onmouseenter="this.style.color='white'" onmouseleave="this.style.color='#64748b'">
+            <a href={item === 'Blog' ? '/blog' : item === 'Services' ? '/services' : item === 'Case Studies' ? '/case-studies' : item === 'Sitemap' ? '/sitemap' : '#'} style="color: #64748b; text-decoration: none; font-size: 14px;" onmouseenter="this.style.color='white'" onmouseleave="this.style.color='#64748b'">
               {item}
             </a>
           </div>

@@ -32,7 +32,7 @@ export const NAV_LINKS = [
   { label: 'Blog', href: '/blog' },
 ];
 
-export const FOOTER_RESOURCES = ['Services', 'Blog', 'Case Studies'];
+export const FOOTER_RESOURCES = ['Services', 'Blog', 'Case Studies', 'Sitemap'];
 export const FOOTER_SOCIALS = ['LinkedIn', 'Twitter'];
 
 // ---- HOMEPAGE ----
