@@ -96,6 +96,9 @@ Exceptions: the case study pages (`src/pages/case-studies/*.astro`) and the AEO 
 directly in the page files rather than in config.js, since each is a one-off page with
 unique content, not a repeated template.
 
+**Adding a new blog post**: see [`docs/BLOG-CONTENT-GUIDE.md`](docs/BLOG-CONTENT-GUIDE.md)
+for the full pattern (config entry, `[slug].astro` branch, content standards, image rules).
+
 ## Environment Variables
 
 Copy `.env.example` to `.env` for local development. In production these are set as
