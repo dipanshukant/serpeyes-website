@@ -51,8 +51,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
     params.set('line_items[0][price_data][unit_amount]', String(Math.round(plan.priceMonthly * 100)));
     params.set('line_items[0][price_data][product_data][name]', plan.name);
 
+    params.set('metadata[site]', 'serpeyes');
     params.set('metadata[planId]', planId);
     params.set('subscription_data[metadata][planId]', planId);
+    params.set('subscription_data[metadata][site]', 'serpeyes');
     params.set(
       'subscription_data[description]',
       '3-month minimum commitment, billed monthly. Cancel anytime after the minimum term.'

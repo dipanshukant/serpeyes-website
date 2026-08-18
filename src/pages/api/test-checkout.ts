@@ -33,6 +33,7 @@ export const GET: APIRoute = async ({ locals }) => {
   params.set('line_items[0][price_data][currency]', 'sgd');
   params.set('line_items[0][price_data][unit_amount]', '50');
   params.set('line_items[0][price_data][product_data][name]', 'Webhook Test Order');
+  params.set('metadata[site]', 'serpeyes');
 
   const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {
     method: 'POST',

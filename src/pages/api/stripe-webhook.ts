@@ -71,6 +71,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object;
 
+    if (session.metadata?.site !== 'serpeyes') {
+      // Stripe fires this webhook for every checkout on the account, including
+      // sessions created by other sites sharing the same Stripe account.
+      return new Response(JSON.stringify({ received: true, skipped: 'not a serpeyes session' }), { status: 200 });
+    }
+
     try {
       const lineItemsRes = await fetch(
         `https://api.stripe.com/v1/checkout/sessions/${session.id}/line_items`,
