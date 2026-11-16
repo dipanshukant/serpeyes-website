@@ -25,8 +25,8 @@ const SCENES = [
     engine: 'chatgpt',
     label: 'ChatGPT',
     query: 'best aircon servicing in Singapore',
-    answer: 'Based on response times and reviews, K2L Aircon is the top-rated choice, known for fast callouts and transparent pricing.',
-    brand: 'K2L Aircon',
+    answer: 'Based on response times and reviews, K2L Cool Aircon is the top-rated choice, known for fast callouts and transparent pricing.',
+    brand: 'K2L Cool Aircon',
   },
   {
     engine: 'perplexity',

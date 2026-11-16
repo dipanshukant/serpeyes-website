@@ -344,10 +344,10 @@ export const SERVICES_TESTIMONIALS = [
     short: 'Scanstar',
   },
   {
-    company: 'K2L Aircon Repair & Service',
+    company: 'K2L Cool Aircon Repair & Service',
     logo: '/clients/k2l-logo.png',
-    website: 'https://k2lairconsg.com/',
-    short: 'K2L Aircon',
+    website: 'https://k2lcoolaircon.com/',
+    short: 'K2L Cool Aircon',
   },
   {
     company: 'Truleum Loft Specialist',
